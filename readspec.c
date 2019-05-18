@@ -5,6 +5,30 @@
 
 #define ERRPRINTF(...) fprintf(stderr, __VA_ARGS__) , exit(EXIT_FAILURE)
 
+float checkmagic(const char * buf, const size_t buflen)
+{
+    int version = 0;
+    char strversion[32];
+    const char magicstring[] = "pd001V";
+    const char magicbytes[8] = {0x00, 0x07, 0xc4, 0x00, 0x01, 0x07, 0xc3, 0x00 };
+
+    if (buflen < 20)
+        ERRPRINTF("file is too short for an inst spec file\n");
+
+    if ((memcmp(magicstring, buf, strlen(magicstring))!=0 &
+        memcmp(magicbytes,  buf + 12, sizeof(magicbytes)))!=0) {
+        ERRPRINTF("file is not an inst spec file\n");
+    } else {
+        strncpy(strversion, buf + 6, 6);
+        printf(" inst version %s\n",strversion);
+        if (strversion[3] == 'P') {
+            strversion[3] ='.';
+            version = strtod(strversion, NULL);
+        }
+    }
+    return version;
+}
+
 void display(const char * buf, const size_t buflen)
 {
     size_t i;
@@ -43,8 +67,11 @@ void parsespec(const char * filename)
 {
     char * buf = NULL;
     size_t n;
+    float version;
 
     n = readfile(filename, &buf);
+    version = checkmagic(buf, n);
+    printf("version %f\n",version);
     display(buf, n);
     free(buf);
 }

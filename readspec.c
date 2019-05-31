@@ -5,9 +5,9 @@
 
 #define ERRPRINTF(...) fprintf(stderr, __VA_ARGS__) , exit(EXIT_FAILURE)
 
-float checkmagic(const char * buf, const size_t buflen)
+double checkmagic(const char * buf, const size_t buflen)
 {
-    int version = 0;
+    double version = 0;
     char strversion[32];
     const char magicstring[] = "pd001V";
     const char magicbytes[8] = {0x00, 0x07, 0xc4, 0x00, 0x01, 0x07, 0xc3, 0x00 };
@@ -67,11 +67,11 @@ void parsespec(const char * filename)
 {
     char * buf = NULL;
     size_t n;
-    float version;
+    double version;
 
     n = readfile(filename, &buf);
     version = checkmagic(buf, n);
-    printf("version %f\n",version);
+    printf("version %g\n",version);
     display(buf, n);
     free(buf);
 }

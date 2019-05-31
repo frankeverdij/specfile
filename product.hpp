@@ -1,59 +1,68 @@
 #include <string>
 #include <vector>
+#include "buffer.hpp"
 
 #pragma once
 
 class item
 {
     protected:
-        string name_;
-        string id_;
-        size_t offset_;
+        std::string name_;
+        std::string id_;
+        size_t off_begin_, off_end_;
     
     public:
-        void setName(string &);
-        string getName();
-        void setDescription(string &);
-        string getDescription();
-        void setOffset(size_t &);
-        size_t getOffset();
-}
+        item(buffer & buf, const size_t offset);
+        std::string getName();
+        std::string getId();
+        size_t getEndOffset();
+};
+
+class subref
+{
+    private:
+        std::string name_sub_[3];
+        unsigned int v_[2];
+
+    public:
+        subref(buffer & buf, size_t * offset);
+};
 
 class subsystem : public item
 {
     private:
-        string expanded_name_;
+        std::string expanded_name_;
         std::vector<subref> replaces_;
         std::vector<subref> prereq_;
         std::vector<subref> incompat_;
 
     public:
-        subsystem();
+        subsystem(buffer & buf, const size_t offset);
 
-}
+};
 
 class image : public item
 {
     private:
-        unsigned int version_;
-        size_t order_;
-        std::vector<subsystem> subsystems;
+        size_t version_, order_, v_[2];
+        std::vector<subsystem> subsystems_;
 
     public:
-        image();
+        image(buffer & buf, const size_t offset);
+        void printTree();
 
-}
+};
 
 class product : public item
 {
     private:
         time_t creation_time_;
-        std::vector<image> images;
+        std::vector<image> images_;
 
     public:
-        product();
-        void setTime(time_t &);
-        time_t getTime();
+        product(buffer & buf, const size_t offset);
+        std::string getCreationTime();
+        void printTree();
         
 };
 

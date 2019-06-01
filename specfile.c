@@ -146,10 +146,12 @@ void parsespec(const char * filename)
         /* version */
         int one = getint(fp);
         int two = getint(fp);
-//        int three = getint(fp);
         printf("  version %d %d\n",one,two);
         
         int nsub = getint(fp);
+        if (nsub == 0)
+            nsub = getint(fp);
+
         printf("  %d subsystems\n", nsub);
 
         /* loop over subsystems */
@@ -176,7 +178,7 @@ void parsespec(const char * filename)
 
             getint(fp);
             numstr = getshort(fp);
-            printsubsys(numstr,"      ",fp,op);
+            printsubsys(numstr,"      replace ",fp,op);
 
             isprereq = getshort(fp);
             nprereq = getshort(fp);

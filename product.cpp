@@ -130,8 +130,7 @@ subsystem::subsystem(buffer & buf, size_t * offset) : item(buf, *offset)
         incompat_.push_back(sr);
     }
 
-    off_end_ += sizeof(unsigned short);
-    n = buf.getNum<unsigned short>(&off_end_);
+    n = buf.getNum<unsigned int>(&off_end_);
     for (size_t i = 0; i < n; i++) {
         std::string s = buf.getString(&off_end_);
     }

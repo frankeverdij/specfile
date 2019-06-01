@@ -27,6 +27,12 @@ subref::subref(buffer & buf, size_t * offset)
         v_[i] = buf.getNum<unsigned int>(offset);
 }
 
+void subref::printRef()
+{
+    std::cout << "   " << name_sub_[0] << "." << name_sub_[1] << "." << name_sub_[2];
+    std::cout << " " << v_[0] << " " << v_[1] << std::endl;
+}
+
 product::product(buffer & buf, const size_t offset) : item(buf, offset)
 {
     off_end_ += sizeof(unsigned short);
@@ -90,10 +96,10 @@ image::image(buffer & buf, size_t * offset) : item(buf, *offset)
 
 void image::printTree()
 {
-    std::cout << getName() << std::endl;
-    std::cout << subsystems_.size() << " subsystems" << std::endl;
+    std::cout << " " << getName() << std::endl;
+    std::cout << " " << subsystems_.size() << " subsystems" << std::endl;
     for (size_t i = 0; i < subsystems_.size(); i++) {
-        std::cout << subsystems_[i].getName() << std::endl;
+        subsystems_[i].printTree();
     }
 }
 
@@ -131,5 +137,22 @@ subsystem::subsystem(buffer & buf, size_t * offset) : item(buf, *offset)
     }
 
     *offset = off_end_;
+}
+
+void subsystem::printTree()
+{
+    std::cout << "  " << getName() << std::endl;
+    std::cout << "  " << replaces_.size() << " replaces" << std::endl;
+    for (size_t i = 0; i < replaces_.size(); i++) {
+        replaces_[i].printRef();
+    }
+    std::cout << "  " << prereq_.size() << " prereqs" << std::endl;
+    for (size_t i = 0; i < prereq_.size(); i++) {
+        prereq_[i].printRef();
+    }
+    std::cout << "  " << incompat_.size() << " incompats" << std::endl;
+    for (size_t i = 0; i < incompat_.size(); i++) {
+        incompat_[i].printRef();
+    }
 }
 

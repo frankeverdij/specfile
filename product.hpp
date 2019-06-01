@@ -26,6 +26,7 @@ class subref
 
     public:
         subref(buffer & buf, size_t * offset);
+        void printRef();
 };
 
 class subsystem : public item
@@ -38,6 +39,7 @@ class subsystem : public item
 
     public:
         subsystem(buffer & buf, size_t * offset);
+        void printTree();
 
 };
 

@@ -38,12 +38,12 @@ std::string buffer::getString(size_t * offset)
     unsigned short sh = getNum<unsigned short>(offset);
     size_t slen = *offset + sh;
 
-    if (slen < len_) {
+    if (slen <= len_) {
         std::string ret((const char *)buf_ + *offset, (size_t) sh);
         *offset = slen;
         return ret;
     } else {
-        std::cerr << "string out of bounds at " << *offset << std::endl;
+        std::cerr << "string out of bounds at " << *offset << " size " << sh << std::endl;
         exit(EXIT_FAILURE);
     }
 }

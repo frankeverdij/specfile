@@ -20,8 +20,9 @@ std::string item::getId()
 
 subref::subref(buffer & buf, size_t * offset)
 {
-    for (size_t i = 0; i < 3; i++)
+    for (size_t i = 0; i < 3; i++) {
         name_sub_[i] = buf.getString(offset);
+    }
     for (size_t i = 0; i < 2; i++)
         v_[i] = buf.getNum<unsigned int>(offset);
 }
@@ -36,11 +37,11 @@ product::product(buffer & buf, const size_t offset) : item(buf, offset)
     size_t n_images = buf.getNum<unsigned short>(&off_end_);
 
     if (n_images == 0) {
-        size_t n_strings = buf.getNum<unsigned short>(&off_end_);
-        for (size_t i = 0; i < n_strings; i++) {
+        size_t n = buf.getNum<unsigned short>(&off_end_);
+        for (size_t i = 0; i < n; i++) {
             std::string s = buf.getString(&off_end_);
         }
-        size_t n_images = buf.getNum<unsigned short>(&off_end_);
+        n_images = buf.getNum<unsigned short>(&off_end_);
     }
     
     for (size_t i = 0; i < n_images; i++) {
@@ -48,7 +49,7 @@ product::product(buffer & buf, const size_t offset) : item(buf, offset)
         if (n == 0) {
             off_end_ += sizeof(unsigned short);
         }
-        image im(buf, off_end_);
+        image im(buf, &off_end_);
         images_.push_back(im);
     }
 }
@@ -67,22 +68,24 @@ void product::printTree()
     }
 }
 
-image::image(buffer & buf, const size_t offset) : item(buf, offset)
+image::image(buffer & buf, size_t * offset) : item(buf, *offset)
 {
-    size_t version_ = buf.getNum<unsigned short>(&off_end_);
-    size_t order_ = buf.getNum<unsigned short>(&off_end_);
+    version_ = buf.getNum<unsigned short>(&off_end_);
+    order_ = buf.getNum<unsigned short>(&off_end_);
     for (size_t i = 0; i < 2 ; i++) {
         v_[i] = buf.getNum<unsigned int>(&off_end_);
     }
-    size_t n_subs = buf.getNum<unsigned short>(&off_end_);
+    size_t n_subs = buf.getNum<unsigned int>(&off_end_);
     for (size_t i = 0; i < n_subs; i++) {
         size_t n = buf.getNum<unsigned short>(&off_end_);
         if (n == 0) {
             off_end_ += sizeof(unsigned short);
         }
-        subsystem sb(buf, off_end_);
+        subsystem sb(buf, &off_end_);
         subsystems_.push_back(sb);
     }
+
+    *offset = off_end_;
 }
 
 void image::printTree()
@@ -94,7 +97,7 @@ void image::printTree()
     }
 }
 
-subsystem::subsystem(buffer & buf, const size_t offset) : item(buf, offset)
+subsystem::subsystem(buffer & buf, size_t * offset) : item(buf, *offset)
 {
     expanded_name_ = buf.getString(&off_end_);
     off_end_ += sizeof(unsigned int);
@@ -107,9 +110,11 @@ subsystem::subsystem(buffer & buf, const size_t offset) : item(buf, offset)
 
     off_end_ += sizeof(unsigned short);
     n = buf.getNum<unsigned short>(&off_end_);
-    for (size_t i = 0; i < n; i++) {
-        subref sr(buf, &off_end_);
-        prereq_.push_back(sr);
+    if (n > 0) {
+        for (size_t i = 0; i < n; i++) {
+            subref sr(buf, &off_end_);
+            prereq_.push_back(sr);
+        }
         off_end_ += sizeof(unsigned short);
     }
 
@@ -117,14 +122,14 @@ subsystem::subsystem(buffer & buf, const size_t offset) : item(buf, offset)
     for (size_t i = 0; i < n; i++) {
         subref sr(buf, &off_end_);
         incompat_.push_back(sr);
-        off_end_ += sizeof(unsigned short);
     }
 
     off_end_ += sizeof(unsigned short);
     n = buf.getNum<unsigned short>(&off_end_);
-    for (size_t i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++) {
         std::string s = buf.getString(&off_end_);
-     
-}
+    }
 
+    *offset = off_end_;
+}
 

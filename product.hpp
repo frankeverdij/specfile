@@ -37,7 +37,7 @@ class subsystem : public item
         std::vector<subref> incompat_;
 
     public:
-        subsystem(buffer & buf, const size_t offset);
+        subsystem(buffer & buf, size_t * offset);
 
 };
 
@@ -48,7 +48,7 @@ class image : public item
         std::vector<subsystem> subsystems_;
 
     public:
-        image(buffer & buf, const size_t offset);
+        image(buffer & buf, size_t * offset);
         void printTree();
 
 };

@@ -20,7 +20,7 @@ class buffer
             T s = 0;
             size_t slen = sizeof(T);
 
-            if (*offset + slen < len_) {
+            if (*offset + slen <= len_) {
                 for (size_t i = 0; i < slen; i++) {
                     s <<= 8;
                     s += buf_[*offset + i];

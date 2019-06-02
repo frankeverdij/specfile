@@ -28,10 +28,12 @@ class buffer
                 *offset += slen;
             } else {
                 std::cerr << "number out of bounds at " << *offset << std::endl;
+                exit(EXIT_FAILURE);
             }
 			return s;
         }
 
         std::string getString(size_t * offset);
+        unsigned char getInstType();
         
 };

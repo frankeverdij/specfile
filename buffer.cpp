@@ -42,8 +42,14 @@ std::string buffer::getString(size_t * offset)
         return ret;
     } else {
         std::cerr << "string out of bounds at " << *offset << " size " << sh << std::endl;
+        exit(EXIT_FAILURE);
     }
 	return "";
+}
+
+unsigned char buffer::getInstType()
+{
+    return buf_[20];
 }
 
 void buffer::checkmagic()

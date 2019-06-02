@@ -159,11 +159,15 @@ void parsespec(const char * filename)
         {
             m = getshort(fp);
             /* this is for /IRIX/DIST/65/6528A/eoe_6528m */
-            if (m == 0) getshort(fp);
+            if (m == 0)
+               m = getshort(fp);
+            printf("    %x\n",m);
 
             /* subsys name */
             getstring(sbuffer, fp);
-            printf("    subsys %s\n",sbuffer);
+            printf("    subsys %s ",sbuffer);
+            if (m & SUBSYS_DEFAULT) printf("default");
+            printf("\n");
             fputs(sbuffer, op);
 
             /* subsys id */

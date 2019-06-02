@@ -3,8 +3,6 @@
 
 #include "buffer.hpp"
 
-#define ERRMSG(...) std::cerr << __VA_ARGS__ << std::endl , exit(EXIT_FAILURE)
-
 buffer::buffer(const char * filename) : len_(0), version_(0.0)
 {
     FILE * fp;
@@ -44,8 +42,8 @@ std::string buffer::getString(size_t * offset)
         return ret;
     } else {
         std::cerr << "string out of bounds at " << *offset << " size " << sh << std::endl;
-        exit(EXIT_FAILURE);
     }
+	return "";
 }
 
 void buffer::checkmagic()

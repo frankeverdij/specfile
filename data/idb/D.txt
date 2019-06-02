@@ -1,0 +1,37 @@
+pd001V630P00
+D
+A text file
+P1541108653_2
+X
+books
+Books
+P
+userguide
+User Guide
+D.books.userguide
+patch*
+D_books
+userguide
+maint*
+D_books
+userguide
+D
+books
+userguide
+1
+X
+man
+Man Pages
+P
+relnotes
+Release Notes
+D.man.relnotes
+patch*
+D_man
+relnotes
+maint*
+D_man
+relnotes
+D
+man
+relnotes

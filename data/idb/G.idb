@@ -1,0 +1,3 @@
+f 0644 frank sys home/frank/tests/idb/Gd/file.txt home/frank/tests/idb/Gd/file.txt G.man.manpages sum(12402) size(6) off(13) cmpsize(0)
+f 0644 frank sys home/frank/tests/idb/Gd/file2.txt home/frank/tests/idb/Gd/file2.txt G.man.relnotes sum(10354) size(6) off(53) cmpsize(0)
+f 0644 frank sys home/frank/tests/idb/Gd/file3.txt home/frank/tests/idb/Gd/file3.txt G.books.userguide sum(14450) size(6) off(13) cmpsize(0)

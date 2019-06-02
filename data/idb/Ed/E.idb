@@ -1,0 +1,3 @@
+f 0644 frank sys usr/local/man/file.txt home/frank/tests/idb/Ed/file.txt E.man.manpages
+f 0644 frank sys usr/local/relnotes/file2.txt home/frank/tests/idb/Ed/file2.txt E.man.relnotes
+f 0644 frank sys usr/local/txt/file3.txt home/frank/tests/idb/Ed/file3.txt E.books.userguide

@@ -69,7 +69,7 @@ void parsespec(const char * filename)
     const char magicstring[] = "pd001V";
     const char magicbytes[8] = {0x00, 0x07, 0xc4, 0x00, 0x01, 0x07, 0xc3, 0x00 };
     int i, j, k, m, version, order;
-    size_t numread, len, numstr, isprereq, nprereq, isincompat, nincompat;
+    size_t type, numread, len, numstr, isprereq, nprereq, isincompat, nincompat;
 
     if ((fp = fopen(filename,"r")) == NULL)
         ERRPRINTF("cannot open file %s for reading\n", filename);
@@ -86,7 +86,9 @@ void parsespec(const char * filename)
     if ((op = fopen(output,"w")) == NULL)
         ERRPRINTF("cannot open file %s for writing\n", output);
 
-    fseek(fp, 21, SEEK_SET);
+    fseek(fp, 20, SEEK_SET);
+
+    type = fgetc(fp);
 
     /* product name */
     getstring(sbuffer, fp);
@@ -190,20 +192,20 @@ void parsespec(const char * filename)
                 printsubsys(nprereq,"      prereq ",fp,op);
                 getshort(fp);
             }
-
-//            isincompat = getshort(fp);
-            nincompat = getshort(fp);
-            if (nincompat) {
-                printsubsys(nincompat,"      incompat ",fp,op);
-//                getshort(fp);
-            }
-
-            getshort(fp);
-            numstr = getshort(fp);
-            for (k = 0; k < numstr; k++)
-            {
-                getstring(sbuffer, fp);
-                printf("      %s\n",sbuffer);
+            if (type > 7) {
+//              isincompat = getshort(fp);
+                nincompat = getshort(fp);
+                if (nincompat) {
+                    printsubsys(nincompat,"      incompat ",fp,op);
+//                  getshort(fp);
+                }
+                getshort(fp);
+                numstr = getshort(fp);
+                for (k = 0; k < numstr; k++)
+                {
+                    getstring(sbuffer, fp);
+                    printf("      %s\n",sbuffer);
+                }
             }
         }
     }

@@ -14,7 +14,6 @@ void parsespec(const char * filename)
 
 int main (int argc, char * argv[])
 {
-    char * filename;
     switch(argc)
     {
         case 2 :

@@ -7,10 +7,10 @@ CC = gcc
 CXX = g++
 
 # gcc compiler flags
-CFLAGS = -O2 -I.
+CFLAGS = -g -Wall -I.
 
 # g++ compiler flags
-CXXFLAGS = -O2 -I.
+CXXFLAGS = -g -Wall -I.
 
 # g++ linker
 CXX_LD = $(CXX)

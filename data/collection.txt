@@ -1,5 +1,7 @@
+05 # 405.1 ./irix4_ftn
 08 # 630 ./neko_gemrb
 09 # 630 ./patchSG0007236
+05 # 511 ./impr_server
 08 # 630 ./patchSG0007241
 08 # 630 ./patchSG0007235
 09 # 630 ./patchSG0007246

@@ -69,7 +69,7 @@ void parsespec(const char * filename)
     const char magicstring[] = "pd001V";
     const char magicbytes[8] = {0x00, 0x07, 0xc4, 0x00, 0x01, 0x07, 0xc3, 0x00 };
     int i, j, k, m, version, order;
-    size_t type, numread, len, numstr, isprereq, nprereq, isincompat, nincompat;
+    size_t type, numread, len, numstr, isprereq, nprereq, nincompat, nunknown;
 
     if ((fp = fopen(filename,"r")) == NULL)
         ERRPRINTF("cannot open file %s for reading\n", filename);
@@ -193,11 +193,9 @@ void parsespec(const char * filename)
                 getshort(fp);
             }
             if (type > 7) {
-//              isincompat = getshort(fp);
                 nincompat = getshort(fp);
                 if (nincompat) {
                     printsubsys(nincompat,"      incompat ",fp,op);
-//                  getshort(fp);
                 }
                 getshort(fp);
                 numstr = getshort(fp);
@@ -205,6 +203,12 @@ void parsespec(const char * filename)
                 {
                     getstring(sbuffer, fp);
                     printf("      %s\n",sbuffer);
+                }
+            }
+            if (type > 8) {
+                nunknown = getshort(fp);
+                if (nunknown) {
+                    printsubsys(nunknown,"      unknown ",fp,op);
                 }
             }
         }
@@ -217,7 +221,6 @@ void parsespec(const char * filename)
 
 int main (int argc, char * argv[])
 {
-    char * filename;
     switch(argc)
     {
         case 2 :

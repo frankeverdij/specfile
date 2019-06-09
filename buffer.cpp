@@ -41,7 +41,7 @@ std::string buffer::getString(size_t * offset)
         *offset = slen;
         return ret;
     } else {
-        std::cerr << "string out of bounds at " << *offset << " size " << sh << std::endl;
+        std::cerr << "string out of bounds at 0x" << std::hex << *offset << std::dec << " size " << sh << std::endl;
         exit(EXIT_FAILURE);
     }
 	return "";

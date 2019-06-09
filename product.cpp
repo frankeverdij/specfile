@@ -35,11 +35,12 @@ void subref::printRef()
 
 product::product(buffer & buf, const size_t offset) : item(buf, offset)
 {
-    off_end_ += sizeof(unsigned short);
-    
+    size_t dummy = buf.getNum<unsigned short>(&off_end_);
+
     creation_time_ = buf.getNum<unsigned int>(&off_end_);
 
-    off_end_ += sizeof(unsigned short);
+    std::string dummy_string = buf.getString(&off_end_);
+
     size_t n_images = buf.getNum<unsigned short>(&off_end_);
 
     if (n_images == 0) {
@@ -76,6 +77,7 @@ void product::printTree()
 
 image::image(buffer & buf, size_t * offset) : item(buf, *offset)
 {
+    std::cout << "in image, offset 0x" << std::hex << *offset << std::dec << std::endl;
     version_ = buf.getNum<unsigned short>(&off_end_);
     order_ = buf.getNum<unsigned short>(&off_end_);
     for (size_t i = 0; i < 2 ; i++) {
@@ -145,17 +147,24 @@ subsystem::subsystem(buffer & buf, size_t * offset) : item(buf, *offset)
 void subsystem::printTree()
 {
     std::cout << "  " << getName() << std::endl;
-    std::cout << "  " << replaces_.size() << " replaces" << std::endl;
-    for (size_t i = 0; i < replaces_.size(); i++) {
-        replaces_[i].printRef();
+
+    if (replaces_.size()) {
+        std::cout << "  " << replaces_.size() << " replaces" << std::endl;
+        for (size_t i = 0; i < replaces_.size(); i++) {
+            replaces_[i].printRef();
+        }
     }
-    std::cout << "  " << prereq_.size() << " prereqs" << std::endl;
-    for (size_t i = 0; i < prereq_.size(); i++) {
-        prereq_[i].printRef();
+    if (prereq_.size()) {    
+        std::cout << "  " << prereq_.size() << " prereqs" << std::endl;
+        for (size_t i = 0; i < prereq_.size(); i++) {
+            prereq_[i].printRef();
+        }
     }
-    std::cout << "  " << incompat_.size() << " incompats" << std::endl;
-    for (size_t i = 0; i < incompat_.size(); i++) {
-        incompat_[i].printRef();
+    if (incompat_.size()) {
+        std::cout << "  " << incompat_.size() << " incompats" << std::endl;
+        for (size_t i = 0; i < incompat_.size(); i++) {
+            incompat_[i].printRef();
+        }
     }
 }
 

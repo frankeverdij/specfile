@@ -35,7 +35,7 @@ void subref::printRef()
 
 product::product(buffer & buf, const size_t offset) : item(buf, offset)
 {
-    size_t dummy = buf.getNum<unsigned short>(&off_end_);
+    buf.getNum<unsigned short>(&off_end_);
 
     creation_time_ = buf.getNum<unsigned int>(&off_end_);
 
@@ -141,6 +141,14 @@ subsystem::subsystem(buffer & buf, size_t * offset) : item(buf, *offset)
             std::string s = buf.getString(&off_end_);
         }
     }
+
+    if (buf.getInstType() > 8) {
+        n = buf.getNum<unsigned short>(&off_end_);
+        for (size_t i = 0; i < n; i++) {
+            subref sr(buf, &off_end_);
+            unknown_.push_back(sr);
+        }
+    }
     *offset = off_end_;
 }
 
@@ -148,23 +156,9 @@ void subsystem::printTree()
 {
     std::cout << "  " << getName() << std::endl;
 
-    if (replaces_.size()) {
-        std::cout << "  " << replaces_.size() << " replaces" << std::endl;
-        for (size_t i = 0; i < replaces_.size(); i++) {
-            replaces_[i].printRef();
-        }
-    }
-    if (prereq_.size()) {    
-        std::cout << "  " << prereq_.size() << " prereqs" << std::endl;
-        for (size_t i = 0; i < prereq_.size(); i++) {
-            prereq_[i].printRef();
-        }
-    }
-    if (incompat_.size()) {
-        std::cout << "  " << incompat_.size() << " incompats" << std::endl;
-        for (size_t i = 0; i < incompat_.size(); i++) {
-            incompat_[i].printRef();
-        }
-    }
+    printSubRefList(replaces_," replaces");
+    printSubRefList(prereq_," prereqs");
+    printSubRefList(incompat_," incompats");
+    printSubRefList(unknown_," unknowns");
 }
 

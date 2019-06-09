@@ -1,4 +1,5 @@
 *.o
+*.xxd
 *~
 specfile
 readspec

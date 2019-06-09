@@ -1,33 +1,50 @@
 # specfile/readspec Makefile
 
+# gcc compiler
+CC = gcc
+
 # g++ compiler
 CXX = g++
+
+# gcc compiler flags
+CFLAGS = -O2 -I.
 
 # g++ compiler flags
 CXXFLAGS = -O2 -I.
 
-# linker
-LD = $(CXX)
+# g++ linker
+CXX_LD = $(CXX)
+
+#gcc linker
+LD = $(CC)
 
 # linker flags
 LDFLAGS = 
 
 # name of executable
-EXE = readspec
+RS_EXE = readspec
+SF_EXE = specfile
 
 # list of all sources
-SOURCES = $(wildcard *.cpp)
+RS_SOURCES = $(wildcard *.cpp)
+SF_SOURCES = specfile.c
 
 # list of all objects
-OBJECTS = $(SOURCES:.cpp=.o)
+RS_OBJECTS = $(RS_SOURCES:.cpp=.o)
+SF_OBJECTS = $(SF_SOURCES:.c=.o)
 
 # Makefile
-all: $(OBJECTS)
-	$(LD) -o $(EXE) $(OBJECTS) $(LDFLAGS)
+all: rs sf
+rs: $(RS_OBJECTS)
+	$(CXX_LD) -o $(RS_EXE) $(RS_OBJECTS) $(LDFLAGS)
+sf: $(SF_OBJECTS)
+	$(LD) -o $(SF_EXE) $(SF_OBJECTS) $(LDFLAGS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Cleaning everything
 clean:
-	rm -f $(EXE) $(OBJECTS)
+	rm -f $(RS_EXE) $(RS_OBJECTS) $(SF_EXE) $(SF_OBJECTS)
 # End

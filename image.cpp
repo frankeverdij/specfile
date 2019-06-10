@@ -1,4 +1,5 @@
 #include "image.hpp"
+#include "printtree.hpp"
 
 image::image(buffer & buf, size_t * offset) : item(buf, *offset)
 {
@@ -27,8 +28,5 @@ image::image(buffer & buf, size_t * offset) : item(buf, *offset)
 void image::printTree()
 {
     std::cout << " " << getName() << std::endl;
-    std::cout << " " << subsystems_.size() << " subsystems" << std::endl;
-    for (size_t i = 0; i < subsystems_.size(); i++) {
-        subsystems_[i].printTree();
-    }
+    printTreeList(subsystems_," subsystems",1);
 }

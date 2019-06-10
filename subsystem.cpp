@@ -1,4 +1,5 @@
 #include "subsystem.hpp"
+#include "printtree.hpp"
 
 subref::subref(buffer & buf, size_t * offset)
 {
@@ -9,7 +10,7 @@ subref::subref(buffer & buf, size_t * offset)
         v_[i] = buf.getNum<unsigned int>(offset);
 }
 
-void subref::printRef()
+void subref::printTree()
 {
     std::cout << "   " << name_sub_[0] << "." << name_sub_[1] << "." << name_sub_[2];
     std::cout << " " << v_[0] << " " << v_[1] << std::endl;
@@ -63,9 +64,9 @@ void subsystem::printTree()
 {
     std::cout << "  " << getName() << std::endl;
 
-    printSubRefList(replaces_," replaces");
-    printSubRefList(prereq_," prereqs");
-    printSubRefList(incompat_," incompats");
-    printSubRefList(unknown_," unknowns");
+    printTreeList(replaces_," replaces", 2);
+    printTreeList(prereq_," prereqs", 2);
+    printTreeList(incompat_," incompats", 2);
+    printTreeList(unknown_," unknowns", 2);
 }
 

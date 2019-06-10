@@ -11,7 +11,7 @@ class subref
 
     public:
         subref(buffer & buf, size_t * offset);
-        void printRef();
+        void printTree();
 };
 
 class subsystem : public item
@@ -26,16 +26,6 @@ class subsystem : public item
     public:
         subsystem(buffer & buf, size_t * offset);
         void printTree();
-        template<typename T, typename A>
-            void printSubRefList( std::vector<T,A> & vec, const std::string& subsys)
-        {
-            if (vec.size()) {
-                std::cout << "  " << vec.size() << subsys << std::endl;
-                for (size_t i = 0; i < vec.size(); i++) {
-                    vec[i].printRef();
-                }
-            }
-        }
-
+        
 };
 

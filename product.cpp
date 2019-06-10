@@ -1,4 +1,5 @@
 #include "product.hpp"
+#include "printtree.hpp"
 #include <ctime>
 
 product::product(buffer & buf, const size_t offset) : item(buf, offset)
@@ -37,9 +38,6 @@ std::string product::getCreationTime()
 void product::printTree()
 {
     std::cout << getName() << std::endl;
-    std::cout << images_.size() << " images" << std::endl;
-    for (size_t i = 0; i < images_.size(); i++) {
-        images_[i].printTree();
-    }
+    printTreeList(images_," images",0);
 }
 

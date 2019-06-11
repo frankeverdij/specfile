@@ -1,6 +1,7 @@
 #include <vector>
 #include "item.hpp"
 #include "image.hpp"
+#include <tinyxml2.h>
 
 #pragma once
 
@@ -11,7 +12,7 @@ class product : public item
         std::vector<image> images_;
 
     public:
-        product(buffer & buf, const size_t offset);
+        product(buffer & buf, tinyxml2::XMLElement * pElem, const std::string & ElemName, const size_t offset);
         std::string getCreationTime();
         void printTree();
         

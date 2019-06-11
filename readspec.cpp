@@ -1,11 +1,13 @@
 #include <iostream>
 #include "buffer.hpp"
 #include "product.hpp"
+#include <tinyxml2.h>
 
 void parsespec(const char * filename)
 {
+    tinyXML2::XMLDocument xmlDoc;
     buffer buf(filename);
-    product p(buf,21);
+    product p(buf, &xmlDoc ,21);
     std::cout << p.getName() << std::endl;
     std::cout << p.getId() << std::endl;
     std::cout << p.getCreationTime() << std::endl;

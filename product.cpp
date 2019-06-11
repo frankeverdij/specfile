@@ -2,7 +2,7 @@
 #include "printtree.hpp"
 #include <ctime>
 
-product::product(buffer & buf, const size_t offset) : item(buf, offset)
+product::product(buffer & buf, tinyxml2::XMLElement * pElem, const std::string & ElemName, const size_t offset) : item(buf, pElem, ElemName, offset)
 {
     buf.getNum<unsigned short>(&off_end_);
 

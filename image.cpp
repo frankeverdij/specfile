@@ -1,7 +1,7 @@
 #include "image.hpp"
 #include "printtree.hpp"
 
-image::image(buffer & buf, size_t * offset) : item(buf, *offset)
+image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, pRoot, "image", *offset)
 {
     version_ = buf.getNum<unsigned short>(&off_end_);
     order_ = buf.getNum<unsigned short>(&off_end_);
@@ -18,7 +18,7 @@ image::image(buffer & buf, size_t * offset) : item(buf, *offset)
         if (n == 0) {
             off_end_ += sizeof(unsigned short);
         }
-        subsystem sb(buf, &off_end_);
+        subsystem sb(buf, xmlDoc, pElem_, &off_end_);
         subsystems_.push_back(sb);
     }
 

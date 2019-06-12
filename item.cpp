@@ -1,6 +1,7 @@
 #include "item.hpp"
 
 item::item(buffer & buf,
+            tinyxml2::XMLDocument & xmlDoc,
             tinyxml2::XMLElement * pRoot,
             const std::string & ElemName,
             const size_t offset) :
@@ -8,8 +9,20 @@ item::item(buffer & buf,
 {
     name_ = buf.getString(&off_end_);
     id_ = buf.getString(&off_end_);
-    pElem_ = pRoot->NewElement(ElemName);
+    pElem_ = xmlDoc.NewElement(ElemName.c_str());
     pRoot->InsertEndChild(pElem_);
+};
+
+item::item(buffer & buf,
+            tinyxml2::XMLDocument & xmlDoc,
+            const std::string & ElemName,
+            const size_t offset) :
+                off_begin_(offset), off_end_(offset)
+{
+    name_ = buf.getString(&off_end_);
+    id_ = buf.getString(&off_end_);
+    pElem_ = xmlDoc.NewElement(ElemName.c_str());
+    xmlDoc.InsertFirstChild(pElem_);
 };
 
 std::string item::getName()

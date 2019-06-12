@@ -19,7 +19,7 @@ CXX_LD = $(CXX)
 LD = $(CC)
 
 # linker flags
-LDFLAGS = 
+LDFLAGS = -ltinyxml2
 
 # name of executable
 RS_EXE = readspec
@@ -38,7 +38,7 @@ all: rs sf
 rs: $(RS_OBJECTS)
 	$(CXX_LD) -o $(RS_EXE) $(RS_OBJECTS) $(LDFLAGS)
 sf: $(SF_OBJECTS)
-	$(LD) -o $(SF_EXE) $(SF_OBJECTS) $(LDFLAGS)
+	$(LD) -o $(SF_EXE) $(SF_OBJECTS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 %.o: %.c

@@ -24,7 +24,7 @@ class subsystem : public item
         std::vector<subref> unknown_;
 
     public:
-        subsystem(buffer & buf, size_t * offset);
+        subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset);
         void printTree();
         
 };

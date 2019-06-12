@@ -11,7 +11,7 @@ class image : public item
         std::vector<subsystem> subsystems_;
 
     public:
-        image(buffer & buf, size_t * offset);
+        image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset);
         void printTree();
 
 };

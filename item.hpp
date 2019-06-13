@@ -10,6 +10,7 @@ class item
         std::string id_;
         tinyxml2::XMLElement *pElem_;
         size_t off_begin_, off_end_;
+        void initVars(buffer & buf);
     
     public:
         item(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, const std::string & ElemName, const size_t offset);

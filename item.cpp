@@ -7,9 +7,10 @@ item::item(buffer & buf,
             const size_t offset) :
                 off_begin_(offset), off_end_(offset)
 {
-    name_ = buf.getString(&off_end_);
-    id_ = buf.getString(&off_end_);
+    initVars(buf);
     pElem_ = xmlDoc.NewElement(ElemName.c_str());
+    pElem_->SetAttribute("name", name_.c_str());
+    pElem_->SetAttribute("id", id_.c_str());
     pRoot->InsertEndChild(pElem_);
 };
 
@@ -19,11 +20,18 @@ item::item(buffer & buf,
             const size_t offset) :
                 off_begin_(offset), off_end_(offset)
 {
-    name_ = buf.getString(&off_end_);
-    id_ = buf.getString(&off_end_);
+    initVars(buf);
     pElem_ = xmlDoc.NewElement(ElemName.c_str());
+    pElem_->SetAttribute("name", name_.c_str());
+    pElem_->SetAttribute("id", id_.c_str());
     xmlDoc.InsertFirstChild(pElem_);
 };
+
+void item::initVars(buffer & buf)
+{
+    name_ = buf.getString(&off_end_);
+    id_ = buf.getString(&off_end_);
+}
 
 std::string item::getName()
 {

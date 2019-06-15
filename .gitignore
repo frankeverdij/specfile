@@ -1,5 +1,6 @@
 *.o
 *.xxd
+*.xml
 *~
 file.spec
 specfile

@@ -1,10 +1,14 @@
 #include "image.hpp"
 #include "printtree.hpp"
 
-image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, pRoot, "image", *offset)
+image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, "image", *offset)
 {
     version_ = buf.getNum<unsigned short>(&off_end_);
     order_ = buf.getNum<unsigned short>(&off_end_);
+
+    pElem_->SetAttribute("version", (int)version_);
+    pElem_->SetAttribute("order", (int)order_);
+    pRoot->InsertEndChild(pElem_);
 
     for (size_t i = 0; i < 2 ; i++) {
         v_[i] = buf.getNum<unsigned int>(&off_end_);

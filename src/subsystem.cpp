@@ -16,9 +16,13 @@ void subref::printTree()
     std::cout << " " << v_[0] << " " << v_[1] << std::endl;
 }
 
-subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, pRoot, "subsystem", *offset)
+subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, "subsystem", *offset)
 {
     expanded_name_ = buf.getString(&off_end_);
+
+    pElem_->SetAttribute("exp", expanded_name_.c_str());
+    pRoot->InsertEndChild(pElem_);
+
     off_end_ += sizeof(unsigned int);
 
     size_t n = buf.getNum<unsigned short>(&off_end_);

@@ -8,6 +8,10 @@ product::product(buffer & buf, tinyxml2::XMLDocument & xmlDoc, const size_t offs
 
     creation_time_ = buf.getNum<unsigned int>(&off_end_);
 
+    std::string s_creation_time = getCreationTime(); 
+    pElem_->SetAttribute("time", s_creation_time.c_str());
+    xmlDoc.InsertFirstChild(pElem_);
+
     std::string dummy_string = buf.getString(&off_end_);
 
     size_t n_images = buf.getNum<unsigned short>(&off_end_);

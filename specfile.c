@@ -69,7 +69,7 @@ void parsespec(const char * filename)
     const char magicstring[] = "pd001V";
     const char magicbytes[8] = {0x00, 0x07, 0xc4, 0x00, 0x01, 0x07, 0xc3, 0x00 };
     int i, j, k, m, version, order;
-    size_t type, numread, len, numstr, isprereq, nprereq, nincompat, nunknown;
+    size_t type, numread, len, numstr, nprereq, nincompat, nunknown;
 
     if ((fp = fopen(filename,"r")) == NULL)
         ERRPRINTF("cannot open file %s for reading\n", filename);
@@ -186,7 +186,7 @@ void parsespec(const char * filename)
             numstr = getshort(fp);
             printsubsys(numstr,"      replace ",fp,op);
 
-            isprereq = getshort(fp);
+            getshort(fp);
             nprereq = getshort(fp);
             if (nprereq) {
                 printsubsys(nprereq,"      prereq ",fp,op);

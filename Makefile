@@ -7,10 +7,10 @@ CC = gcc
 CXX = g++
 
 # gcc compiler flags
-CFLAGS = -g -Wall -I.
+CFLAGS = -g -Wall -I. -Iinclude
 
 # g++ compiler flags
-CXXFLAGS = -g -Wall -I.
+CXXFLAGS = -g -Wall -I. -Iinclude
 
 # g++ linker
 CXX_LD = $(CXX)
@@ -26,7 +26,7 @@ RS_EXE = readspec
 SF_EXE = specfile
 
 # list of all sources
-RS_SOURCES = $(wildcard *.cpp)
+RS_SOURCES = $(wildcard src/*.cpp)
 SF_SOURCES = specfile.c
 
 # list of all objects

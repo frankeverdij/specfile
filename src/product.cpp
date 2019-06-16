@@ -1,5 +1,6 @@
 #include "product.hpp"
 #include "printtree.hpp"
+#include "chartools.hpp"
 #include <ctime>
 
 product::product(buffer & buf, tinyxml2::XMLDocument & xmlDoc, const size_t offset) : item(buf, xmlDoc, "product", offset)
@@ -36,7 +37,8 @@ product::product(buffer & buf, tinyxml2::XMLDocument & xmlDoc, const size_t offs
 
 std::string product::getCreationTime()
 {
-    return ctime(&creation_time_);
+    std::string ret = ctime(&creation_time_);
+    return removeNonPrintableChar(ret);
 }
 
 void product::printTree()

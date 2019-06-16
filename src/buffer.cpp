@@ -2,6 +2,7 @@
 #include <cstring>
 
 #include "buffer.hpp"
+#include "chartools.hpp"
 
 buffer::buffer(const char * filename) : len_(0), version_(0.0)
 {
@@ -39,7 +40,7 @@ std::string buffer::getString(size_t * offset)
     if (slen <= len_) {
         std::string ret((const char *)buf_ + *offset, (size_t) sh);
         *offset = slen;
-        return ret;
+        return removeNonPrintableChar(ret);;
     } else {
         std::cerr << "string out of bounds at 0x" << std::hex << *offset << std::dec << " size " << sh << std::endl;
         exit(EXIT_FAILURE);

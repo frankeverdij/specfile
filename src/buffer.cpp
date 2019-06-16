@@ -62,7 +62,7 @@ void buffer::checkmagic()
     if (len_ < 20)
         std::cerr << "file is too short for an inst spec file" << std::endl;
 
-    if ((std::memcmp(magicstring, buf_, strlen(magicstring)) != 0) &
+    if ((std::memcmp(magicstring, buf_, strlen(magicstring)) != 0) &&
         (std::memcmp(magicbytes,  buf_ + 12, sizeof(magicbytes)) != 0)) {
         std::cerr << "file is not an inst spec file" << std::endl;
     } else {

@@ -12,7 +12,7 @@ item::item(buffer & buf,
     pElem_ = xmlDoc.NewElement(ElemName.c_str());
     pElem_->SetAttribute("name", name_.c_str());
     pElem_->SetAttribute("id", id_.c_str());
-};
+}
 
 std::string item::getName()
 {

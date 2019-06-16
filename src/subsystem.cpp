@@ -9,7 +9,7 @@ subref::subref(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElemen
     for (size_t i = 0; i < 2; i++)
         v_[i] = buf.getNum<unsigned int>(offset);
 
-    std::string name_ = name_sub_[0] + "." + name_sub_[1] + "." + name_sub_[2];
+    name_ = name_sub_[0] + "." + name_sub_[1] + "." + name_sub_[2];
 
     pElem_ = xmlDoc.NewElement("subref");
     pElem_->SetAttribute("name", name_.c_str());
@@ -20,7 +20,7 @@ subref::subref(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElemen
 
 void subref::printTree()
 {
-    std::cout << "   " << name_sub_[0] << "." << name_sub_[1] << "." << name_sub_[2];
+    std::cout << "   " << name_;
     std::cout << " " << v_[0] << " " << v_[1] << std::endl;
 }
 

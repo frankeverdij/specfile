@@ -11,6 +11,7 @@ class subref
 {
     private:
         std::string name_sub_[3];
+        std::string name_;
         unsigned int v_[2];
         tinyxml2::XMLElement *pElem_;
 

@@ -29,6 +29,9 @@ SF_EXE = specfile
 RS_SOURCES = $(wildcard src/*.cpp)
 SF_SOURCES = specfile.c
 
+# list of all sources
+RS_INCLUDES = $(wildcard include/*.hpp)
+
 # list of all objects
 RS_OBJECTS = $(RS_SOURCES:.cpp=.o)
 SF_OBJECTS = $(SF_SOURCES:.c=.o)
@@ -39,7 +42,7 @@ rs: $(RS_OBJECTS)
 	$(CXX_LD) -o $(RS_EXE) $(RS_OBJECTS) $(LDFLAGS)
 sf: $(SF_OBJECTS)
 	$(LD) -o $(SF_EXE) $(SF_OBJECTS)
-%.o: %.cpp
+%.o: %.cpp $(RS_INCLUDES)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

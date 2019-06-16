@@ -1,13 +1,21 @@
 #include "subsystem.hpp"
 #include "printtree.hpp"
 
-subref::subref(buffer & buf, size_t * offset)
+subref::subref(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset)
 {
     for (size_t i = 0; i < 3; i++) {
         name_sub_[i] = buf.getString(offset);
     }
     for (size_t i = 0; i < 2; i++)
         v_[i] = buf.getNum<unsigned int>(offset);
+
+    std::string name_ = name_sub_[0] + "." + name_sub_[1] + "." + name_sub_[2];
+
+    pElem_ = xmlDoc.NewElement("subref");
+    pElem_->SetAttribute("name", name_.c_str());
+    pElem_->SetAttribute("minvers", v_[0]);
+    pElem_->SetAttribute("maxvers", v_[1]);
+    pRoot->InsertEndChild(pElem_);
 }
 
 void subref::printTree()
@@ -27,29 +35,18 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
 
     off_end_ += sizeof(unsigned int);
 
-    size_t n = buf.getNum<unsigned short>(&off_end_);
-    for (size_t i = 0; i < n; i++) {
-        subref sr(buf, &off_end_);
-        replaces_.push_back(sr);
-    }
+    makeSubRefEntry(replaces_, "replace", buf, xmlDoc, pElem_, &off_end_);
 
     off_end_ += sizeof(unsigned short);
-    n = buf.getNum<unsigned short>(&off_end_);
+
+    size_t n = makeSubRefEntry(prereq_, "prereq", buf, xmlDoc, pElem_, &off_end_);
+
     if (n > 0) {
-        for (size_t i = 0; i < n; i++) {
-            subref sr(buf, &off_end_);
-            prereq_.push_back(sr);
-        }
         off_end_ += sizeof(unsigned short);
     }
 
     if (buf.getInstType() > 7) {
-        n = buf.getNum<unsigned short>(&off_end_);
-        for (size_t i = 0; i < n; i++) {
-            subref sr(buf, &off_end_);
-            incompat_.push_back(sr);
-        }
-
+        makeSubRefEntry(incompat_, "incompat", buf, xmlDoc, pElem_, &off_end_);
         n = buf.getNum<unsigned int>(&off_end_);
         for (size_t i = 0; i < n; i++) {
             std::string s = buf.getString(&off_end_);
@@ -57,11 +54,7 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
     }
 
     if (buf.getInstType() > 8) {
-        n = buf.getNum<unsigned short>(&off_end_);
-        for (size_t i = 0; i < n; i++) {
-            subref sr(buf, &off_end_);
-            unknown_.push_back(sr);
-        }
+        makeSubRefEntry(unknown_, "unknown", buf, xmlDoc, pElem_, &off_end_);
     }
     *offset = off_end_;
 }

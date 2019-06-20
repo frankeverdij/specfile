@@ -10,8 +10,9 @@ product::product(buffer & buf, tinyxml2::XMLDocument & xmlDoc, const size_t offs
     creation_time_ = buf.getNum<unsigned int>(&off_end_);
 
     std::string s_creation_time = getCreationTime(); 
-    pElem_->SetAttribute("time", s_creation_time.c_str());
-    xmlDoc.InsertFirstChild(pElem_);
+    tinyxml2::XMLElement *pAttr = xmlDoc.NewElement("time");
+    pAttr->SetText(s_creation_time.c_str());
+    pElem_->InsertEndChild(pAttr);
 
     std::string dummy_string = buf.getString(&off_end_);
 

@@ -13,6 +13,7 @@ class item
     
     public:
         item(buffer & buf, tinyxml2::XMLDocument & xmlDoc, const std::string & ElemName, const size_t offset);
+        item(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement *pRoot, const std::string & ElemName, const size_t offset);
         virtual ~item(){};
         std::string getName();
         std::string getId();

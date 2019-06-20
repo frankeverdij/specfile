@@ -1,7 +1,7 @@
 #include "image.hpp"
 #include "printtree.hpp"
 
-image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, "image", *offset)
+image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, pRoot, "image", *offset)
 {
     counter_ = buf.getNum<unsigned short>(&off_end_);
     order_ = buf.getNum<unsigned short>(&off_end_);
@@ -10,11 +10,12 @@ image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement 
         v_[i] = buf.getNum<unsigned int>(&off_end_);
     }
 
-    pElem_->SetAttribute("counter", (int)counter_);
-    pElem_->SetAttribute("order", (int)order_);
-    pElem_->SetAttribute("version", (int)v_[0]);
-//    pElem_->SetAttribute("version2", (int)v_[1]);
-    pRoot->InsertEndChild(pElem_);
+    tinyxml2::XMLElement *pAttr = xmlDoc.NewElement("version");
+    pAttr->SetText((int)v_[0]);
+    pElem_->InsertEndChild(pAttr);
+    pAttr = xmlDoc.NewElement("order");
+    pAttr->SetText((int)order_);
+    pElem_->InsertEndChild(pAttr);
 
     size_t n_subs = buf.getNum<unsigned int>(&off_end_);
     if (n_subs == 0) n_subs = buf.getNum<unsigned int>(&off_end_);

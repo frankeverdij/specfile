@@ -6,6 +6,7 @@ item::item(buffer & buf,
             const size_t offset) :
                 off_begin_(offset), off_end_(offset)
 {
+    format_ = buf.getNum<unsigned short>(&off_end_);
     name_ = buf.getString(&off_end_);
     id_ = buf.getString(&off_end_);
 

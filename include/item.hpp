@@ -8,6 +8,7 @@ class item
     protected:
         std::string name_;
         std::string id_;
+        size_t format_;
         tinyxml2::XMLElement *pElem_;
         size_t off_begin_, off_end_;
     

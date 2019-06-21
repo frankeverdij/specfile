@@ -7,7 +7,7 @@ void parsespec(std::string filename)
 {
     tinyxml2::XMLDocument xmlDoc;
     buffer buf(filename.c_str());
-    product p(buf, xmlDoc ,21);
+    product p(buf, xmlDoc, 19);
     std::cout << p.getName() << std::endl;
     std::cout << p.getId() << std::endl;
     std::cout << p.getCreationTime() << std::endl;

@@ -3,7 +3,7 @@
 
 image::image(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset) : item(buf, xmlDoc, pRoot, "image", *offset)
 {
-    counter_ = buf.getNum<unsigned short>(&off_end_);
+    format_ = buf.getNum<unsigned short>(&off_end_);
     order_ = buf.getNum<unsigned short>(&off_end_);
 
     for (size_t i = 0; i < 2 ; i++) {

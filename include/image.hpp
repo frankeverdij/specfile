@@ -7,7 +7,7 @@
 class image : public item
 {
     private:
-        size_t counter_, order_, v_[2];
+        size_t order_, v_[2];
         std::vector<subsystem> subsystems_;
 
     public:

@@ -28,7 +28,7 @@ class subsystem : public item
         std::vector<subref> replaces_;
         std::vector<subref> prereq_;
         std::vector<subref> incompat_;
-        std::vector<subref> unknown_;
+        std::vector<subref> updates_;
 
     public:
         subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, unsigned short n, size_t * offset);

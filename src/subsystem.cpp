@@ -55,7 +55,7 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
     }
 
     if (buf.getInstType() > 8) {
-        makeSubRefEntry(unknown_, "unknown", buf, xmlDoc, pElem_, &off_end_);
+        makeSubRefEntry(updates_, "updates", buf, xmlDoc, pElem_, &off_end_);
     }
     *offset = off_end_;
 }
@@ -82,6 +82,6 @@ void subsystem::printTree()
     printTreeList(replaces_," replaces", 2);
     printTreeList(prereq_," prereqs", 2);
     printTreeList(incompat_," incompats", 2);
-    printTreeList(unknown_," unknowns", 2);
+    printTreeList(updates_," updates", 2);
 }
 

@@ -26,11 +26,16 @@ void subref::printTree()
 
 subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, unsigned short headerbits, size_t * offset) : item(buf, xmlDoc, pRoot, "subsystem", *offset), bits_(headerbits)
 {
-    expanded_name_ = buf.getString(&off_end_);
-    bool is_default = (bits_ & SUBSYS_DEFAULT);
-    pElem_->SetAttribute("default",  is_default);
+    tinyxml2::XMLElement * pAttr;
 
-    tinyxml2::XMLElement *pAttr = xmlDoc.NewElement("exp");
+    expanded_name_ = buf.getString(&off_end_);
+
+    if (bits_ & SUBSYS_DEFAULT) {
+        pAttr = xmlDoc.NewElement("default");
+        pElem_->InsertEndChild(pAttr);
+    }
+
+    pAttr = xmlDoc.NewElement("exp");
     pAttr->SetText(expanded_name_.c_str());
     pElem_->InsertEndChild(pAttr);
 

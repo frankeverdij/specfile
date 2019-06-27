@@ -34,6 +34,10 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
         pAttr = xmlDoc.NewElement("default");
         pElem_->InsertEndChild(pAttr);
     }
+    if (bits_ & SUBSYS_PATCH) {
+        pAttr = xmlDoc.NewElement("patch");
+        pElem_->InsertEndChild(pAttr);
+    }
 
     pAttr = xmlDoc.NewElement("exp");
     pAttr->SetText(expanded_name_.c_str());
@@ -41,18 +45,18 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
 
     off_end_ += sizeof(unsigned int);
 
-    makeSubRefEntry(replaces_, "replace", buf, xmlDoc, pElem_, &off_end_);
+    makeSubRefEntry(replaces_, "replace", buf, xmlDoc, &off_end_);
 
     off_end_ += sizeof(unsigned short);
 
-    size_t n = makeSubRefEntry(prereq_, "prereq", buf, xmlDoc, pElem_, &off_end_);
+    size_t n = makeSubRefEntry(prereq_, "prereq", buf, xmlDoc, &off_end_);
 
     if (n > 0) {
         off_end_ += sizeof(unsigned short);
     }
 
     if (buf.getInstType() > 7) {
-        makeSubRefEntry(incompat_, "incompat", buf, xmlDoc, pElem_, &off_end_);
+        makeSubRefEntry(incompat_, "incompat", buf, xmlDoc, &off_end_);
         n = buf.getNum<unsigned int>(&off_end_);
         for (size_t i = 0; i < n; i++) {
             std::string s = buf.getString(&off_end_);
@@ -60,20 +64,33 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
     }
 
     if (buf.getInstType() > 8) {
-        makeSubRefEntry(updates_, "updates", buf, xmlDoc, pElem_, &off_end_);
+        makeSubRefEntry(updates_, "updates", buf, xmlDoc, &off_end_);
     }
     *offset = off_end_;
 }
 
-size_t subsystem::makeSubRefEntry(std::vector<subref> & vec, std::string category, buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset)
+size_t subsystem::makeSubRefEntry(std::vector<subref> & vec, std::string category, buffer & buf, tinyxml2::XMLDocument & xmlDoc, size_t * offset)
 {
     size_t n = buf.getNum<unsigned short>(offset);
+    tinyxml2::XMLElement *pNew;
+
+    // handle patch subsystems differently: if it is a patch subsystem and the
+    // number of replaces is not zero, the first one will be categorized as "follows"
+    if (bits_ & SUBSYS_PATCH) {
+        if ((n > 0) && (category.compare("replace") == 0)) {
+            pNew = xmlDoc.NewElement("follows");
+            pElem_->InsertEndChild(pNew);
+            subref sr(buf, xmlDoc, pNew, offset);
+            follows_.push_back(sr);
+            n--;
+        }
+    }
     if (n > 0) {
-        tinyxml2::XMLElement *pElem = xmlDoc.NewElement(category.c_str());
-        pRoot->InsertEndChild(pElem);
+        pNew = xmlDoc.NewElement(category.c_str());
+        pElem_->InsertEndChild(pNew);
 
         for (size_t i = 0; i < n; i++) {
-            subref sr(buf, xmlDoc, pElem, offset);
+            subref sr(buf, xmlDoc, pNew, offset);
             vec.push_back(sr);
         }
     }
@@ -84,6 +101,7 @@ void subsystem::printTree()
 {
     std::cout << "  " << getName() << std::endl;
 
+    printTreeList(follows_," follows", 2);
     printTreeList(replaces_," replaces", 2);
     printTreeList(prereq_," prereqs", 2);
     printTreeList(incompat_," incompats", 2);

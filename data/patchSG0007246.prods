@@ -1,0 +1,97 @@
+Distribution: .
+product patchSG0007246
+	id "Patch SG0007246: OpenSSH security patch"
+	# product format 9, created Thu Apr 14 20:33:21 2011
+
+	image openssh_man	 # (patchSG0007246.openssh_man)
+		id "OpenSSH Online Documentation, 5.8p1"
+		version 1289999905 order 9999
+		# format 2
+
+		subsys manpages	 # (patchSG0007246.openssh_man.manpages)
+			id "OpenSSH man pages, 5.8p1"
+			patch
+			exp openssh.man.manpages
+			follows openssh.man.manpages 1289599320 1289599320
+			follows openssh.man.manpages 1289636020 1289636020
+			replaces patch*.patchSG0007246_openssh_man.manpages 0 1289999904
+			replaces maint*.patchSG0007246_openssh_man.manpages 0 1289999904
+			replaces patchSG0007246.openssh_man.manpages 0 1289999904
+			replaces patchSG0007232.openssh_man.manpages 0 1409999999
+			updates patchSG0007232.openssh_man.manpages 0 1409999999
+			incompat openssh.man.manpages 1289636021 1409999999
+			incompat openssh.man.manpages 1289599321 1289636019
+			incompat openssh.man.manpages 0 1289599319
+		endsubsys
+
+		subsys relnotes	 # (patchSG0007246.openssh_man.relnotes)
+			id "OpenSSH Release Notes, 5.8p1"
+			patch
+			exp "openssh.man.relnotes || RELNOTES"
+			follows openssh.man.relnotes 1289599320 1289599320
+			follows openssh.man.relnotes 1289636020 1289636020
+			replaces patch*.patchSG0007246_openssh_man.relnotes 0 1289999904
+			replaces maint*.patchSG0007246_openssh_man.relnotes 0 1289999904
+			replaces patchSG0007246.openssh_man.relnotes 0 1289999904
+			replaces patchSG0007232.openssh_man.relnotes 0 1409999999
+			updates patchSG0007232.openssh_man.relnotes 0 1409999999
+			incompat openssh.man.relnotes 1289636021 1409999999
+			incompat openssh.man.relnotes 1289599321 1289636019
+			incompat openssh.man.relnotes 0 1289599319
+		endsubsys
+	endimage
+
+	image openssh_sw	 # (patchSG0007246.openssh_sw)
+		id "OpenSSH execution only env, 5.8p1"
+		version 1289999905 order 9999
+		# format 2
+
+		subsys client	 # (patchSG0007246.openssh_sw.client)
+			id "OpenSSH Client Software, 5.8p1"
+			patch
+			exp openssh.sw.client
+			follows openssh.sw.client 1289599320 1289599320
+			follows openssh.sw.client 1289636020 1289636020
+			replaces patch*.patchSG0007246_openssh_sw.client 0 1289999904
+			replaces maint*.patchSG0007246_openssh_sw.client 0 1289999904
+			replaces patchSG0007246.openssh_sw.client 0 1289999904
+			replaces patchSG0007232.openssh_sw.client 0 1409999999
+			updates patchSG0007232.openssh_sw.client 0 1409999999
+			incompat openssh.sw.client 1289636021 1409999999
+			incompat openssh.sw.client 1289599321 1289636019
+			incompat openssh.sw.client 0 1289599319
+		endsubsys
+
+		subsys common	 # (patchSG0007246.openssh_sw.common)
+			id "OpenSSH Common Client/Server Software, 5.8p1"
+			patch
+			exp openssh.sw.common
+			follows openssh.sw.common 1289599320 1289599320
+			follows openssh.sw.common 1289636020 1289636020
+			replaces patch*.patchSG0007246_openssh_sw.common 0 1289999904
+			replaces maint*.patchSG0007246_openssh_sw.common 0 1289999904
+			replaces patchSG0007246.openssh_sw.common 0 1289999904
+			replaces patchSG0007232.openssh_sw.common 0 1409999999
+			updates patchSG0007232.openssh_sw.common 0 1409999999
+			incompat openssh.sw.common 1289636021 1409999999
+			incompat openssh.sw.common 1289599321 1289636019
+			incompat openssh.sw.common 0 1289599319
+		endsubsys
+
+		subsys server	 # (patchSG0007246.openssh_sw.server)
+			id "OpenSSH Server Software, 5.8p1"
+			patch
+			exp openssh.sw.server
+			follows openssh.sw.server 1289599320 1289599320
+			follows openssh.sw.server 1289636020 1289636020
+			replaces patch*.patchSG0007246_openssh_sw.server 0 1289999904
+			replaces maint*.patchSG0007246_openssh_sw.server 0 1289999904
+			replaces patchSG0007246.openssh_sw.server 0 1289999904
+			replaces patchSG0007232.openssh_sw.server 0 1409999999
+			updates patchSG0007232.openssh_sw.server 0 1409999999
+			incompat openssh.sw.server 1289636021 1409999999
+			incompat openssh.sw.server 1289599321 1289636019
+			incompat openssh.sw.server 0 1289599319
+		endsubsys
+	endimage
+endproduct

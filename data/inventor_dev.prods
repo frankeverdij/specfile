@@ -1,0 +1,189 @@
+Distribution: .
+product inventor_dev
+	id "Inventor 3D Toolkit, 2.0.1"
+	# product format 7, created Fri Nov  4 11:00:44 1994
+	mach "GFXBOARD=LIGHT GFXBOARD=EXPRESS GFXBOARD=VENICE GFXBOARD=NEWPORT GFXBOARD=NEWPRESS GFXBOARD=SERVER GFXBOARD=ECLIPSE GFXBOARD=STAPUFT"
+
+	image books	 # (inventor_dev.books)
+		id "Inventor Documentation"
+		version 1021572033 order 900
+		# format 2
+
+		subsys Mentor	 # (inventor_dev.books.Mentor)
+			id "Insight Book : Inventor Mentor"
+			exp INV_MENTOR
+			replaces patch*.inventor_dev_books.Mentor 0 1021572032
+			replaces maint*.inventor_dev_books.Mentor 0 1021572032
+			replaces inventor_dev.books.Mentor 0 1021572032
+			replaces inventor_dev.book.Mentor 0 1021572032
+			replaces inventor_dev.books.Mentor 0 1021572032
+			incompat insight.sw.client 0 1006000223
+			prereq (
+				insight.sw.data 1010900000 maxint
+			)
+		endsubsys
+
+		subsys Toolmaker	 # (inventor_dev.books.Toolmaker)
+			id "Insight Book : Inventor Toolmaker"
+			exp INVENTOR_TM
+			replaces patch*.inventor_dev_books.Toolmaker 0 1021572032
+			replaces maint*.inventor_dev_books.Toolmaker 0 1021572032
+			replaces inventor_dev.books.Toolmaker 0 1021572032
+			replaces inventor_dev.book.Toolmaker 0 1021572032
+			replaces inventor_dev.books.Toolmaker 0 1021572032
+			incompat insight.sw.client 0 1006000223
+			prereq (
+				insight.sw.data 1010900000 maxint
+			)
+		endsubsys
+	endimage
+
+	image man	 # (inventor_dev.man)
+		id "Inventor Dev Doc"
+		version 1021572033 order 131
+		# format 2
+
+		subsys pages	 # (inventor_dev.man.pages)
+			id "Inventor C++ Man Pages"
+			default
+			exp "!noship && inventor_dev.man.pages"
+			replaces patch*.inventor_dev_man.pages 0 1021572032
+			replaces maint*.inventor_dev_man.pages 0 1021572032
+			replaces inventor_dev.man.pages 0 1021572032
+			replaces inventor_dev.man.inventor 0 1021572032
+			replaces inventor_dev.man.pages 0 1021572032
+			replaces maint1.inventor_dev_man.inventor 0 1021572032
+		endsubsys
+
+		subsys pages_c	 # (inventor_dev.man.pages_c)
+			id "Inventor C Man Pages"
+			exp "!noship && inventor_dev.man.pages_c"
+			replaces patch*.inventor_dev_man.pages_c 0 1021572032
+			replaces maint*.inventor_dev_man.pages_c 0 1021572032
+			replaces inventor_dev.man.pages_c 0 1021572032
+			replaces inventor_dev.man.pages_c 0 1021572032
+			replaces inventor_dev.man_c.inventor 0 1021572032
+			replaces inventor_dev.man_c.pages 0 1021572032
+			replaces maint1.inventor_dev_man_c.inventor 0 1021572032
+		endsubsys
+
+		subsys relnotes	 # (inventor_dev.man.relnotes)
+			id "Inventor Release Notes"
+			default
+			exp "!noship && inventor_dev.man.relnotes"
+			replaces patch*.inventor_dev_man.relnotes 0 1021572032
+			replaces maint*.inventor_dev_man.relnotes 0 1021572032
+			replaces inventor_dev.man.relnotes 0 1021572032
+			replaces inventor_dev.man.relnotes 0 1021572032
+			replaces maint1.inventor_dev_man.relnotes 0 1021572032
+		endsubsys
+	endimage
+
+	image src	 # (inventor_dev.src)
+		id "Inventor Sample Source"
+		version 1021572033 order 131
+		# format 2
+
+		subsys sample	 # (inventor_dev.src.sample)
+			id "Inventor Sample Source"
+			exp inventor_dev.src.sample
+			replaces patch*.inventor_dev_src.sample 0 1021572032
+			replaces maint*.inventor_dev_src.sample 0 1021572032
+			replaces inventor_dev.src.sample 0 1021572032
+			replaces inventor.src.inventor 0 1021572032
+			replaces inventor_dev.src.inventor 0 1021572032
+			replaces inventor_dev.src.sample 0 1021572032
+			replaces maint1.inventor_dev_src.inventor 0 1021572032
+			prereq (
+				inventor_dev.sw.base 1011009700 maxint
+			)
+		endsubsys
+	endimage
+
+	image sw	 # (inventor_dev.sw)
+		id "Inventor Optimized Software"
+		version 1021572033 order 131
+		# format 2
+
+		subsys base	 # (inventor_dev.sw.base)
+			id "Inventor Toolkit"
+			default
+			exp "!noship && inventor_dev.sw.base"
+			replaces patch*.inventor_dev_sw.base 0 1021572032
+			replaces maint*.inventor_dev_sw.base 0 1021572032
+			replaces inventor_dev.sw.base 0 1021572032
+			replaces Scenario.data.scenario 0 1021572032
+			replaces Scenario.doc.scenario 0 1021572032
+			replaces Scenario.src.scenario 0 1021572032
+			replaces Scenario.sw.scenario 0 1021572032
+			replaces Scenario.sw.scenarioC 0 1021572032
+			replaces inventor.sw.GLutil 0 1021572032
+			replaces inventor.sw.Xtutil 0 1021572032
+			replaces inventor.sw.inventor 0 1021572032
+			replaces inventor_dev.sw.GLutil 0 1021572032
+			replaces inventor_dev.sw.Xtutil 0 1021572032
+			replaces inventor_dev.sw.base 0 1021572032
+			replaces inventor_dev.sw.inventor 0 1021572032
+			replaces inventor_dev.sw.unshared 0 1021572032
+			replaces maint1.inventor_dev_sw.GLutil 0 1021572032
+			replaces maint1.inventor_dev_sw.Xtutil 0 1021572032
+			replaces maint1.inventor_dev_sw.inventor 0 1021572032
+			replaces maint1.inventor_dev_sw.unshared 0 1021572032
+			replaces scenario.data.scenario 0 1021572032
+			replaces scenario.doc.scenario 0 1021572032
+			replaces scenario.src.scenario 0 1021572032
+			replaces scenario.sw.scenario 0 1021572032
+			incompat inventor_eoe.sw.inventor 0 1008000147
+			prereq (
+				c_dev.sw.c 0 maxint
+				dev.hdr.lib 0 maxint
+				dev.sw.lib 0 maxint
+				gl_dev.sw.gldev 0 maxint
+				inventor_eoe.sw.inventor 1011009700 maxint
+			)
+		endsubsys
+
+		subsys c	 # (inventor_dev.sw.c)
+			id "Inventor C Library"
+			exp "!noship && inventor_dev.sw.c"
+			replaces patch*.inventor_dev_sw.c 0 1021572032
+			replaces maint*.inventor_dev_sw.c 0 1021572032
+			replaces inventor_dev.sw.c 0 1021572032
+			replaces inventor.sw.inventorC 0 1021572032
+			replaces inventor_dev.sw.c 0 1021572032
+			replaces inventor_dev.sw_c.GLutil 0 1021572032
+			replaces inventor_dev.sw_c.Xtutil 0 1021572032
+			replaces inventor_dev.sw_c.inventor 0 1021572032
+			replaces maint1.inventor_dev_sw_c.GLutil 0 1021572032
+			replaces maint1.inventor_dev_sw_c.Xtutil 0 1021572032
+			replaces maint1.inventor_dev_sw_c.inventor 0 1021572032
+			prereq (
+				inventor_dev.sw.base 1011009700 maxint
+			)
+		endsubsys
+
+		subsys debug	 # (inventor_dev.sw.debug)
+			id "Inventor Debug Library"
+			exp "!noship && inventor_dev.sw.debug"
+			replaces patch*.inventor_dev_sw.debug 0 1021572032
+			replaces maint*.inventor_dev_sw.debug 0 1021572032
+			replaces inventor_dev.sw.debug 0 1021572032
+			replaces inventor.sw.inventorDBG 0 1021572032
+			replaces inventor.sw_debug.GLutil 0 1021572032
+			replaces inventor.sw_debug.Xtutil 0 1021572032
+			replaces inventor.sw_debug.inventor 0 1021572032
+			replaces inventor_dev.sw.debug 0 1021572032
+			replaces inventor_dev.sw_dbg.GLutil 0 1021572032
+			replaces inventor_dev.sw_dbg.Xtutil 0 1021572032
+			replaces inventor_dev.sw_dbg.inventor 0 1021572032
+			replaces inventor_dev.sw_dbg.unshared 0 1021572032
+			replaces maint1.inventor_dev_sw_dbg.GLutil 0 1021572032
+			replaces maint1.inventor_dev_sw_dbg.Xtutil 0 1021572032
+			replaces maint1.inventor_dev_sw_dbg.inventor 0 1021572032
+			replaces maint1.inventor_dev_sw_dbg.unshared 0 1021572032
+			prereq (
+				inventor_dev.sw.base 1011009700 maxint
+			)
+		endsubsys
+	endimage
+endproduct

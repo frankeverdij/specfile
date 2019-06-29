@@ -1,0 +1,111 @@
+Distribution: .
+product neko_gemrb
+	id "GemRB 0.8.4 Game Engine Made with preRendered Backgrounds"
+	# product format 8, created Mon Jan  2 02:44:45 2017
+
+	image man	 # (neko_gemrb.man)
+		id "man pages"
+		version 1 order 9999
+		# format 2
+
+		subsys doc	 # (neko_gemrb.man.doc)
+			id "text documentation"
+			exp neko_gemrb.man.doc
+			replaces patch*.neko_gemrb_man.doc 0 0
+			replaces maint*.neko_gemrb_man.doc 0 0
+			replaces neko_gemrb.man.doc 0 0
+		endsubsys
+
+		subsys manpages	 # (neko_gemrb.man.manpages)
+			id "man pages"
+			default
+			exp neko_gemrb.man.manpages
+			replaces patch*.neko_gemrb_man.manpages 0 0
+			replaces maint*.neko_gemrb_man.manpages 0 0
+			replaces neko_gemrb.man.manpages 0 0
+		endsubsys
+	endimage
+
+	image opt	 # (neko_gemrb.opt)
+		id "optional software"
+		version 1 order 9999
+		# format 2
+
+		subsys dist	 # (neko_gemrb.opt.dist)
+			id "distribution files"
+			exp neko_gemrb.opt.dist
+			replaces patch*.neko_gemrb_opt.dist 0 0
+			replaces maint*.neko_gemrb_opt.dist 0 0
+			replaces neko_gemrb.opt.dist 0 0
+		endsubsys
+
+		subsys patches	 # (neko_gemrb.opt.patches)
+			id "source code patches"
+			exp neko_gemrb.opt.patches
+			replaces patch*.neko_gemrb_opt.patches 0 0
+			replaces maint*.neko_gemrb_opt.patches 0 0
+			replaces neko_gemrb.opt.patches 0 0
+		endsubsys
+
+		subsys relnotes	 # (neko_gemrb.opt.relnotes)
+			id "release notes"
+			exp neko_gemrb.opt.relnotes
+			replaces patch*.neko_gemrb_opt.relnotes 0 0
+			replaces maint*.neko_gemrb_opt.relnotes 0 0
+			replaces neko_gemrb.opt.relnotes 0 0
+		endsubsys
+
+		subsys src	 # (neko_gemrb.opt.src)
+			id "original source code"
+			exp neko_gemrb.opt.src
+			replaces patch*.neko_gemrb_opt.src 0 0
+			replaces maint*.neko_gemrb_opt.src 0 0
+			replaces neko_gemrb.opt.src 0 0
+		endsubsys
+	endimage
+
+	image sw	 # (neko_gemrb.sw)
+		id "software"
+		version 1 order 9999
+		# format 2
+
+		subsys common	 # (neko_gemrb.sw.common)
+			id "common files"
+			exp neko_gemrb.sw.common
+			replaces patch*.neko_gemrb_sw.common 0 0
+			replaces maint*.neko_gemrb_sw.common 0 0
+			replaces neko_gemrb.sw.common 0 0
+		endsubsys
+
+		subsys eoe	 # (neko_gemrb.sw.eoe)
+			id "execution only environment"
+			default
+			exp neko_gemrb.sw.eoe
+			replaces patch*.neko_gemrb_sw.eoe 0 0
+			replaces maint*.neko_gemrb_sw.eoe 0 0
+			replaces neko_gemrb.sw.eoe 0 0
+			prereq (
+				neko_gemrb.sw.lib 1 maxint
+				neko_python.sw.eoe 8 maxint
+			)
+		endsubsys
+
+		subsys lib	 # (neko_gemrb.sw.lib)
+			id "shared libraries"
+			default
+			exp neko_gemrb.sw.lib
+			replaces patch*.neko_gemrb_sw.lib 0 0
+			replaces maint*.neko_gemrb_sw.lib 0 0
+			replaces neko_gemrb.sw.lib 0 0
+			prereq (
+				neko_libiconv.sw.lib 4 maxint
+				neko_libogg.sw.lib 1 maxint
+				neko_libvorbis.sw.lib 1 maxint
+				neko_openal.sw.lib 2 maxint
+				neko_sdl.sw.lib 8 maxint
+				neko_sdl_mixer.sw.lib 5 maxint
+				neko_zlib.sw.lib 8 maxint
+			)
+		endsubsys
+	endimage
+endproduct

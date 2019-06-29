@@ -1,0 +1,150 @@
+Distribution: .
+product dev
+	id "Development System, 4.0.1"
+	# product format 5, created Mon Nov 18 20:58:29 1991
+
+	image cmplrs_hdr	 # (dev.cmplrs_hdr)
+		id "Base Compiler Headers"
+		version 1006000405 order 112
+		# format 2
+
+		subsys internal	 # (dev.cmplrs_hdr.internal)
+			id "Base Compiler Internal Headers"
+			exp "!noship && cmplrs.hdr.internal"
+			replaces maint*.dev_cmplrs_hdr.internal 0 1006000404
+			replaces dev.cmplrs_hdr.internal 0 1006000404
+			replaces *.cmplrs_hdr.internal 0 1006000404
+			replaces cmplrs.hdr.internal 0 1006000404
+		endsubsys
+	endimage
+
+	image cmplrs_man	 # (dev.cmplrs_man)
+		id "Base Compiler Manual Pages"
+		version 1006000405 order 116
+		# format 2
+
+		subsys base	 # (dev.cmplrs_man.base)
+			id "Base Compiler Components Man Pages"
+			default
+			exp "!noship && cmplrs.man.base"
+			replaces maint*.dev_cmplrs_man.base 0 1006000404
+			replaces dev.cmplrs_man.base 0 1006000404
+			replaces *.cmplrs_man.base 0 1006000404
+			replaces cmplrs.man.base 0 1006000404
+		endsubsys
+
+		subsys ld	 # (dev.cmplrs_man.ld)
+			id "Base Compiler Loader Man Pages"
+			default
+			exp "!noship && cmplrs.man.ld"
+			replaces maint*.dev_cmplrs_man.ld 0 1006000404
+			replaces dev.cmplrs_man.ld 0 1006000404
+			replaces *.cmplrs_man.ld 0 1006000404
+			replaces cmplrs.man.ld 0 1006000404
+		endsubsys
+
+		subsys perf	 # (dev.cmplrs_man.perf)
+			id "Base Compiler Performance Man Pages"
+			default
+			exp "!noship && cmplrs.man.perf"
+			replaces maint*.dev_cmplrs_man.perf 0 1006000404
+			replaces dev.cmplrs_man.perf 0 1006000404
+			replaces *.cmplrs_man.perf 0 1006000404
+			replaces cmplrs.man.perf 0 1006000404
+		endsubsys
+
+		subsys util	 # (dev.cmplrs_man.util)
+			id "Base Compiler Utility Man Pages"
+			default
+			exp "!noship && cmplrs.man.util"
+			replaces maint*.dev_cmplrs_man.util 0 1006000404
+			replaces dev.cmplrs_man.util 0 1006000404
+			replaces *.cmplrs_man.util 0 1006000404
+			replaces cmplrs.man.util 0 1006000404
+		endsubsys
+	endimage
+
+	image cmplrs_sw	 # (dev.cmplrs_sw)
+		id "Base Compiler Software"
+		version 1006000405 order 110
+		# format 2
+
+		subsys base	 # (dev.cmplrs_sw.base)
+			id "Base Compiler Components"
+			default
+			exp "!noship && cmplrs.sw.base"
+			replaces maint*.dev_cmplrs_sw.base 0 1006000404
+			replaces dev.cmplrs_sw.base 0 1006000404
+			replaces *.cmplrs_sw.base 0 1006000404
+			replaces cmplrs.sw.base 0 1006000404
+		endsubsys
+
+		subsys ld	 # (dev.cmplrs_sw.ld)
+			id "Base Compiler Loader"
+			default
+			exp "!noship && cmplrs.sw.ld"
+			replaces maint*.dev_cmplrs_sw.ld 0 1006000404
+			replaces dev.cmplrs_sw.ld 0 1006000404
+			replaces *.cmplrs_sw.ld 0 1006000404
+			replaces cmplrs.sw.ld 0 1006000404
+		endsubsys
+
+		subsys perf	 # (dev.cmplrs_sw.perf)
+			id "Base Compiler Performance Tools"
+			default
+			exp "!noship && cmplrs.sw.perf"
+			replaces maint*.dev_cmplrs_sw.perf 0 1006000404
+			replaces dev.cmplrs_sw.perf 0 1006000404
+			replaces *.cmplrs_sw.perf 0 1006000404
+			replaces cmplrs.sw.perf 0 1006000404
+		endsubsys
+
+		subsys util	 # (dev.cmplrs_sw.util)
+			id "Base Compiler Utilities"
+			default
+			exp "!noship && cmplrs.sw.util"
+			replaces maint*.dev_cmplrs_sw.util 0 1006000404
+			replaces dev.cmplrs_sw.util 0 1006000404
+			replaces *.cmplrs_sw.util 0 1006000404
+			replaces cmplrs.sw.util 0 1006000404
+		endsubsys
+	endimage
+
+	image man	 # (dev.man)
+		id "dev Documentation"
+		version 1006000405 order 35
+		# format 2
+
+		subsys dat	 # (dev.man.dat)
+			id "DAT Development Manual Pages"
+			default
+			exp "!noship && dev.man.dat"
+			replaces maint*.dev_man.dat 0 1006000404
+			replaces dev.man.dat 0 1006000404
+			replaces dev.man.dat 0 1006000404
+		endsubsys
+	endimage
+
+	image sw	 # (dev.sw)
+		id "dev Software"
+		version 1006000405 order 30
+		# format 2
+
+		subsys dat	 # (dev.sw.dat)
+			id "DAT Development Environment"
+			default
+			exp "!noship && (dev.sw.dat || dev.hdr.dat)"
+			replaces maint*.dev_sw.dat 0 1006000404
+			replaces dev.sw.dat 0 1006000404
+			replaces dev.sw.dat 0 1006000404
+		endsubsys
+
+		subsys libC	 # (dev.sw.libC)
+			id "C++ library"
+			exp "!noship && dev.sw.libC"
+			replaces maint*.dev_sw.libC 0 1006000404
+			replaces dev.sw.libC 0 1006000404
+			replaces dev.sw.libC 0 1006000404
+		endsubsys
+	endimage
+endproduct

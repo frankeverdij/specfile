@@ -1,0 +1,102 @@
+Distribution: .
+product neko_openssh
+	id "openssh-7.4p1 secure rsh, rcp replacements"
+	# product format 8, created Tue Dec 20 03:32:57 2016
+
+	image man	 # (neko_openssh.man)
+		id "openssh-7.4p1 man pages"
+		version 7040100 order 9999
+		# format 2
+
+		subsys openssh	 # (neko_openssh.man.openssh)
+			id "openssh-7.4p1 man pages"
+			default
+			exp neko_openssh.man.openssh
+			replaces patch*.neko_openssh_man.openssh 0 7040099
+			replaces maint*.neko_openssh_man.openssh 0 7040099
+			replaces neko_openssh.man.openssh 0 7040099
+		endsubsys
+	endimage
+
+	image opt	 # (neko_openssh.opt)
+		id "openssh-7.4p1 optional software"
+		version 7040100 order 9999
+		# format 2
+
+		subsys dist	 # (neko_openssh.opt.dist)
+			id "openssh-7.4p1 distribution files"
+			exp neko_openssh.opt.dist
+			replaces patch*.neko_openssh_opt.dist 0 7040099
+			replaces maint*.neko_openssh_opt.dist 0 7040099
+			replaces neko_openssh.opt.dist 0 7040099
+		endsubsys
+
+		subsys relnotes	 # (neko_openssh.opt.relnotes)
+			id "openssh-7.4p1 release notes"
+			default
+			exp neko_openssh.opt.relnotes
+			replaces patch*.neko_openssh_opt.relnotes 0 7040099
+			replaces maint*.neko_openssh_opt.relnotes 0 7040099
+			replaces neko_openssh.opt.relnotes 0 7040099
+		endsubsys
+
+		subsys src	 # (neko_openssh.opt.src)
+			id "openssh-7.4p1 original source code"
+			exp neko_openssh.opt.src
+			replaces patch*.neko_openssh_opt.src 0 7040099
+			replaces maint*.neko_openssh_opt.src 0 7040099
+			replaces neko_openssh.opt.src 0 7040099
+		endsubsys
+	endimage
+
+	image sw	 # (neko_openssh.sw)
+		id "openssh-7.4p1 execution only env"
+		version 7040100 order 9999
+		# format 2
+
+		subsys client	 # (neko_openssh.sw.client)
+			id "openssh-7.4p1 client software"
+			default
+			exp neko_openssh.sw.client
+			replaces patch*.neko_openssh_sw.client 0 7040099
+			replaces maint*.neko_openssh_sw.client 0 7040099
+			replaces neko_openssh.sw.client 0 7040099
+			prereq (
+				neko_openssl.sw.lib 10201700 maxint
+				neko_zlib.sw.lib 6 maxint
+			)
+		endsubsys
+
+		subsys server	 # (neko_openssh.sw.server)
+			id "openssh-7.4p1 server software"
+			default
+			exp neko_openssh.sw.server
+			replaces patch*.neko_openssh_sw.server 0 7040099
+			replaces maint*.neko_openssh_sw.server 0 7040099
+			replaces neko_openssh.sw.server 0 7040099
+			prereq (
+				neko_krb5.sw.lib 3 maxint
+				neko_openssl.sw.lib 10201700 maxint
+				neko_zlib.sw.lib 6 maxint
+			)
+		endsubsys
+
+		subsys system	 # (neko_openssh.sw.system)
+			id "openssh-7.4p1 replace system ssh"
+			default
+			exp neko_openssh.sw.system
+			replaces patch*.neko_openssh_sw.system 0 7040099
+			replaces maint*.neko_openssh_sw.system 0 7040099
+			replaces neko_openssh.sw.system 0 7040099
+			incompat openssh.man.manpages 0 maxint
+			incompat openssh.man.relnotes 0 maxint
+			incompat openssh.sw.client 0 maxint
+			incompat openssh.sw.common 0 maxint
+			incompat openssh.sw.server 0 maxint
+			prereq (
+				neko_openssh.sw.client 7040100 maxint
+				neko_openssh.sw.server 7040100 maxint
+			)
+		endsubsys
+	endimage
+endproduct

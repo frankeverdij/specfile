@@ -1,0 +1,24 @@
+Distribution: .
+product patchSG0007241
+	id "Patch SG0007241: XLV fixes for IRIX 6.5.30"
+	# product format 8, created Fri Jan  7 21:53:56 2011
+	mach "(CPUBOARD=IP27) || (CPUBOARD=IP30) || (CPUBOARD=IP32) || (CPUBOARD=IP35)"
+
+	image eoe_sw	 # (patchSG0007241.eoe_sw)
+		id "IRIX Execution Environment Software"
+		version 1289999902 order 9999
+		# format 2
+
+		subsys xlv	 # (patchSG0007241.eoe_sw.xlv)
+			id "XLV Volume Manager"
+			miniroot patch
+			exp "eoe.sw.xlv || RELNOTES"
+			follows eoe.sw.xlv 1289662620 1289662620
+			replaces patch*.patchSG0007241_eoe_sw.xlv 0 1289999901
+			replaces maint*.patchSG0007241_eoe_sw.xlv 0 1289999901
+			replaces patchSG0007241.eoe_sw.xlv 0 1289999901
+			incompat eoe.sw.xlv 1289662621 1409999999
+			incompat eoe.sw.xlv 0 1289662619
+		endsubsys
+	endimage
+endproduct

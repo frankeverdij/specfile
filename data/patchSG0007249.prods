@@ -1,0 +1,150 @@
+Distribution: .
+product patchSG0007249
+	id "Patch SG0007249: OpenSSL update #2"
+	# product format 9, created Thu Jan 17 19:01:28 2013
+
+	image openssl_man	 # (patchSG0007249.openssl_man)
+		id "OpenSSL Online Documentation, 0.9.7m-sgipl2"
+		version 1289999910 order 9999
+		# format 2
+
+		subsys manpages	 # (patchSG0007249.openssl_man.manpages)
+			id "OpenSSL man pages, 0.9.7m-sgipl2"
+			patch
+			exp openssl.man.manpages
+			follows openssl.man.manpages 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_man.manpages 0 1289999909
+			replaces maint*.patchSG0007249_openssl_man.manpages 0 1289999909
+			replaces patchSG0007249.openssl_man.manpages 0 1289999909
+			replaces patchSG0007217.openssl_man.manpages 0 1409999999
+			updates patchSG0007217.openssl_man.manpages 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.man.manpages 1289635321 1409999999
+			incompat openssl.man.manpages 1289619021 1289635319
+			incompat openssl.man.manpages 0 1289619019
+		endsubsys
+
+		subsys manpages_dev	 # (patchSG0007249.openssl_man.manpages_dev)
+			id "OpenSSL library function man pages, 0.9.7m-sgipl2"
+			patch
+			exp openssl.man.manpages_dev
+			follows openssl.man.manpages_dev 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_man.manpages_dev 0 1289999909
+			replaces maint*.patchSG0007249_openssl_man.manpages_dev 0 1289999909
+			replaces patchSG0007249.openssl_man.manpages_dev 0 1289999909
+			replaces patchSG0007217.openssl_man.manpages_dev 0 1409999999
+			updates patchSG0007217.openssl_man.manpages_dev 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.man.manpages_dev 1289635321 1409999999
+			incompat openssl.man.manpages_dev 1289619021 1289635319
+			incompat openssl.man.manpages_dev 0 1289619019
+		endsubsys
+
+		subsys relnotes	 # (patchSG0007249.openssl_man.relnotes)
+			id "OpenSSL Release Notes, 0.9.7m-sgipl2"
+			patch
+			exp openssl.man.relnotes
+			follows openssl.man.relnotes 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_man.relnotes 0 1289999909
+			replaces maint*.patchSG0007249_openssl_man.relnotes 0 1289999909
+			replaces patchSG0007249.openssl_man.relnotes 0 1289999909
+			replaces patchSG0007217.openssl_man.relnotes 0 1409999999
+			updates patchSG0007217.openssl_man.relnotes 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.man.relnotes 1289635321 1409999999
+			incompat openssl.man.relnotes 1289619021 1289635319
+			incompat openssl.man.relnotes 0 1289619019
+		endsubsys
+	endimage
+
+	image openssl_sw	 # (patchSG0007249.openssl_sw)
+		id "OpenSSL execution only env, 0.9.7m-sgipl2"
+		version 1289999910 order 9999
+		# format 2
+
+		subsys base	 # (patchSG0007249.openssl_sw.base)
+			id "OpenSSL executables, 0.9.7m-sgipl2"
+			patch
+			exp "openssl.sw.base || RELNOTES"
+			follows openssl.sw.base 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_sw.base 0 1289999909
+			replaces maint*.patchSG0007249_openssl_sw.base 0 1289999909
+			replaces patchSG0007249.openssl_sw.base 0 1289999909
+			replaces patchSG0007217.openssl_sw.base 0 1409999999
+			updates patchSG0007217.openssl_sw.base 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.sw.base 1289635321 1409999999
+			incompat openssl.sw.base 1289619021 1289635319
+			incompat openssl.sw.base 0 1289619019
+		endsubsys
+
+		subsys headers	 # (patchSG0007249.openssl_sw.headers)
+			id "OpenSSL header files, 0.9.7m-sgipl2"
+			patch
+			exp openssl.sw.headers
+			follows openssl.sw.headers 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_sw.headers 0 1289999909
+			replaces maint*.patchSG0007249_openssl_sw.headers 0 1289999909
+			replaces patchSG0007249.openssl_sw.headers 0 1289999909
+			replaces patchSG0007217.openssl_sw.headers 0 1409999999
+			updates patchSG0007217.openssl_sw.headers 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.sw.headers 1289635321 1409999999
+			incompat openssl.sw.headers 1289619021 1289635319
+			incompat openssl.sw.headers 0 1289619019
+		endsubsys
+
+		subsys lib32	 # (patchSG0007249.openssl_sw.lib32)
+			id "OpenSSL n32 libraries, 0.9.7m-sgipl2"
+			patch
+			exp openssl.sw.lib32
+			follows openssl.sw.lib32 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_sw.lib32 0 1289999909
+			replaces maint*.patchSG0007249_openssl_sw.lib32 0 1289999909
+			replaces patchSG0007249.openssl_sw.lib32 0 1289999909
+			replaces patchSG0007217.openssl_sw.lib32 0 1409999999
+			updates patchSG0007217.openssl_sw.lib32 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.sw.lib32 1289635321 1409999999
+			incompat openssl.sw.lib32 1289619021 1289635319
+			incompat openssl.sw.lib32 0 1289619019
+		endsubsys
+
+		subsys lib64	 # (patchSG0007249.openssl_sw.lib64)
+			id "OpenSSL 64bit libraries, 0.9.7m-sgipl2"
+			patch
+			exp openssl.sw.lib64
+			follows openssl.sw.lib64 1289619020 1289635320
+			replaces patch*.patchSG0007249_openssl_sw.lib64 0 1289999909
+			replaces maint*.patchSG0007249_openssl_sw.lib64 0 1289999909
+			replaces patchSG0007249.openssl_sw.lib64 0 1289999909
+			replaces patchSG0007217.openssl_sw.lib64 0 1409999999
+			updates patchSG0007217.openssl_sw.lib64 0 1409999999
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat openssl.sw.lib64 1289635321 1409999999
+			incompat openssl.sw.lib64 1289619021 1289635319
+			incompat openssl.sw.lib64 0 1289619019
+		endsubsys
+	endimage
+endproduct

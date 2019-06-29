@@ -1,0 +1,3101 @@
+Distribution: .
+product eoe
+	id "IRIX Execution Environment, 6.5.28"
+	# product format 9, created Fri Jul  1 11:40:47 2005
+	maint feature
+
+	image books	 # (eoe.books)
+		id "IRIX Execution Environment Books"
+		version 1289624220 order 900
+		# format 2
+
+		subsys grio2	 # (eoe.books.grio2)
+			id "Guaranteed-Rate I/O Version 2 Guide"
+			exp eoe_eoe.books.GRIO2_AG
+			replaces patch*.eoe_books.grio2 0 1289624219
+			replaces maint*.eoe_books.grio2 0 1289624219
+			replaces eoe.books.grio2 0 1289624219
+			prereq (
+				insight_base.sw.eoe 1253180000 maxint
+			)
+		endsubsys
+
+		subsys help	 # (eoe.books.help)
+			id "IRIX Help Books"
+			default
+			overlays 1274627340 1274627340
+			exp "eoe_eoe.books.XFSMHelp || eoe_eoe.books.FlatPanel_Help"
+			replaces maint*.eoe_books.help 0 1289624219
+			replaces eoe.books.help 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys sgi_admin	 # (eoe.books.sgi_admin)
+			id "IRIX SGI_Admin Books"
+			default
+			overlays 1274627340 1274627340
+			exp "eoe_eoe.books.IA_ConfigOps || eoe_eoe.books.IA_DiskFiles || eoe_eoe.books.IA_NetwkMail || eoe_eoe.books.IA_Periphrls || eoe_eoe.books.IA_BakSecAcc || eoe_eoe.books.IA_InstLicns || eoe_eoe.books.Diskless_AG || eoe_eoe.books.Combiner_UG || eoe_eoe.books.CPR_OG || eoe_eoe.books.WorkGrp_AG || eoe_eoe.books.ESP_UG || eoe_eoe.books.EventMgr_UG || eoe_eoe.books.PCP_IRIX || eoe_eoe.books.IA_Resource || eoe_eoe.books.IRIX_EnvVar"
+			replaces maint*.eoe_books.sgi_admin 0 1289624219
+			replaces eoe.books.sgi_admin 0 1289624219
+			replaces patchSG0003865.eoe_books.sgi_admin 0 1410065407
+			replaces patchSG0003895.eoe_books.sgi_admin 0 1410065407
+			replaces patchSG0003937.eoe_books.sgi_admin 0 1410065407
+			replaces patchSG0004123.eoe_books.sgi_admin 0 1410065407
+			replaces patchSG0004442.eoe_books.sgi_admin 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys xvm	 # (eoe.books.xvm)
+			id "XVM Volume Management Administrator's Guide"
+			exp eoe_eoe.books.XVM_AG
+			replaces patch*.eoe_books.xvm 0 1289624219
+			replaces maint*.eoe_books.xvm 0 1289624219
+			replaces cxfs.books.XVM_AG 0 1289624219
+			replaces eoe.books.xvm 0 1289624219
+			prereq (
+				insight_base.sw.eoe 1253180000 maxint
+			)
+		endsubsys
+	endimage
+
+	image man	 # (eoe.man)
+		id "IRIX Execution Environment Man Pages"
+		version 1289624220 order 15
+		# format 2
+
+		subsys base	 # (eoe.man.base)
+			id "Basic IRIX Man Pages"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && ( 				build_eoe.man.eoe ||				eoe_eoe.man.acl || 				eoe_eoe.man.audit || 				eoe_eoe.man.cdrom || 				eoe_eoe.man.cipso || 				eoe_eoe.man.cpr || 				irix_eoe.man.cpr ||                                 eoe_eoe.man.csaacct || 				eoe_eoe.man.dlpi || 				eoe_eoe.man.esp || 				eoe_eoe.man.tcp_wrappers ||                                 eoe_eoe.man.jlimits || 				eoe_eoe.man.mac || 				eoe_eoe.man.ppp || 				eoe_eoe.man.slip || 				eoe_eoe.man.std || 				irix_eoe.man.std || 				irix_eoe.man.support_fru || 				eoe_eoe.man.tsix || 				eoe_eoe.man.tokenring || 				irix_eoe.man.tokenring || 				eoe_eoe.man.uucp || 				gfx_eoe.man.fonttools || 				gfx_eoe.man.ide || 				gfx_eoe.man.optinput || 				gfx_eoe.man.std || 				irix_eoe.man.eoe ||				netman.man.sw || 				xfs_cmds_eoe.man.std 				)"
+			replaces maint*.eoe_man.base 0 1289624219
+			replaces eoe.man.base 0 1289624219
+			replaces patchSG0003258.eoe_man.base 0 1410065407
+			replaces patchSG0003350.eoe_man.base 0 1410065407
+			replaces patchSG0003393.eoe_man.base 0 1410065407
+			replaces patchSG0003446.eoe_man.base 0 1410065407
+			replaces patchSG0003505.eoe_man.base 0 1410065407
+			replaces patchSG0003622.eoe_man.base 0 1410065407
+			replaces patchSG0003700.eoe_man.base 0 1410065407
+			replaces patchSG0003753.eoe_man.base 0 1410065407
+			replaces patchSG0003786.eoe_man.base 0 1410065407
+			replaces patchSG0003810.eoe_man.base 0 1410065407
+			replaces patchSG0003813.eoe_man.base 0 1410065407
+			replaces patchSG0003826.eoe_man.base 0 1410065407
+			replaces patchSG0003859.eoe_man.base 0 1410065407
+			replaces patchSG0003865.eoe_man.base 0 1410065407
+			replaces patchSG0003870.eoe_man.base 0 1410065407
+			replaces patchSG0003895.eoe_man.base 0 1410065407
+			replaces patchSG0003896.eoe_man.base 0 1410065407
+			replaces patchSG0003923.eoe_man.base 0 1410065407
+			replaces patchSG0003930.eoe_man.base 0 1410065407
+			replaces patchSG0003937.eoe_man.base 0 1410065407
+			replaces patchSG0003967.eoe_man.base 0 1410065407
+			replaces patchSG0003989.eoe_man.base 0 1410065407
+			replaces patchSG0004000.eoe_man.base 0 1410065407
+			replaces patchSG0004002.eoe_man.base 0 1410065407
+			replaces patchSG0004026.eoe_man.base 0 1410065407
+			replaces patchSG0004072.eoe_man.base 0 1410065407
+			replaces patchSG0004079.eoe_man.base 0 1410065407
+			replaces patchSG0004081.eoe_man.base 0 1410065407
+			replaces patchSG0004085.eoe_man.base 0 1410065407
+			replaces patchSG0004123.eoe_man.base 0 1410065407
+			replaces patchSG0004292.eoe_man.base 0 1410065407
+			replaces patchSG0004396.eoe_man.base 0 1410065407
+			replaces patchSG0004442.eoe_man.base 0 1410065407
+			replaces patchSG0004452.eoe_man.base 0 1410065407
+			replaces patchSG0004534.eoe_man.base 0 1410065407
+			replaces patchSG0004535.eoe_man.base 0 1410065407
+			replaces patchSG0004539.eoe_man.base 0 1410065407
+			replaces patchSG0004543.eoe_man.base 0 1410065407
+			replaces patchSG0004545.eoe_man.base 0 1410065407
+			replaces patchSG0004668.eoe_man.base 0 1410065407
+			replaces patchSG0004716.eoe_man.base 0 1410065407
+			replaces patchSG0004725.eoe_man.base 0 1410065407
+			replaces patchSG0004731.eoe_man.base 0 1410065407
+			replaces patchSG0004771.eoe_man.base 0 1410065407
+			replaces patchSG0004772.eoe_man.base 0 1410065407
+			replaces patchSG0004804.eoe_man.base 0 1410065407
+			replaces patchSG0004819.eoe_man.base 0 1410065407
+			replaces patchSG0004820.eoe_man.base 0 1410065407
+			replaces patchSG0004822.eoe_man.base 0 1410065407
+			replaces patchSG0004881.eoe_man.base 0 1410065407
+			replaces patchSG0004887.eoe_man.base 0 1410065407
+			replaces patchSG0004888.eoe_man.base 0 1410065407
+			replaces patchSG0004902.eoe_man.base 0 1410065407
+			replaces patchSG0004942.eoe_man.base 0 1410065407
+			replaces patchSG0004968.eoe_man.base 0 1410065407
+			replaces patchSG0004972.eoe_man.base 0 1410065407
+			replaces patchSG0004994.eoe_man.base 0 1410065407
+			replaces patchSG0004995.eoe_man.base 0 1410065407
+			replaces patchSG0005023.eoe_man.base 0 1410065407
+			replaces patchSG0005047.eoe_man.base 0 1410065407
+			replaces patchSG0005058.eoe_man.base 0 1410065407
+			replaces patchSG0005059.eoe_man.base 0 1410065407
+			replaces patchSG0005060.eoe_man.base 0 1410065407
+			replaces patchSG0005064.eoe_man.base 0 1410065407
+			replaces patchSG0005073.eoe_man.base 0 1410065407
+			replaces patchSG0005086.eoe_man.base 0 1410065407
+			replaces patchSG0005114.eoe_man.base 0 1410065407
+			replaces patchSG0005123.eoe_man.base 0 1410065407
+			replaces patchSG0005124.eoe_man.base 0 1410065407
+			replaces patchSG0005125.eoe_man.base 0 1410065407
+			replaces patchSG0005126.eoe_man.base 0 1410065407
+			replaces patchSG0005127.eoe_man.base 0 1410065407
+			replaces patchSG0005128.eoe_man.base 0 1410065407
+			replaces patchSG0005129.eoe_man.base 0 1410065407
+			replaces patchSG0005130.eoe_man.base 0 1410065407
+			replaces patchSG0005131.eoe_man.base 0 1410065407
+			replaces patchSG0005132.eoe_man.base 0 1410065407
+			replaces patchSG0005133.eoe_man.base 0 1410065407
+			replaces patchSG0005153.eoe_man.base 0 1410065407
+			replaces patchSG0005156.eoe_man.base 0 1410065407
+			replaces patchSG0005167.eoe_man.base 0 1410065407
+			replaces patchSG0005189.eoe_man.base 0 1410065407
+			replaces patchSG0005190.eoe_man.base 0 1410065407
+			replaces patchSG0005191.eoe_man.base 0 1410065407
+			replaces patchSG0005192.eoe_man.base 0 1410065407
+			replaces patchSG0005193.eoe_man.base 0 1410065407
+			replaces patchSG0005194.eoe_man.base 0 1410065407
+			replaces patchSG0005195.eoe_man.base 0 1410065407
+			replaces patchSG0005196.eoe_man.base 0 1410065407
+			replaces patchSG0005214.eoe_man.base 0 1410065407
+			replaces patchSG0005215.eoe_man.base 0 1410065407
+			replaces patchSG0005255.eoe_man.base 0 1410065407
+			replaces patchSG0005257.eoe_man.base 0 1410065407
+			replaces patchSG0005264.eoe_man.base 0 1410065407
+			replaces patchSG0005265.eoe_man.base 0 1410065407
+			replaces patchSG0005266.eoe_man.base 0 1410065407
+			replaces patchSG0005267.eoe_man.base 0 1410065407
+			replaces patchSG0005268.eoe_man.base 0 1410065407
+			replaces patchSG0005269.eoe_man.base 0 1410065407
+			replaces patchSG0005275.eoe_man.base 0 1410065407
+			replaces patchSG0005276.eoe_man.base 0 1410065407
+			replaces patchSG0005297.eoe_man.base 0 1410065407
+			replaces patchSG0005298.eoe_man.base 0 1410065407
+			replaces patchSG0005315.eoe_man.base 0 1410065407
+			replaces patchSG0005327.eoe_man.base 0 1410065407
+			replaces patchSG0005367.eoe_man.base 0 1410065407
+			replaces patchSG0005388.eoe_man.base 0 1410065407
+			replaces patchSG0005428.eoe_man.base 0 1410065407
+			replaces patchSG0005437.eoe_man.base 0 1410065407
+			replaces patchSG0005439.eoe_man.base 0 1410065407
+			replaces patchSG0005446.eoe_man.base 0 1410065407
+			replaces patchSG0005449.eoe_man.base 0 1410065407
+			replaces patchSG0005452.eoe_man.base 0 1410065407
+			replaces patchSG0005454.eoe_man.base 0 1410065407
+			replaces patchSG0005461.eoe_man.base 0 1410065407
+			replaces patchSG0005512.eoe_man.base 0 1410065407
+			replaces patchSG0005520.eoe_man.base 0 1410065407
+			replaces patchSG0005534.eoe_man.base 0 1410065407
+			replaces patchSG0005554.eoe_man.base 0 1410065407
+			replaces patchSG0005588.eoe_man.base 0 1410065407
+			replaces patchSG0005606.eoe_man.base 0 1410065407
+			replaces patchSG0005607.eoe_man.base 0 1410065407
+			replaces patchSG0005608.eoe_man.base 0 1410065407
+			replaces patchSG0005657.eoe_man.base 0 1410065407
+			replaces patchSG0005713.eoe_man.base 0 1410065407
+			replaces patchSG0005721.eoe_man.base 0 1410065407
+			replaces patchSG0005772.eoe_man.base 0 1410065407
+			replaces patchSG0005773.eoe_man.base 0 1410065407
+			replaces patchSG0005801.eoe_man.base 0 1410065407
+			replaces patchSG0005802.eoe_man.base 0 1410065407
+			replaces patchSG0005804.eoe_man.base 0 1410065407
+			replaces patchSG0005809.eoe_man.base 0 1410065407
+			replaces patchSG0005811.eoe_man.base 0 1410065407
+			replaces patchSG0005827.eoe_man.base 0 1410065407
+			replaces patchSG0005838.eoe_man.base 0 1410065407
+			replaces patchSG0005893.eoe_man.base 0 1410065407
+			replaces patchSG0005894.eoe_man.base 0 1410065407
+			replaces patchSG0005908.eoe_man.base 0 1410065407
+			incompat patchSG0003606.eoe_man.base 0 1410065407
+			incompat patchSG0004943.eoe_man.base 0 1410065407
+			incompat patchSG0005587.eoe_man.base 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys gifts_perl	 # (eoe.man.gifts_perl)
+			id "Perl Man Pages"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.man.perl)"
+			replaces maint*.eoe_man.gifts_perl 0 1289624219
+			replaces eoe.man.gifts_perl 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys gltools	 # (eoe.man.gltools)
+			id "Graphics Library Tools Man Pages"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.man.gltools|| 			gfx_eoe.man.gltools)"
+			replaces maint*.eoe_man.gltools 0 1289624219
+			replaces eoe.man.gltools 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys imagetools	 # (eoe.man.imagetools)
+			id "Graphics Library Image Tools Man Pages"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.man.imagetools|| 			gfx_eoe.man.imgtools)"
+			replaces maint*.eoe_man.imagetools 0 1289624219
+			replaces eoe.man.imagetools 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys ipv6	 # (eoe.man.ipv6)
+			id "IP Version 6 Networking Manual Pages"
+			exp "!noship && (eoe_eoe.man.ipv6)"
+			replaces patch*.eoe_man.ipv6 0 1289624219
+			replaces maint*.eoe_man.ipv6 0 1289624219
+			replaces eoe.man.ipv6 0 1289624219
+		endsubsys
+
+		subsys ipv6_rn	 # (eoe.man.ipv6_rn)
+			id "IP Version 6 Networking Release Notes"
+			exp "!noship && (eoe_eoe.man.ipv6_rn)"
+			replaces patch*.eoe_man.ipv6_rn 0 1289624219
+			replaces maint*.eoe_man.ipv6_rn 0 1289624219
+			replaces eoe.man.ipv6_rn 0 1289624219
+		endsubsys
+
+		subsys oampkg	 # (eoe.man.oampkg)
+			id "SVR4 Packaging Utility Man Pages"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.man.oampkg ||				build_eoe.man.oampkg)"
+			replaces maint*.eoe_man.oampkg 0 1289624219
+			replaces eoe.man.oampkg 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys pam	 # (eoe.man.pam)
+			id "IRIX PAM Manual Pages and Documentation"
+			exp "!noship && (eoe_eoe.man.pam)"
+			replaces patch*.eoe_man.pam 0 1289624219
+			replaces maint*.eoe_man.pam 0 1289624219
+			replaces eoe.man.pam 0 1289624219
+		endsubsys
+
+		subsys pam_rn	 # (eoe.man.pam_rn)
+			id "IRIX PAM Release Notes"
+			exp "!noship && (eoe_eoe.man.pam_rn)"
+			replaces patch*.eoe_man.pam_rn 0 1289624219
+			replaces maint*.eoe_man.pam_rn 0 1289624219
+			replaces eoe.man.pam_rn 0 1289624219
+		endsubsys
+
+		subsys relnotes	 # (eoe.man.relnotes)
+			id "IRIX Release Notes"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (relnotes.man.eoe || 				irix_eoe.man.efast_rn 				)"
+			replaces maint*.eoe_man.relnotes 0 1289624219
+			replaces eoe.man.relnotes 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys xvm	 # (eoe.man.xvm)
+			id "XVM Man Pages"
+			exp eoe_eoe.man.xvm
+			replaces patch*.eoe_man.xvm 0 1289624219
+			replaces maint*.eoe_man.xvm 0 1289624219
+			replaces cxfs.man.xvm 0 1289624219
+			replaces eoe.man.xvm 0 1289624219
+		endsubsys
+	endimage
+
+	image src	 # (eoe.src)
+		id "IRIX Execution Environment Source"
+		version 1289624220 order 9999
+		# format 2
+
+		subsys gnutools	 # (eoe.src.gnutools)
+			id "GNU Tools Source Code"
+			overlays 1274627340 1274627340
+			exp eoe_eoe.gifts.gnu_src
+			replaces maint*.eoe_src.gnutools 0 1289624219
+			replaces eoe.src.gnutools 0 1289624219
+			replaces patchSG0004534.eoe_src.gnutools 0 1410065407
+			replaces patchSG0004535.eoe_src.gnutools 0 1410065407
+			replaces patchSG0005424.eoe_src.gnutools 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys pam	 # (eoe.src.pam)
+			id "Irix PAM cracklib source code"
+			exp eoe_eoe.gifts.pam_src
+			replaces patch*.eoe_src.pam 0 1289624219
+			replaces maint*.eoe_src.pam 0 1289624219
+			replaces eoe.src.pam 0 1289624219
+		endsubsys
+
+		subsys sendmail	 # (eoe.src.sendmail)
+			id "SGI patched Sendmail.org source code"
+			exp eoe_eoe.gifts.sendmail_src
+			replaces patch*.eoe_src.sendmail 0 1289624219
+			replaces maint*.eoe_src.sendmail 0 1289624219
+			replaces eoe.src.sendmail 0 1289624219
+		endsubsys
+	endimage
+
+	image sw	 # (eoe.sw)
+		id "IRIX Execution Environment Software"
+		version 1289624220 order 10
+		# format 2
+
+		subsys acct	 # (eoe.sw.acct)
+			id "System Accounting"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.acct)"
+			replaces maint*.eoe_sw.acct 0 1289624219
+			replaces eoe.sw.acct 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys acl	 # (eoe.sw.acl)
+			id "Access Control Lists"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.acl || irix_eoe.sw.acl)"
+			replaces maint*.eoe_sw.acl 0 1289624219
+			replaces eoe.sw.acl 0 1289624219
+			replaces patchSG0003956.eoe_sw.acl 0 1410065407
+			replaces patchSG0003957.eoe_sw.acl 0 1410065407
+			replaces patchSG0003998.eoe_sw.acl 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys audit	 # (eoe.sw.audit)
+			id "Security Audit Trail Software"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.audit || irix_eoe.sw.audit)"
+			replaces maint*.eoe_sw.audit 0 1289624219
+			replaces eoe.sw.audit 0 1289624219
+			replaces patchSG0003623.eoe_sw.audit 0 1410065407
+			replaces patchSG0003635.eoe_sw.audit 0 1410065407
+			replaces patchSG0003888.eoe_sw.audit 0 1410065407
+			replaces patchSG0003956.eoe_sw.audit 0 1410065407
+			replaces patchSG0003957.eoe_sw.audit 0 1410065407
+			replaces patchSG0003998.eoe_sw.audit 0 1410065407
+			replaces patchSG0004055.eoe_sw.audit 0 1410065407
+			replaces patchSG0004452.eoe_sw.audit 0 1410065407
+			replaces patchSG0004539.eoe_sw.audit 0 1410065407
+			replaces patchSG0004996.eoe_sw.audit 0 1410065407
+			replaces patchSG0005115.eoe_sw.audit 0 1410065407
+			replaces patchSG0005827.eoe_sw.audit 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys base	 # (eoe.sw.base)
+			id "IRIX Base Execution Environment"
+			mach "CPUBOARD!=IP19 && CPUBOARD!=IP20 				&& CPUBOARD!=IP21 && CPUBOARD!=IP22 && CPUBOARD!=IP25 				&& CPUBOARD!=IP26 && CPUBOARD!=IP28" mach "CPUBOARD!=IP19 && CPUBOARD!=IP20 				&& CPUBOARD!=IP21 && CPUBOARD!=IP22 && CPUBOARD!=IP25 				&& CPUBOARD!=IP26 && CPUBOARD!=IP28" mach "CPUBOARD!=IP19 && CPUBOARD!=IP20 				&& CPUBOARD!=IP21 && CPUBOARD!=IP22 && CPUBOARD!=IP25 				&& CPUBOARD!=IP26 && CPUBOARD!=IP28" default required miniroot
+			autominiroot (eoe*.sw.unix 0 1269999999)
+			autominiroot (eoe.sw.base 1290000000 2147483647)
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.eoe || 			    sysmon_eoe.sw.sysmonpp || 				irix_eoe.sw.umfs || 				eoe_root.sw.dso || 				eoe_eoe.sw.xfs || 				eoe_eoe.sw.sss || 				eoe_eoe.sw.tcp_wrappers || 			    eoe_eoe.sw.kdebug || 				dmedia_exported.sw.audio_kern || 				dmedia_exported.sw.midi_kern || 				dmedia_eoe.sw.sv1 ||				build_eoe.sw.eoe || 				irix_eoe.sw.perf || 				irix_eoe.sw.efast || 				irix_eoe.sw.eoe || 				irix_root.sw.dso || 				irix_eoe.sw.xfs || 				stand_eoe.sw.eoe || 				stand_eoe.sw.mmscfw || 				infosearch_eoe.sw.eoe || 				xfs_cmds_eoe.sw.xfs 			)"
+			replaces maint*.eoe_sw.base 0 1289624219
+			replaces eoe.sw.base 0 1289624219
+			replaces Register*.*.* 0 1278830320
+			replaces eoe.sw.xfsmcli 0 1289624219
+			replaces eoe.sw.xfsmserv 0 1289624219
+			replaces fddivis.man.fddivis 0 1289624219
+			replaces fddivis.man.relnotes 0 1289624219
+			replaces fddivis.sw.fddivis 0 1289624219
+			replaces patchSG0003098.eoe_sw.base 0 1410065407
+			replaces patchSG0003126.eoe_sw.base 0 1410065407
+			replaces patchSG0003153.eoe_sw.base 0 1410065407
+			replaces patchSG0003167.eoe_sw.base 0 1410065407
+			replaces patchSG0003212.eoe_sw.base 0 1410065407
+			replaces patchSG0003216.eoe_sw.base 0 1410065407
+			replaces patchSG0003218.eoe_sw.base 0 1410065407
+			replaces patchSG0003227.eoe_sw.base 0 1410065407
+			replaces patchSG0003228.eoe_sw.base 0 1410065407
+			replaces patchSG0003258.eoe_sw.base 0 1410065407
+			replaces patchSG0003262.eoe_sw.base 0 1410065407
+			replaces patchSG0003286.eoe_sw.base 0 1410065407
+			replaces patchSG0003309.eoe_sw.base 0 1410065407
+			replaces patchSG0003335.eoe_sw.base 0 1410065407
+			replaces patchSG0003342.eoe_sw.base 0 1410065407
+			replaces patchSG0003350.eoe_sw.base 0 1410065407
+			replaces patchSG0003363.eoe_sw.base 0 1410065407
+			replaces patchSG0003381.eoe_sw.base 0 1410065407
+			replaces patchSG0003384.eoe_sw.base 0 1410065407
+			replaces patchSG0003393.eoe_sw.base 0 1410065407
+			replaces patchSG0003407.eoe_sw.base 0 1410065407
+			replaces patchSG0003412.eoe_sw.base 0 1410065407
+			replaces patchSG0003465.eoe_sw.base 0 1410065407
+			replaces patchSG0003503.eoe_sw.base 0 1410065407
+			replaces patchSG0003505.eoe_sw.base 0 1410065407
+			replaces patchSG0003515.eoe_sw.base 0 1410065407
+			replaces patchSG0003528.eoe_sw.base 0 1410065407
+			replaces patchSG0003557.eoe_sw.base 0 1410065407
+			replaces patchSG0003558.eoe_sw.base 0 1410065407
+			replaces patchSG0003559.eoe_sw.base 0 1410065407
+			replaces patchSG0003610.eoe_sw.base 0 1410065407
+			replaces patchSG0003622.eoe_sw.base 0 1410065407
+			replaces patchSG0003644.eoe_sw.base 0 1410065407
+			replaces patchSG0003652.eoe_sw.base 0 1410065407
+			replaces patchSG0003657.eoe_sw.base 0 1410065407
+			replaces patchSG0003658.eoe_sw.base 0 1410065407
+			replaces patchSG0003664.eoe_sw.base 0 1410065407
+			replaces patchSG0003667.eoe_sw.base 0 1410065407
+			replaces patchSG0003668.eoe_sw.base 0 1410065407
+			replaces patchSG0003669.eoe_sw.base 0 1410065407
+			replaces patchSG0003670.eoe_sw.base 0 1410065407
+			replaces patchSG0003675.eoe_sw.base 0 1410065407
+			replaces patchSG0003676.eoe_sw.base 0 1410065407
+			replaces patchSG0003677.eoe_sw.base 0 1410065407
+			replaces patchSG0003678.eoe_sw.base 0 1410065407
+			replaces patchSG0003679.eoe_sw.base 0 1410065407
+			replaces patchSG0003680.eoe_sw.base 0 1410065407
+			replaces patchSG0003685.eoe_sw.base 0 1410065407
+			replaces patchSG0003690.eoe_sw.base 0 1410065407
+			replaces patchSG0003691.eoe_sw.base 0 1410065407
+			replaces patchSG0003692.eoe_sw.base 0 1410065407
+			replaces patchSG0003693.eoe_sw.base 0 1410065407
+			replaces patchSG0003700.eoe_sw.base 0 1410065407
+			replaces patchSG0003706.eoe_sw.base 0 1410065407
+			replaces patchSG0003712.eoe_sw.base 0 1410065407
+			replaces patchSG0003728.eoe_sw.base 0 1410065407
+			replaces patchSG0003730.eoe_sw.base 0 1410065407
+			replaces patchSG0003739.eoe_sw.base 0 1410065407
+			replaces patchSG0003746.eoe_sw.base 0 1410065407
+			replaces patchSG0003747.eoe_sw.base 0 1410065407
+			replaces patchSG0003749.eoe_sw.base 0 1410065407
+			replaces patchSG0003753.eoe_sw.base 0 1410065407
+			replaces patchSG0003755.eoe_sw.base 0 1410065407
+			replaces patchSG0003759.eoe_sw.base 0 1410065407
+			replaces patchSG0003761.eoe_sw.base 0 1410065407
+			replaces patchSG0003786.eoe_sw.base 0 1410065407
+			replaces patchSG0003795.eoe_sw.base 0 1410065407
+			replaces patchSG0003797.eoe_sw.base 0 1410065407
+			replaces patchSG0003801.eoe_sw.base 0 1410065407
+			replaces patchSG0003810.eoe_sw.base 0 1410065407
+			replaces patchSG0003813.eoe_sw.base 0 1410065407
+			replaces patchSG0003814.sw.eoe 0 1410065407
+			replaces patchSG0003815.eoe_sw.base 0 1410065407
+			replaces patchSG0003817.eoe_sw.base 0 1410065407
+			replaces patchSG0003818.eoe_sw.base 0 1410065407
+			replaces patchSG0003819.eoe_sw.base 0 1410065407
+			replaces patchSG0003824.eoe_sw.base 0 1410065407
+			replaces patchSG0003825.eoe_sw.base 0 1410065407
+			replaces patchSG0003826.eoe_sw.base 0 1410065407
+			replaces patchSG0003827.eoe_sw.base 0 1410065407
+			replaces patchSG0003828.eoe_sw.base 0 1410065407
+			replaces patchSG0003830.eoe_sw.base 0 1410065407
+			replaces patchSG0003831.eoe_sw.base 0 1410065407
+			replaces patchSG0003832.sw.base 0 1410065407
+			replaces patchSG0003833.sw.base 0 1410065407
+			replaces patchSG0003834.sw.base 0 1410065407
+			replaces patchSG0003835.sw.base 0 1410065407
+			replaces patchSG0003840.eoe_sw.base 0 1410065407
+			replaces patchSG0003843.eoe_sw.base 0 1410065407
+			replaces patchSG0003844.eoe_sw.base 0 1410065407
+			replaces patchSG0003845.eoe_sw.base 0 1410065407
+			replaces patchSG0003846.eoe_sw.base 0 1410065407
+			replaces patchSG0003847.eoe_sw.base 0 1410065407
+			replaces patchSG0003848.eoe_sw.base 0 1410065407
+			replaces patchSG0003854.eoe_sw.base 0 1410065407
+			replaces patchSG0003859.eoe_sw.base 0 1410065407
+			replaces patchSG0003865.eoe_sw.base 0 1410065407
+			replaces patchSG0003870.eoe_sw.base 0 1410065407
+			replaces patchSG0003873.eoe_sw.base 0 1410065407
+			replaces patchSG0003878.eoe_sw.base 0 1410065407
+			replaces patchSG0003882.eoe_sw.base 0 1410065407
+			replaces patchSG0003884.eoe_sw.base 0 1410065407
+			replaces patchSG0003889.eoe_sw.base 0 1410065407
+			replaces patchSG0003891.eoe_sw.base 0 1410065407
+			replaces patchSG0003892.eoe_sw.base 0 1410065407
+			replaces patchSG0003895.eoe_sw.base 0 1410065407
+			replaces patchSG0003896.eoe_sw.base 0 1410065407
+			replaces patchSG0003897.eoe_sw.base 0 1410065407
+			replaces patchSG0003900.eoe_sw.base 0 1410065407
+			replaces patchSG0003902.eoe_sw.base 0 1410065407
+			replaces patchSG0003903.eoe_sw.base 0 1410065407
+			replaces patchSG0003904.eoe_sw.base 0 1410065407
+			replaces patchSG0003906.eoe_sw.base 0 1410065407
+			replaces patchSG0003913.eoe_sw.base 0 1410065407
+			replaces patchSG0003914.eoe_sw.base 0 1410065407
+			replaces patchSG0003917.eoe_sw.base 0 1410065407
+			replaces patchSG0003918.eoe_sw.base 0 1410065407
+			replaces patchSG0003922.eoe_sw.base 0 1410065407
+			replaces patchSG0003923.eoe_sw.base 0 1410065407
+			replaces patchSG0003925.eoe_sw.base 0 1410065407
+			replaces patchSG0003930.eoe_sw.base 0 1410065407
+			replaces patchSG0003932.eoe_sw.base 0 1410065407
+			replaces patchSG0003937.eoe_sw.base 0 1410065407
+			replaces patchSG0003942.eoe_sw.base 0 1410065407
+			replaces patchSG0003946.eoe_sw.base 0 1410065407
+			replaces patchSG0003951.eoe_sw.base 0 1410065407
+			replaces patchSG0003956.eoe_sw.base 0 1410065407
+			replaces patchSG0003957.eoe_sw.base 0 1410065407
+			replaces patchSG0003958.eoe_sw.base 0 1410065407
+			replaces patchSG0003960.eoe_sw.base 0 1410065407
+			replaces patchSG0003961.eoe_sw.base 0 1410065407
+			replaces patchSG0003964.eoe_sw.base 0 1410065407
+			replaces patchSG0003966.eoe_sw.base 0 1410065407
+			replaces patchSG0003967.eoe_sw.base 0 1410065407
+			replaces patchSG0003978.eoe_sw.base 0 1410065407
+			replaces patchSG0003979.eoe_sw.base 0 1410065407
+			replaces patchSG0003980.eoe_sw.base 0 1410065407
+			replaces patchSG0003988.eoe_sw.base 0 1410065407
+			replaces patchSG0003989.eoe_sw.base 0 1410065407
+			replaces patchSG0003997.eoe_sw.base 0 1410065407
+			replaces patchSG0003998.eoe_sw.base 0 1410065407
+			replaces patchSG0004000.eoe_sw.base 0 1410065407
+			replaces patchSG0004002.eoe_sw.base 0 1410065407
+			replaces patchSG0004003.eoe_sw.base 0 1410065407
+			replaces patchSG0004013.eoe_sw.base 0 1410065407
+			replaces patchSG0004014.eoe_sw.base 0 1410065407
+			replaces patchSG0004022.eoe_sw.base 0 1410065407
+			replaces patchSG0004023.eoe_sw.base 0 1410065407
+			replaces patchSG0004026.eoe_sw.base 0 1410065407
+			replaces patchSG0004030.eoe_sw.base 0 1410065407
+			replaces patchSG0004039.eoe_sw.base 0 1410065407
+			replaces patchSG0004040.eoe_sw.base 0 1410065407
+			replaces patchSG0004042.eoe_sw.base 0 1410065407
+			replaces patchSG0004043.eoe_sw.base 0 1410065407
+			replaces patchSG0004044.eoe_sw.base 0 1410065407
+			replaces patchSG0004049.eoe_sw.base 0 1410065407
+			replaces patchSG0004053.eoe_sw.base 0 1410065407
+			replaces patchSG0004060.eoe_sw.base 0 1410065407
+			replaces patchSG0004063.eoe_sw.base 0 1410065407
+			replaces patchSG0004064.eoe_sw.base 0 1410065407
+			replaces patchSG0004065.eoe_sw.base 0 1410065407
+			replaces patchSG0004066.eoe_sw.base 0 1410065407
+			replaces patchSG0004067.eoe_sw.base 0 1410065407
+			replaces patchSG0004068.eoe_sw.base 0 1410065407
+			replaces patchSG0004069.eoe_sw.base 0 1410065407
+			replaces patchSG0004070.eoe_sw.base 0 1410065407
+			replaces patchSG0004071.eoe_sw.base 0 1410065407
+			replaces patchSG0004072.eoe_sw.base 0 1410065407
+			replaces patchSG0004077.eoe_sw.base 0 1410065407
+			replaces patchSG0004079.eoe_sw.base 0 1410065407
+			replaces patchSG0004081.eoe_sw.base 0 1410065407
+			replaces patchSG0004082.eoe_sw.base 0 1410065407
+			replaces patchSG0004085.eoe_sw.base 0 1410065407
+			replaces patchSG0004088.eoe_sw.base 0 1410065407
+			replaces patchSG0004091.eoe_sw.base 0 1410065407
+			replaces patchSG0004092.eoe_sw.base 0 1410065407
+			replaces patchSG0004093.eoe_sw.base 0 1410065407
+			replaces patchSG0004094.eoe_sw.base 0 1410065407
+			replaces patchSG0004095.eoe_sw.base 0 1410065407
+			replaces patchSG0004096.eoe_sw.base 0 1410065407
+			replaces patchSG0004097.eoe_sw.base 0 1410065407
+			replaces patchSG0004098.eoe_sw.base 0 1410065407
+			replaces patchSG0004099.eoe_sw.base 0 1410065407
+			replaces patchSG0004100.eoe_sw.base 0 1410065407
+			replaces patchSG0004101.eoe_sw.base 0 1410065407
+			replaces patchSG0004102.eoe_sw.base 0 1410065407
+			replaces patchSG0004105.eoe_sw.base 0 1410065407
+			replaces patchSG0004107.eoe_sw.base 0 1410065407
+			replaces patchSG0004111.eoe_sw.base 0 1410065407
+			replaces patchSG0004112.eoe_sw.base 0 1410065407
+			replaces patchSG0004113.eoe_sw.base 0 1410065407
+			replaces patchSG0004114.eoe_sw.base 0 1410065407
+			replaces patchSG0004121.eoe_sw.base 0 1410065407
+			replaces patchSG0004123.eoe_sw.base 0 1410065407
+			replaces patchSG0004127.eoe_sw.base 0 1410065407
+			replaces patchSG0004133.eoe_sw.base 0 1410065407
+			replaces patchSG0004134.eoe_sw.base 0 1410065407
+			replaces patchSG0004137.eoe_sw.base 0 1410065407
+			replaces patchSG0004138.eoe_sw.base 0 1410065407
+			replaces patchSG0004140.eoe_sw.base 0 1410065407
+			replaces patchSG0004142.eoe_sw.base 0 1410065407
+			replaces patchSG0004144.eoe_sw.base 0 1410065407
+			replaces patchSG0004151.eoe_sw.base 0 1410065407
+			replaces patchSG0004152.eoe_sw.base 0 1410065407
+			replaces patchSG0004153.eoe_sw.base 0 1410065407
+			replaces patchSG0004154.eoe_sw.base 0 1410065407
+			replaces patchSG0004155.eoe_sw.base 0 1410065407
+			replaces patchSG0004156.eoe_sw.base 0 1410065407
+			replaces patchSG0004158.eoe_sw.base 0 1410065407
+			replaces patchSG0004163.eoe_sw.base 0 1410065407
+			replaces patchSG0004164.eoe_sw.base 0 1410065407
+			replaces patchSG0004165.eoe_sw.base 0 1410065407
+			replaces patchSG0004170.eoe_sw.base 0 1410065407
+			replaces patchSG0004174.eoe_sw.base 0 1410065407
+			replaces patchSG0004176.eoe_sw.base 0 1410065407
+			replaces patchSG0004177.eoe_sw.base 0 1410065407
+			replaces patchSG0004179.eoe_sw.base 0 1410065407
+			replaces patchSG0004183.eoe_sw.base 0 1410065407
+			replaces patchSG0004185.eoe_sw.base 0 1410065407
+			replaces patchSG0004188.eoe_sw.base 0 1410065407
+			replaces patchSG0004192.eoe_sw.base 0 1410065407
+			replaces patchSG0004200.eoe_sw.base 0 1410065407
+			replaces patchSG0004202.eoe_sw.base 0 1410065407
+			replaces patchSG0004204.eoe_sw.base 0 1410065407
+			replaces patchSG0004205.eoe_sw.base 0 1410065407
+			replaces patchSG0004214.eoe_sw.base 0 1410065407
+			replaces patchSG0004215.eoe_sw.base 0 1410065407
+			replaces patchSG0004223.eoe_sw.base 0 1410065407
+			replaces patchSG0004227.eoe_sw.base 0 1410065407
+			replaces patchSG0004229.eoe_sw.base 0 1410065407
+			replaces patchSG0004230.eoe_sw.base 0 1410065407
+			replaces patchSG0004231.eoe_sw.base 0 1410065407
+			replaces patchSG0004234.eoe_sw.base 0 1410065407
+			replaces patchSG0004236.eoe_sw.base 0 1410065407
+			replaces patchSG0004241.eoe_sw.base 0 1410065407
+			replaces patchSG0004242.eoe_sw.base 0 1410065407
+			replaces patchSG0004244.eoe_sw.base 0 1410065407
+			replaces patchSG0004245.eoe_sw.base 0 1410065407
+			replaces patchSG0004248.eoe_sw.base 0 1410065407
+			replaces patchSG0004249.eoe_sw.base 0 1410065407
+			replaces patchSG0004250.eoe_sw.base 0 1410065407
+			replaces patchSG0004251.eoe_sw.base 0 1410065407
+			replaces patchSG0004252.eoe_sw.base 0 1410065407
+			replaces patchSG0004253.eoe_sw.base 0 1410065407
+			replaces patchSG0004254.eoe_sw.base 0 1410065407
+			replaces patchSG0004257.eoe_sw.base 0 1410065407
+			replaces patchSG0004258.eoe_sw.base 0 1410065407
+			replaces patchSG0004259.eoe_sw.base 0 1410065407
+			replaces patchSG0004260.eoe_sw.base 0 1410065407
+			replaces patchSG0004261.eoe_sw.base 0 1410065407
+			replaces patchSG0004263.eoe_sw.base 0 1410065407
+			replaces patchSG0004265.eoe_sw.base 0 1410065407
+			replaces patchSG0004266.eoe_sw.base 0 1410065407
+			replaces patchSG0004267.eoe_sw.base 0 1410065407
+			replaces patchSG0004270.eoe_sw.base 0 1410065407
+			replaces patchSG0004276.eoe_sw.base 0 1410065407
+			replaces patchSG0004278.eoe_sw.base 0 1410065407
+			replaces patchSG0004280.eoe_sw.base 0 1410065407
+			replaces patchSG0004281.eoe_sw.base 0 1410065407
+			replaces patchSG0004282.eoe_sw.base 0 1410065407
+			replaces patchSG0004287.eoe_sw.base 0 1410065407
+			replaces patchSG0004288.eoe_sw.base 0 1410065407
+			replaces patchSG0004291.eoe_sw.base 0 1410065407
+			replaces patchSG0004292.eoe_sw.base 0 1410065407
+			replaces patchSG0004293.eoe_sw.base 0 1410065407
+			replaces patchSG0004294.eoe_sw.base 0 1410065407
+			replaces patchSG0004295.eoe_sw.base 0 1410065407
+			replaces patchSG0004296.eoe_sw.base 0 1410065407
+			replaces patchSG0004298.eoe_sw.base 0 1410065407
+			replaces patchSG0004301.eoe_sw.base 0 1410065407
+			replaces patchSG0004302.eoe_sw.base 0 1410065407
+			replaces patchSG0004303.eoe_sw.base 0 1410065407
+			replaces patchSG0004304.eoe_sw.base 0 1410065407
+			replaces patchSG0004305.eoe_sw.base 0 1410065407
+			replaces patchSG0004307.eoe_sw.base 0 1410065407
+			replaces patchSG0004309.eoe_sw.base 0 1410065407
+			replaces patchSG0004313.eoe_sw.base 0 1410065407
+			replaces patchSG0004314.eoe_sw.base 0 1410065407
+			replaces patchSG0004315.eoe_sw.base 0 1410065407
+			replaces patchSG0004316.eoe_sw.base 0 1410065407
+			replaces patchSG0004324.eoe_sw.base 0 1410065407
+			replaces patchSG0004325.eoe_sw.base 0 1410065407
+			replaces patchSG0004326.eoe_sw.base 0 1410065407
+			replaces patchSG0004332.eoe_sw.base 0 1410065407
+			replaces patchSG0004333.eoe_sw.base 0 1410065407
+			replaces patchSG0004337.eoe_sw.base 0 1410065407
+			replaces patchSG0004341.eoe_sw.base 0 1410065407
+			replaces patchSG0004342.eoe_sw.base 0 1410065407
+			replaces patchSG0004353.eoe_sw.base 0 1410065407
+			replaces patchSG0004354.eoe_sw.base 0 1410065407
+			replaces patchSG0004356.eoe_sw.base 0 1410065407
+			replaces patchSG0004358.eoe_sw.base 0 1410065407
+			replaces patchSG0004359.eoe_sw.base 0 1410065407
+			replaces patchSG0004360.eoe_sw.base 0 1410065407
+			replaces patchSG0004361.eoe_sw.base 0 1410065407
+			replaces patchSG0004375.eoe_sw.base 0 1410065407
+			replaces patchSG0004376.eoe_sw.base 0 1410065407
+			replaces patchSG0004378.eoe_sw.base 0 1410065407
+			replaces patchSG0004384.eoe_sw.base 0 1410065407
+			replaces patchSG0004395.eoe_sw.base 0 1410065407
+			replaces patchSG0004401.eoe_sw.base 0 1410065407
+			replaces patchSG0004402.eoe_sw.base 0 1410065407
+			replaces patchSG0004405.eoe_sw.base 0 1410065407
+			replaces patchSG0004408.eoe_sw.base 0 1410065407
+			replaces patchSG0004409.eoe_sw.base 0 1410065407
+			replaces patchSG0004410.eoe_sw.base 0 1410065407
+			replaces patchSG0004411.eoe_sw.base 0 1410065407
+			replaces patchSG0004413.eoe_sw.base 0 1410065407
+			replaces patchSG0004414.eoe_sw.base 0 1410065407
+			replaces patchSG0004415.eoe_sw.base 0 1410065407
+			replaces patchSG0004417.eoe_sw.base 0 1410065407
+			replaces patchSG0004419.eoe_sw.base 0 1410065407
+			replaces patchSG0004420.eoe_sw.base 0 1410065407
+			replaces patchSG0004424.eoe_sw.base 0 1410065407
+			replaces patchSG0004428.eoe_sw.base 0 1410065407
+			replaces patchSG0004429.eoe_sw.base 0 1410065407
+			replaces patchSG0004435.eoe_sw.base 0 1410065407
+			replaces patchSG0004436.eoe_sw.base 0 1410065407
+			replaces patchSG0004438.eoe_sw.base 0 1410065407
+			replaces patchSG0004442.eoe_sw.base 0 1410065407
+			replaces patchSG0004443.eoe_sw.base 0 1410065407
+			replaces patchSG0004445.eoe_sw.base 0 1410065407
+			replaces patchSG0004446.eoe_sw.base 0 1410065407
+			replaces patchSG0004447.eoe_sw.base 0 1410065407
+			replaces patchSG0004448.eoe_sw.base 0 1410065407
+			replaces patchSG0004449.eoe_sw.base 0 1410065407
+			replaces patchSG0004452.eoe_sw.base 0 1410065407
+			replaces patchSG0004454.eoe_sw.base 0 1410065407
+			replaces patchSG0004459.eoe_sw.base 0 1410065407
+			replaces patchSG0004463.eoe_sw.base 0 1410065407
+			replaces patchSG0004464.eoe_sw.base 0 1410065407
+			replaces patchSG0004467.eoe_sw.base 0 1410065407
+			replaces patchSG0004471.eoe_sw.base 0 1410065407
+			replaces patchSG0004472.eoe_sw.base 0 1410065407
+			replaces patchSG0004475.eoe_sw.base 0 1410065407
+			replaces patchSG0004480.eoe_sw.base 0 1410065407
+			replaces patchSG0004482.eoe_sw.base 0 1410065407
+			replaces patchSG0004487.eoe_sw.base 0 1410065407
+			replaces patchSG0004494.eoe_sw.base 0 1410065407
+			replaces patchSG0004496.eoe_sw.base 0 1410065407
+			replaces patchSG0004497.eoe_sw.base 0 1410065407
+			replaces patchSG0004500.eoe_sw.base 0 1410065407
+			replaces patchSG0004501.eoe_sw.base 0 1410065407
+			replaces patchSG0004502.eoe_sw.base 0 1410065407
+			replaces patchSG0004503.eoe_sw.base 0 1410065407
+			replaces patchSG0004504.eoe_sw.base 0 1410065407
+			replaces patchSG0004505.eoe_sw.base 0 1410065407
+			replaces patchSG0004506.eoe_sw.base 0 1410065407
+			replaces patchSG0004507.eoe_sw.base 0 1410065407
+			replaces patchSG0004508.eoe_sw.base 0 1410065407
+			replaces patchSG0004509.eoe_sw.base 0 1410065407
+			replaces patchSG0004515.eoe_sw.base 0 1410065407
+			replaces patchSG0004521.eoe_sw.base 0 1410065407
+			replaces patchSG0004528.eoe_sw.base 0 1410065407
+			replaces patchSG0004529.eoe_sw.base 0 1410065407
+			replaces patchSG0004534.eoe_sw.base 0 1410065407
+			replaces patchSG0004535.eoe_sw.base 0 1410065407
+			replaces patchSG0004536.eoe_sw.base 0 1410065407
+			replaces patchSG0004538.eoe_sw.base 0 1410065407
+			replaces patchSG0004539.eoe_sw.base 0 1410065407
+			replaces patchSG0004541.eoe_sw.base 0 1410065407
+			replaces patchSG0004543.eoe_sw.base 0 1410065407
+			replaces patchSG0004545.eoe_sw.base 0 1410065407
+			replaces patchSG0004556.eoe_sw.base 0 1410065407
+			replaces patchSG0004559.eoe_sw.base 0 1410065407
+			replaces patchSG0004561.eoe_sw.base 0 1410065407
+			replaces patchSG0004562.eoe_sw.base 0 1410065407
+			replaces patchSG0004565.eoe_sw.base 0 1410065407
+			replaces patchSG0004573.eoe_sw.base 0 1410065407
+			replaces patchSG0004579.eoe_sw.base 0 1410065407
+			replaces patchSG0004580.eoe_sw.base 0 1410065407
+			replaces patchSG0004583.eoe_sw.base 0 1410065407
+			replaces patchSG0004591.eoe_sw.base 0 1410065407
+			replaces patchSG0004592.eoe_sw.base 0 1410065407
+			replaces patchSG0004593.eoe_sw.base 0 1410065407
+			replaces patchSG0004608.eoe_sw.base 0 1410065407
+			replaces patchSG0004617.eoe_sw.base 0 1410065407
+			replaces patchSG0004618.eoe_sw.base 0 1410065407
+			replaces patchSG0004619.eoe_sw.base 0 1410065407
+			replaces patchSG0004624.eoe_sw.base 0 1410065407
+			replaces patchSG0004626.eoe_sw.base 0 1410065407
+			replaces patchSG0004627.eoe_sw.base 0 1410065407
+			replaces patchSG0004629.eoe_sw.base 0 1410065407
+			replaces patchSG0004656.eoe_sw.base 0 1410065407
+			replaces patchSG0004660.eoe_sw.base 0 1410065407
+			replaces patchSG0004672.eoe_sw.base 0 1410065407
+			replaces patchSG0004673.eoe_sw.base 0 1410065407
+			replaces patchSG0004676.eoe_sw.base 0 1410065407
+			replaces patchSG0004678.eoe_sw.base 0 1410065407
+			replaces patchSG0004679.eoe_sw.base 0 1410065407
+			replaces patchSG0004680.eoe_sw.base 0 1410065407
+			replaces patchSG0004682.eoe_sw.base 0 1410065407
+			replaces patchSG0004686.eoe_sw.base 0 1410065407
+			replaces patchSG0004687.eoe_sw.base 0 1410065407
+			replaces patchSG0004689.eoe_sw.base 0 1410065407
+			replaces patchSG0004690.eoe_sw.base 0 1410065407
+			replaces patchSG0004691.eoe_sw.base 0 1410065407
+			replaces patchSG0004695.eoe_sw.base 0 1410065407
+			replaces patchSG0004696.eoe_sw.base 0 1410065407
+			replaces patchSG0004702.eoe_sw.base 0 1410065407
+			replaces patchSG0004703.eoe_sw.base 0 1410065407
+			replaces patchSG0004705.eoe_sw.base 0 1410065407
+			replaces patchSG0004706.eoe_sw.base 0 1410065407
+			replaces patchSG0004719.eoe_sw.base 0 1410065407
+			replaces patchSG0004722.eoe_sw.base 0 1410065407
+			replaces patchSG0004725.eoe_sw.base 0 1410065407
+			replaces patchSG0004729.eoe_sw.base 0 1410065407
+			replaces patchSG0004732.eoe_sw.base 0 1410065407
+			replaces patchSG0004734.eoe_sw.base 0 1410065407
+			replaces patchSG0004735.eoe_sw.base 0 1410065407
+			replaces patchSG0004739.eoe_sw.base 0 1410065407
+			replaces patchSG0004740.eoe_sw.base 0 1410065407
+			replaces patchSG0004741.eoe_sw.base 0 1410065407
+			replaces patchSG0004742.eoe_sw.base 0 1410065407
+			replaces patchSG0004743.eoe_sw.base 0 1410065407
+			replaces patchSG0004744.eoe_sw.base 0 1410065407
+			replaces patchSG0004745.eoe_sw.base 0 1410065407
+			replaces patchSG0004746.eoe_sw.base 0 1410065407
+			replaces patchSG0004747.eoe_sw.base 0 1410065407
+			replaces patchSG0004748.eoe_sw.base 0 1410065407
+			replaces patchSG0004749.eoe_sw.base 0 1410065407
+			replaces patchSG0004750.eoe_sw.base 0 1410065407
+			replaces patchSG0004751.eoe_sw.base 0 1410065407
+			replaces patchSG0004752.eoe_sw.base 0 1410065407
+			replaces patchSG0004756.eoe_sw.base 0 1410065407
+			replaces patchSG0004759.eoe_sw.base 0 1410065407
+			replaces patchSG0004760.eoe_sw.base 0 1410065407
+			replaces patchSG0004761.eoe_sw.base 0 1410065407
+			replaces patchSG0004762.eoe_sw.base 0 1410065407
+			replaces patchSG0004765.eoe_sw.base 0 1410065407
+			replaces patchSG0004766.eoe_sw.base 0 1410065407
+			replaces patchSG0004767.eoe_sw.base 0 1410065407
+			replaces patchSG0004768.eoe_sw.base 0 1410065407
+			replaces patchSG0004769.eoe_sw.base 0 1410065407
+			replaces patchSG0004770.eoe_sw.base 0 1410065407
+			replaces patchSG0004771.eoe_sw.base 0 1410065407
+			replaces patchSG0004772.eoe_sw.base 0 1410065407
+			replaces patchSG0004773.eoe_sw.base 0 1410065407
+			replaces patchSG0004775.eoe_sw.base 0 1410065407
+			replaces patchSG0004776.eoe_sw.base 0 1410065407
+			replaces patchSG0004781.eoe_sw.base 0 1410065407
+			replaces patchSG0004783.eoe_sw.base 0 1410065407
+			replaces patchSG0004802.eoe_sw.base 0 1410065407
+			replaces patchSG0004803.eoe_sw.base 0 1410065407
+			replaces patchSG0004805.eoe_sw.base 0 1410065407
+			replaces patchSG0004810.eoe_sw.base 0 1410065407
+			replaces patchSG0004811.eoe_sw.base 0 1410065407
+			replaces patchSG0004819.eoe_sw.base 0 1410065407
+			replaces patchSG0004820.eoe_sw.base 0 1410065407
+			replaces patchSG0004822.eoe_sw.base 0 1410065407
+			replaces patchSG0004823.eoe_sw.base 0 1410065407
+			replaces patchSG0004826.eoe_sw.base 0 1410065407
+			replaces patchSG0004830.eoe_sw.base 0 1410065407
+			replaces patchSG0004837.eoe_sw.base 0 1410065407
+			replaces patchSG0004838.eoe_sw.base 0 1410065407
+			replaces patchSG0004839.eoe_sw.base 0 1410065407
+			replaces patchSG0004840.eoe_sw.base 0 1410065407
+			replaces patchSG0004841.eoe_sw.base 0 1410065407
+			replaces patchSG0004842.eoe_sw.base 0 1410065407
+			replaces patchSG0004843.eoe_sw.base 0 1410065407
+			replaces patchSG0004844.eoe_sw.base 0 1410065407
+			replaces patchSG0004845.eoe_sw.base 0 1410065407
+			replaces patchSG0004846.eoe_sw.base 0 1410065407
+			replaces patchSG0004847.eoe_sw.base 0 1410065407
+			replaces patchSG0004848.eoe_sw.base 0 1410065407
+			replaces patchSG0004849.eoe_sw.base 0 1410065407
+			replaces patchSG0004850.eoe_sw.base 0 1410065407
+			replaces patchSG0004854.eoe_sw.base 0 1410065407
+			replaces patchSG0004855.eoe_sw.base 0 1410065407
+			replaces patchSG0004857.eoe_sw.base 0 1410065407
+			replaces patchSG0004858.eoe_sw.base 0 1410065407
+			replaces patchSG0004859.eoe_sw.base 0 1410065407
+			replaces patchSG0004860.eoe_sw.base 0 1410065407
+			replaces patchSG0004861.eoe_sw.base 0 1410065407
+			replaces patchSG0004862.eoe_sw.base 0 1410065407
+			replaces patchSG0004865.eoe_sw.base 0 1410065407
+			replaces patchSG0004867.eoe_sw.base 0 1410065407
+			replaces patchSG0004868.eoe_sw.base 0 1410065407
+			replaces patchSG0004878.eoe_sw.base 0 1410065407
+			replaces patchSG0004880.eoe_sw.base 0 1410065407
+			replaces patchSG0004881.eoe_sw.base 0 1410065407
+			replaces patchSG0004882.eoe_sw.base 0 1410065407
+			replaces patchSG0004883.eoe_sw.base 0 1410065407
+			replaces patchSG0004887.eoe_sw.base 0 1410065407
+			replaces patchSG0004888.eoe_sw.base 0 1410065407
+			replaces patchSG0004889.eoe_sw.base 0 1410065407
+			replaces patchSG0004890.eoe_sw.base 0 1410065407
+			replaces patchSG0004891.eoe_sw.base 0 1410065407
+			replaces patchSG0004892.eoe_sw.base 0 1410065407
+			replaces patchSG0004893.eoe_sw.base 0 1410065407
+			replaces patchSG0004894.eoe_sw.base 0 1410065407
+			replaces patchSG0004895.eoe_sw.base 0 1410065407
+			replaces patchSG0004896.eoe_sw.base 0 1410065407
+			replaces patchSG0004902.eoe_sw.base 0 1410065407
+			replaces patchSG0004908.eoe_sw.base 0 1410065407
+			replaces patchSG0004911.eoe_sw.base 0 1410065407
+			replaces patchSG0004912.eoe_sw.base 0 1410065407
+			replaces patchSG0004913.eoe_sw.base 0 1410065407
+			replaces patchSG0004916.eoe_sw.base 0 1410065407
+			replaces patchSG0004917.eoe_sw.base 0 1410065407
+			replaces patchSG0004918.eoe_sw.base 0 1410065407
+			replaces patchSG0004919.eoe_sw.base 0 1410065407
+			replaces patchSG0004920.eoe_sw.base 0 1410065407
+			replaces patchSG0004927.eoe_sw.base 0 1410065407
+			replaces patchSG0004928.eoe_sw.base 0 1410065407
+			replaces patchSG0004930.eoe_sw.base 0 1410065407
+			replaces patchSG0004934.eoe_sw.base 0 1410065407
+			replaces patchSG0004937.eoe_sw.base 0 1410065407
+			replaces patchSG0004938.eoe_sw.base 0 1410065407
+			replaces patchSG0004940.eoe_sw.base 0 1410065407
+			replaces patchSG0004942.eoe_sw.base 0 1410065407
+			replaces patchSG0004944.eoe_sw.base 0 1410065407
+			replaces patchSG0004945.eoe_sw.base 0 1410065407
+			replaces patchSG0004949.eoe_sw.base 0 1410065407
+			replaces patchSG0004950.eoe_sw.base 0 1410065407
+			replaces patchSG0004951.eoe_sw.base 0 1410065407
+			replaces patchSG0004952.eoe_sw.base 0 1410065407
+			replaces patchSG0004953.eoe_sw.base 0 1410065407
+			replaces patchSG0004954.eoe_sw.base 0 1410065407
+			replaces patchSG0004955.eoe_sw.base 0 1410065407
+			replaces patchSG0004956.eoe_sw.base 0 1410065407
+			replaces patchSG0004957.eoe_sw.base 0 1410065407
+			replaces patchSG0004958.eoe_sw.base 0 1410065407
+			replaces patchSG0004959.eoe_sw.base 0 1410065407
+			replaces patchSG0004960.eoe_sw.base 0 1410065407
+			replaces patchSG0004961.eoe_sw.base 0 1410065407
+			replaces patchSG0004962.eoe_sw.base 0 1410065407
+			replaces patchSG0004963.eoe_sw.base 0 1410065407
+			replaces patchSG0004964.eoe_sw.base 0 1410065407
+			replaces patchSG0004965.eoe_sw.base 0 1410065407
+			replaces patchSG0004967.eoe_sw.base 0 1410065407
+			replaces patchSG0004968.eoe_sw.base 0 1410065407
+			replaces patchSG0004969.eoe_sw.base 0 1410065407
+			replaces patchSG0004971.eoe_sw.base 0 1410065407
+			replaces patchSG0004972.eoe_sw.base 0 1410065407
+			replaces patchSG0004975.eoe_sw.base 0 1410065407
+			replaces patchSG0004976.eoe_sw.base 0 1410065407
+			replaces patchSG0004980.eoe_sw.base 0 1410065407
+			replaces patchSG0004981.eoe_sw.base 0 1410065407
+			replaces patchSG0004982.eoe_sw.base 0 1410065407
+			replaces patchSG0004983.eoe_sw.base 0 1410065407
+			replaces patchSG0004985.eoe_sw.base 0 1410065407
+			replaces patchSG0004986.eoe_sw.base 0 1410065407
+			replaces patchSG0004987.eoe_sw.base 0 1410065407
+			replaces patchSG0004988.eoe_sw.base 0 1410065407
+			replaces patchSG0004989.eoe_sw.base 0 1410065407
+			replaces patchSG0004990.eoe_sw.base 0 1410065407
+			replaces patchSG0004991.eoe_sw.base 0 1410065407
+			replaces patchSG0004992.eoe_sw.base 0 1410065407
+			replaces patchSG0004993.eoe_sw.base 0 1410065407
+			replaces patchSG0004994.eoe_sw.base 0 1410065407
+			replaces patchSG0004995.eoe_sw.base 0 1410065407
+			replaces patchSG0004996.eoe_sw.base 0 1410065407
+			replaces patchSG0005000.eoe_sw.base 0 1410065407
+			replaces patchSG0005006.eoe_sw.base 0 1410065407
+			replaces patchSG0005007.eoe_sw.base 0 1410065407
+			replaces patchSG0005008.eoe_sw.base 0 1410065407
+			replaces patchSG0005009.eoe_sw.base 0 1410065407
+			replaces patchSG0005010.eoe_sw.base 0 1410065407
+			replaces patchSG0005011.eoe_sw.base 0 1410065407
+			replaces patchSG0005014.eoe_sw.base 0 1410065407
+			replaces patchSG0005015.eoe_sw.base 0 1410065407
+			replaces patchSG0005016.eoe_sw.base 0 1410065407
+			replaces patchSG0005017.eoe_sw.base 0 1410065407
+			replaces patchSG0005018.eoe_sw.base 0 1410065407
+			replaces patchSG0005019.eoe_sw.base 0 1410065407
+			replaces patchSG0005020.eoe_sw.base 0 1410065407
+			replaces patchSG0005021.eoe_sw.base 0 1410065407
+			replaces patchSG0005022.eoe_sw.base 0 1410065407
+			replaces patchSG0005023.eoe_sw.base 0 1410065407
+			replaces patchSG0005024.eoe_sw.base 0 1410065407
+			replaces patchSG0005026.eoe_sw.base 0 1410065407
+			replaces patchSG0005027.eoe_sw.base 0 1410065407
+			replaces patchSG0005028.eoe_sw.base 0 1410065407
+			replaces patchSG0005029.eoe_sw.base 0 1410065407
+			replaces patchSG0005030.eoe_sw.base 0 1410065407
+			replaces patchSG0005031.eoe_sw.base 0 1410065407
+			replaces patchSG0005033.eoe_sw.base 0 1410065407
+			replaces patchSG0005037.eoe_sw.base 0 1410065407
+			replaces patchSG0005038.eoe_sw.base 0 1410065407
+			replaces patchSG0005041.eoe_sw.base 0 1410065407
+			replaces patchSG0005042.eoe_sw.base 0 1410065407
+			replaces patchSG0005043.eoe_sw.base 0 1410065407
+			replaces patchSG0005044.eoe_sw.base 0 1410065407
+			replaces patchSG0005045.eoe_sw.base 0 1410065407
+			replaces patchSG0005046.eoe_sw.base 0 1410065407
+			replaces patchSG0005047.eoe_sw.base 0 1410065407
+			replaces patchSG0005053.eoe_sw.base 0 1410065407
+			replaces patchSG0005055.eoe_sw.base 0 1410065407
+			replaces patchSG0005056.eoe_sw.base 0 1410065407
+			replaces patchSG0005058.eoe_sw.base 0 1410065407
+			replaces patchSG0005059.eoe_sw.base 0 1410065407
+			replaces patchSG0005060.eoe_sw.base 0 1410065407
+			replaces patchSG0005064.eoe_sw.base 0 1410065407
+			replaces patchSG0005066.eoe_sw.base 0 1410065407
+			replaces patchSG0005067.eoe_sw.base 0 1410065407
+			replaces patchSG0005070.eoe_sw.base 0 1410065407
+			replaces patchSG0005073.eoe_sw.base 0 1410065407
+			replaces patchSG0005079.eoe_sw.base 0 1410065407
+			replaces patchSG0005080.eoe_sw.base 0 1410065407
+			replaces patchSG0005084.eoe_sw.base 0 1410065407
+			replaces patchSG0005086.eoe_sw.base 0 1410065407
+			replaces patchSG0005087.eoe_sw.base 0 1410065407
+			replaces patchSG0005088.eoe_sw.base 0 1410065407
+			replaces patchSG0005089.eoe_sw.base 0 1410065407
+			replaces patchSG0005090.eoe_sw.base 0 1410065407
+			replaces patchSG0005095.eoe_sw.base 0 1410065407
+			replaces patchSG0005097.eoe_sw.base 0 1410065407
+			replaces patchSG0005098.eoe_sw.base 0 1410065407
+			replaces patchSG0005099.eoe_sw.base 0 1410065407
+			replaces patchSG0005100.eoe_sw.base 0 1410065407
+			replaces patchSG0005101.eoe_sw.base 0 1410065407
+			replaces patchSG0005102.eoe_sw.base 0 1410065407
+			replaces patchSG0005103.eoe_sw.base 0 1410065407
+			replaces patchSG0005104.eoe_sw.base 0 1410065407
+			replaces patchSG0005105.eoe_sw.base 0 1410065407
+			replaces patchSG0005106.eoe_sw.base 0 1410065407
+			replaces patchSG0005107.eoe_sw.base 0 1410065407
+			replaces patchSG0005108.eoe_sw.base 0 1410065407
+			replaces patchSG0005109.eoe_sw.base 0 1410065407
+			replaces patchSG0005110.eoe_sw.base 0 1410065407
+			replaces patchSG0005111.eoe_sw.base 0 1410065407
+			replaces patchSG0005113.eoe_sw.base 0 1410065407
+			replaces patchSG0005114.eoe_sw.base 0 1410065407
+			replaces patchSG0005115.eoe_sw.base 0 1410065407
+			replaces patchSG0005118.eoe_sw.base 0 1410065407
+			replaces patchSG0005119.eoe_sw.base 0 1410065407
+			replaces patchSG0005120.eoe_sw.base 0 1410065407
+			replaces patchSG0005123.eoe_sw.base 0 1410065407
+			replaces patchSG0005124.eoe_sw.base 0 1410065407
+			replaces patchSG0005125.eoe_sw.base 0 1410065407
+			replaces patchSG0005126.eoe_sw.base 0 1410065407
+			replaces patchSG0005127.eoe_sw.base 0 1410065407
+			replaces patchSG0005128.eoe_sw.base 0 1410065407
+			replaces patchSG0005129.eoe_sw.base 0 1410065407
+			replaces patchSG0005130.eoe_sw.base 0 1410065407
+			replaces patchSG0005131.eoe_sw.base 0 1410065407
+			replaces patchSG0005132.eoe_sw.base 0 1410065407
+			replaces patchSG0005133.eoe_sw.base 0 1410065407
+			replaces patchSG0005135.eoe_sw.base 0 1410065407
+			replaces patchSG0005139.eoe_sw.base 0 1410065407
+			replaces patchSG0005142.eoe_sw.base 0 1410065407
+			replaces patchSG0005146.eoe_sw.base 0 1410065407
+			replaces patchSG0005147.eoe_sw.base 0 1410065407
+			replaces patchSG0005150.eoe_sw.base 0 1410065407
+			replaces patchSG0005151.eoe_sw.base 0 1410065407
+			replaces patchSG0005152.eoe_sw.base 0 1410065407
+			replaces patchSG0005153.eoe_sw.base 0 1410065407
+			replaces patchSG0005154.eoe_sw.base 0 1410065407
+			replaces patchSG0005156.eoe_sw.base 0 1410065407
+			replaces patchSG0005159.eoe_sw.base 0 1410065407
+			replaces patchSG0005160.eoe_sw.base 0 1410065407
+			replaces patchSG0005163.eoe_sw.base 0 1410065407
+			replaces patchSG0005165.eoe_sw.base 0 1410065407
+			replaces patchSG0005166.eoe_sw.base 0 1410065407
+			replaces patchSG0005167.eoe_sw.base 0 1410065407
+			replaces patchSG0005175.eoe_sw.base 0 1410065407
+			replaces patchSG0005176.eoe_sw.base 0 1410065407
+			replaces patchSG0005178.eoe_sw.base 0 1410065407
+			replaces patchSG0005179.eoe_sw.base 0 1410065407
+			replaces patchSG0005180.eoe_sw.base 0 1410065407
+			replaces patchSG0005181.eoe_sw.base 0 1410065407
+			replaces patchSG0005182.eoe_sw.base 0 1410065407
+			replaces patchSG0005187.eoe_sw.base 0 1410065407
+			replaces patchSG0005188.eoe_sw.base 0 1410065407
+			replaces patchSG0005189.eoe_sw.base 0 1410065407
+			replaces patchSG0005190.eoe_sw.base 0 1410065407
+			replaces patchSG0005191.eoe_sw.base 0 1410065407
+			replaces patchSG0005192.eoe_sw.base 0 1410065407
+			replaces patchSG0005193.eoe_sw.base 0 1410065407
+			replaces patchSG0005194.eoe_sw.base 0 1410065407
+			replaces patchSG0005195.eoe_sw.base 0 1410065407
+			replaces patchSG0005196.eoe_sw.base 0 1410065407
+			replaces patchSG0005197.eoe_sw.base 0 1410065407
+			replaces patchSG0005201.eoe_sw.base 0 1410065407
+			replaces patchSG0005202.eoe_sw.base 0 1410065407
+			replaces patchSG0005203.eoe_sw.base 0 1410065407
+			replaces patchSG0005204.eoe_sw.base 0 1410065407
+			replaces patchSG0005210.eoe_sw.base 0 1410065407
+			replaces patchSG0005211.eoe_sw.base 0 1410065407
+			replaces patchSG0005213.eoe_sw.base 0 1410065407
+			replaces patchSG0005214.eoe_sw.base 0 1410065407
+			replaces patchSG0005215.eoe_sw.base 0 1410065407
+			replaces patchSG0005216.eoe_sw.base 0 1410065407
+			replaces patchSG0005219.eoe_sw.base 0 1410065407
+			replaces patchSG0005220.eoe_sw.base 0 1410065407
+			replaces patchSG0005221.eoe_sw.base 0 1410065407
+			replaces patchSG0005222.eoe_sw.base 0 1410065407
+			replaces patchSG0005223.eoe_sw.base 0 1410065407
+			replaces patchSG0005224.eoe_sw.base 0 1410065407
+			replaces patchSG0005227.eoe_sw.base 0 1410065407
+			replaces patchSG0005228.eoe_sw.base 0 1410065407
+			replaces patchSG0005229.eoe_sw.base 0 1410065407
+			replaces patchSG0005230.eoe_sw.base 0 1410065407
+			replaces patchSG0005233.eoe_sw.base 0 1410065407
+			replaces patchSG0005234.eoe_sw.base 0 1410065407
+			replaces patchSG0005238.eoe_sw.base 0 1410065407
+			replaces patchSG0005240.eoe_sw.base 0 1410065407
+			replaces patchSG0005241.eoe_sw.base 0 1410065407
+			replaces patchSG0005242.eoe_sw.base 0 1410065407
+			replaces patchSG0005243.eoe_sw.base 0 1410065407
+			replaces patchSG0005248.eoe_sw.base 0 1410065407
+			replaces patchSG0005260.eoe_sw.base 0 1410065407
+			replaces patchSG0005261.eoe_sw.base 0 1410065407
+			replaces patchSG0005262.eoe_sw.base 0 1410065407
+			replaces patchSG0005263.eoe_sw.base 0 1410065407
+			replaces patchSG0005270.eoe_sw.base 0 1410065407
+			replaces patchSG0005275.eoe_sw.base 0 1410065407
+			replaces patchSG0005276.eoe_sw.base 0 1410065407
+			replaces patchSG0005278.eoe_sw.base 0 1410065407
+			replaces patchSG0005279.eoe_sw.base 0 1410065407
+			replaces patchSG0005281.eoe_sw.base 0 1410065407
+			replaces patchSG0005282.eoe_sw.base 0 1410065407
+			replaces patchSG0005283.eoe_sw.base 0 1410065407
+			replaces patchSG0005286.eoe_sw.base 0 1410065407
+			replaces patchSG0005287.eoe_sw.base 0 1410065407
+			replaces patchSG0005288.eoe_sw.base 0 1410065407
+			replaces patchSG0005289.eoe_sw.base 0 1410065407
+			replaces patchSG0005291.eoe_sw.base 0 1410065407
+			replaces patchSG0005297.eoe_sw.base 0 1410065407
+			replaces patchSG0005298.eoe_sw.base 0 1410065407
+			replaces patchSG0005299.eoe_sw.base 0 1410065407
+			replaces patchSG0005300.eoe_sw.base 0 1410065407
+			replaces patchSG0005301.eoe_sw.base 0 1410065407
+			replaces patchSG0005302.eoe_sw.base 0 1410065407
+			replaces patchSG0005309.eoe_sw.base 0 1410065407
+			replaces patchSG0005310.eoe_sw.base 0 1410065407
+			replaces patchSG0005311.eoe_sw.base 0 1410065407
+			replaces patchSG0005312.eoe_sw.base 0 1410065407
+			replaces patchSG0005315.eoe_sw.base 0 1410065407
+			replaces patchSG0005316.eoe_sw.base 0 1410065407
+			replaces patchSG0005317.eoe_sw.base 0 1410065407
+			replaces patchSG0005318.eoe_sw.base 0 1410065407
+			replaces patchSG0005320.eoe_sw.base 0 1410065407
+			replaces patchSG0005325.eoe_sw.base 0 1410065407
+			replaces patchSG0005327.eoe_sw.base 0 1410065407
+			replaces patchSG0005330.eoe_sw.base 0 1410065407
+			replaces patchSG0005332.eoe_sw.base 0 1410065407
+			replaces patchSG0005333.eoe_sw.base 0 1410065407
+			replaces patchSG0005335.eoe_sw.base 0 1410065407
+			replaces patchSG0005337.eoe_sw.base 0 1410065407
+			replaces patchSG0005338.eoe_sw.base 0 1410065407
+			replaces patchSG0005341.eoe_sw.base 0 1410065407
+			replaces patchSG0005342.eoe_sw.base 0 1410065407
+			replaces patchSG0005343.eoe_sw.base 0 1410065407
+			replaces patchSG0005344.eoe_sw.base 0 1410065407
+			replaces patchSG0005345.eoe_sw.base 0 1410065407
+			replaces patchSG0005346.eoe_sw.base 0 1410065407
+			replaces patchSG0005347.eoe_sw.base 0 1410065407
+			replaces patchSG0005348.eoe_sw.base 0 1410065407
+			replaces patchSG0005349.eoe_sw.base 0 1410065407
+			replaces patchSG0005350.eoe_sw.base 0 1410065407
+			replaces patchSG0005351.eoe_sw.base 0 1410065407
+			replaces patchSG0005352.eoe_sw.base 0 1410065407
+			replaces patchSG0005353.eoe_sw.base 0 1410065407
+			replaces patchSG0005356.eoe_sw.base 0 1410065407
+			replaces patchSG0005357.eoe_sw.base 0 1410065407
+			replaces patchSG0005358.eoe_sw.base 0 1410065407
+			replaces patchSG0005361.eoe_sw.base 0 1410065407
+			replaces patchSG0005364.eoe_sw.base 0 1410065407
+			replaces patchSG0005367.eoe_sw.base 0 1410065407
+			replaces patchSG0005368.eoe_sw.base 0 1410065407
+			replaces patchSG0005373.eoe_sw.base 0 1410065407
+			replaces patchSG0005375.eoe_sw.base 0 1410065407
+			replaces patchSG0005378.eoe_sw.base 0 1410065407
+			replaces patchSG0005379.eoe_sw.base 0 1410065407
+			replaces patchSG0005380.eoe_sw.base 0 1410065407
+			replaces patchSG0005381.eoe_sw.base 0 1410065407
+			replaces patchSG0005383.eoe_sw.base 0 1410065407
+			replaces patchSG0005388.eoe_sw.base 0 1410065407
+			replaces patchSG0005391.eoe_sw.base 0 1410065407
+			replaces patchSG0005392.eoe_sw.base 0 1410065407
+			replaces patchSG0005393.eoe_sw.base 0 1410065407
+			replaces patchSG0005394.eoe_sw.base 0 1410065407
+			replaces patchSG0005395.eoe_sw.base 0 1410065407
+			replaces patchSG0005396.eoe_sw.base 0 1410065407
+			replaces patchSG0005397.eoe_sw.base 0 1410065407
+			replaces patchSG0005400.eoe_sw.base 0 1410065407
+			replaces patchSG0005403.eoe_sw.base 0 1410065407
+			replaces patchSG0005404.eoe_sw.base 0 1410065407
+			replaces patchSG0005407.eoe_sw.base 0 1410065407
+			replaces patchSG0005408.eoe_sw.base 0 1410065407
+			replaces patchSG0005409.eoe_sw.base 0 1410065407
+			replaces patchSG0005412.eoe_sw.base 0 1410065407
+			replaces patchSG0005415.eoe_sw.base 0 1410065407
+			replaces patchSG0005416.eoe_sw.base 0 1410065407
+			replaces patchSG0005419.eoe_sw.base 0 1410065407
+			replaces patchSG0005424.eoe_sw.base 0 1410065407
+			replaces patchSG0005425.eoe_sw.base 0 1410065407
+			replaces patchSG0005428.eoe_sw.base 0 1410065407
+			replaces patchSG0005430.eoe_sw.base 0 1410065407
+			replaces patchSG0005433.eoe_sw.base 0 1410065407
+			replaces patchSG0005436.eoe_sw.base 0 1410065407
+			replaces patchSG0005437.eoe_sw.base 0 1410065407
+			replaces patchSG0005439.eoe_sw.base 0 1410065407
+			replaces patchSG0005440.eoe_sw.base 0 1410065407
+			replaces patchSG0005441.eoe_sw.base 0 1410065407
+			replaces patchSG0005442.eoe_sw.base 0 1410065407
+			replaces patchSG0005446.eoe_sw.base 0 1410065407
+			replaces patchSG0005447.eoe_sw.base 0 1410065407
+			replaces patchSG0005448.eoe_sw.base 0 1410065407
+			replaces patchSG0005449.eoe_sw.base 0 1410065407
+			replaces patchSG0005451.eoe_sw.base 0 1410065407
+			replaces patchSG0005452.eoe_sw.base 0 1410065407
+			replaces patchSG0005454.eoe_sw.base 0 1410065407
+			replaces patchSG0005455.eoe_sw.base 0 1410065407
+			replaces patchSG0005460.eoe_sw.base 0 1410065407
+			replaces patchSG0005461.eoe_sw.base 0 1410065407
+			replaces patchSG0005462.eoe_sw.base 0 1410065407
+			replaces patchSG0005463.eoe_sw.base 0 1410065407
+			replaces patchSG0005466.eoe_sw.base 0 1410065407
+			replaces patchSG0005468.eoe_sw.base 0 1410065407
+			replaces patchSG0005469.eoe_sw.base 0 1410065407
+			replaces patchSG0005470.eoe_sw.base 0 1410065407
+			replaces patchSG0005471.eoe_sw.base 0 1410065407
+			replaces patchSG0005472.eoe_sw.base 0 1410065407
+			replaces patchSG0005476.eoe_sw.base 0 1410065407
+			replaces patchSG0005477.eoe_sw.base 0 1410065407
+			replaces patchSG0005481.eoe_sw.base 0 1410065407
+			replaces patchSG0005482.eoe_sw.base 0 1410065407
+			replaces patchSG0005483.eoe_sw.base 0 1410065407
+			replaces patchSG0005484.eoe_sw.base 0 1410065407
+			replaces patchSG0005485.eoe_sw.base 0 1410065407
+			replaces patchSG0005497.eoe_sw.base 0 1410065407
+			replaces patchSG0005498.eoe_sw.base 0 1410065407
+			replaces patchSG0005499.eoe_sw.base 0 1410065407
+			replaces patchSG0005500.eoe_sw.base 0 1410065407
+			replaces patchSG0005502.eoe_sw.base 0 1410065407
+			replaces patchSG0005503.eoe_sw.base 0 1410065407
+			replaces patchSG0005504.eoe_sw.base 0 1410065407
+			replaces patchSG0005506.eoe_sw.base 0 1410065407
+			replaces patchSG0005510.eoe_sw.base 0 1410065407
+			replaces patchSG0005511.eoe_sw.base 0 1410065407
+			replaces patchSG0005512.eoe_sw.base 0 1410065407
+			replaces patchSG0005513.eoe_sw.base 0 1410065407
+			replaces patchSG0005514.eoe_sw.base 0 1410065407
+			replaces patchSG0005515.eoe_sw.base 0 1410065407
+			replaces patchSG0005517.eoe_sw.base 0 1410065407
+			replaces patchSG0005518.eoe_sw.base 0 1410065407
+			replaces patchSG0005519.eoe_sw.base 0 1410065407
+			replaces patchSG0005520.eoe_sw.base 0 1410065407
+			replaces patchSG0005522.eoe_sw.base 0 1410065407
+			replaces patchSG0005524.eoe_sw.base 0 1410065407
+			replaces patchSG0005525.eoe_sw.base 0 1410065407
+			replaces patchSG0005526.eoe_sw.base 0 1410065407
+			replaces patchSG0005527.eoe_sw.base 0 1410065407
+			replaces patchSG0005529.eoe_sw.base 0 1410065407
+			replaces patchSG0005530.eoe_sw.base 0 1410065407
+			replaces patchSG0005531.eoe_sw.base 0 1410065407
+			replaces patchSG0005532.eoe_sw.base 0 1410065407
+			replaces patchSG0005534.eoe_sw.base 0 1410065407
+			replaces patchSG0005537.eoe_sw.base 0 1410065407
+			replaces patchSG0005538.eoe_sw.base 0 1410065407
+			replaces patchSG0005539.eoe_sw.base 0 1410065407
+			replaces patchSG0005540.eoe_sw.base 0 1410065407
+			replaces patchSG0005541.eoe_sw.base 0 1410065407
+			replaces patchSG0005542.eoe_sw.base 0 1410065407
+			replaces patchSG0005543.eoe_sw.base 0 1410065407
+			replaces patchSG0005544.eoe_sw.base 0 1410065407
+			replaces patchSG0005545.eoe_sw.base 0 1410065407
+			replaces patchSG0005546.eoe_sw.base 0 1410065407
+			replaces patchSG0005547.eoe_sw.base 0 1410065407
+			replaces patchSG0005552.eoe_sw.base 0 1410065407
+			replaces patchSG0005553.eoe_sw.base 0 1410065407
+			replaces patchSG0005554.eoe_sw.base 0 1410065407
+			replaces patchSG0005559.eoe_sw.base 0 1410065407
+			replaces patchSG0005560.eoe_sw.base 0 1410065407
+			replaces patchSG0005561.eoe_sw.base 0 1410065407
+			replaces patchSG0005563.eoe_sw.base 0 1410065407
+			replaces patchSG0005564.eoe_sw.base 0 1410065407
+			replaces patchSG0005565.eoe_sw.base 0 1410065407
+			replaces patchSG0005566.eoe_sw.base 0 1410065407
+			replaces patchSG0005567.eoe_sw.base 0 1410065407
+			replaces patchSG0005568.eoe_sw.base 0 1410065407
+			replaces patchSG0005570.eoe_sw.base 0 1410065407
+			replaces patchSG0005571.eoe_sw.base 0 1410065407
+			replaces patchSG0005576.eoe_sw.base 0 1410065407
+			replaces patchSG0005581.eoe_sw.base 0 1410065407
+			replaces patchSG0005582.eoe_sw.base 0 1410065407
+			replaces patchSG0005585.eoe_sw.base 0 1410065407
+			replaces patchSG0005588.eoe_sw.base 0 1410065407
+			replaces patchSG0005589.eoe_sw.base 0 1410065407
+			replaces patchSG0005591.eoe_sw.base 0 1410065407
+			replaces patchSG0005593.eoe_sw.base 0 1410065407
+			replaces patchSG0005595.eoe_sw.base 0 1410065407
+			replaces patchSG0005597.eoe_sw.base 0 1410065407
+			replaces patchSG0005598.eoe_sw.base 0 1410065407
+			replaces patchSG0005603.eoe_sw.base 0 1410065407
+			replaces patchSG0005604.eoe_sw.base 0 1410065407
+			replaces patchSG0005605.eoe_sw.base 0 1410065407
+			replaces patchSG0005607.eoe_sw.base 0 1410065407
+			replaces patchSG0005611.eoe_sw.base 0 1410065407
+			replaces patchSG0005612.eoe_sw.base 0 1410065407
+			replaces patchSG0005613.eoe_sw.base 0 1410065407
+			replaces patchSG0005614.eoe_sw.base 0 1410065407
+			replaces patchSG0005617.eoe_sw.base 0 1410065407
+			replaces patchSG0005619.eoe_sw.base 0 1410065407
+			replaces patchSG0005620.eoe_sw.base 0 1410065407
+			replaces patchSG0005621.eoe_sw.base 0 1410065407
+			replaces patchSG0005622.eoe_sw.base 0 1410065407
+			replaces patchSG0005624.eoe_sw.base 0 1410065407
+			replaces patchSG0005625.eoe_sw.base 0 1410065407
+			replaces patchSG0005626.eoe_sw.base 0 1410065407
+			replaces patchSG0005627.eoe_sw.base 0 1410065407
+			replaces patchSG0005628.eoe_sw.base 0 1410065407
+			replaces patchSG0005631.eoe_sw.base 0 1410065407
+			replaces patchSG0005633.eoe_sw.base 0 1410065407
+			replaces patchSG0005634.eoe_sw.base 0 1410065407
+			replaces patchSG0005636.eoe_sw.base 0 1410065407
+			replaces patchSG0005637.eoe_sw.base 0 1410065407
+			replaces patchSG0005640.eoe_sw.base 0 1410065407
+			replaces patchSG0005641.eoe_sw.base 0 1410065407
+			replaces patchSG0005643.eoe_sw.base 0 1410065407
+			replaces patchSG0005644.eoe_sw.base 0 1410065407
+			replaces patchSG0005645.eoe_sw.base 0 1410065407
+			replaces patchSG0005649.eoe_sw.base 0 1410065407
+			replaces patchSG0005651.eoe_sw.base 0 1410065407
+			replaces patchSG0005653.eoe_sw.base 0 1410065407
+			replaces patchSG0005654.eoe_sw.base 0 1410065407
+			replaces patchSG0005655.eoe_sw.base 0 1410065407
+			replaces patchSG0005656.eoe_sw.base 0 1410065407
+			replaces patchSG0005657.eoe_sw.base 0 1410065407
+			replaces patchSG0005661.eoe_sw.base 0 1410065407
+			replaces patchSG0005662.eoe_sw.base 0 1410065407
+			replaces patchSG0005663.eoe_sw.base 0 1410065407
+			replaces patchSG0005698.eoe_sw.base 0 1410065407
+			replaces patchSG0005699.eoe_sw.base 0 1410065407
+			replaces patchSG0005702.eoe_sw.base 0 1410065407
+			replaces patchSG0005703.eoe_sw.base 0 1410065407
+			replaces patchSG0005704.eoe_sw.base 0 1410065407
+			replaces patchSG0005707.eoe_sw.base 0 1410065407
+			replaces patchSG0005709.eoe_sw.base 0 1410065407
+			replaces patchSG0005713.eoe_sw.base 0 1410065407
+			replaces patchSG0005714.eoe_sw.base 0 1410065407
+			replaces patchSG0005718.eoe_sw.base 0 1410065407
+			replaces patchSG0005721.eoe_sw.base 0 1410065407
+			replaces patchSG0005725.eoe_sw.base 0 1410065407
+			replaces patchSG0005726.eoe_sw.base 0 1410065407
+			replaces patchSG0005727.eoe_sw.base 0 1410065407
+			replaces patchSG0005728.eoe_sw.base 0 1410065407
+			replaces patchSG0005729.eoe_sw.base 0 1410065407
+			replaces patchSG0005730.eoe_sw.base 0 1410065407
+			replaces patchSG0005732.eoe_sw.base 0 1410065407
+			replaces patchSG0005733.eoe_sw.base 0 1410065407
+			replaces patchSG0005737.eoe_sw.base 0 1410065407
+			replaces patchSG0005738.eoe_sw.base 0 1410065407
+			replaces patchSG0005739.eoe_sw.base 0 1410065407
+			replaces patchSG0005740.eoe_sw.base 0 1410065407
+			replaces patchSG0005741.eoe_sw.base 0 1410065407
+			replaces patchSG0005742.eoe_sw.base 0 1410065407
+			replaces patchSG0005743.eoe_sw.base 0 1410065407
+			replaces patchSG0005744.eoe_sw.base 0 1410065407
+			replaces patchSG0005745.eoe_sw.base 0 1410065407
+			replaces patchSG0005748.eoe_sw.base 0 1410065407
+			replaces patchSG0005750.eoe_sw.base 0 1410065407
+			replaces patchSG0005755.eoe_sw.base 0 1410065407
+			replaces patchSG0005756.eoe_sw.base 0 1410065407
+			replaces patchSG0005757.eoe_sw.base 0 1410065407
+			replaces patchSG0005758.eoe_sw.base 0 1410065407
+			replaces patchSG0005759.eoe_sw.base 0 1410065407
+			replaces patchSG0005765.eoe_sw.base 0 1410065407
+			replaces patchSG0005767.eoe_sw.base 0 1410065407
+			replaces patchSG0005769.eoe_sw.base 0 1410065407
+			replaces patchSG0005772.eoe_sw.base 0 1410065407
+			replaces patchSG0005773.eoe_sw.base 0 1410065407
+			replaces patchSG0005776.eoe_sw.base 0 1410065407
+			replaces patchSG0005777.eoe_sw.base 0 1410065407
+			replaces patchSG0005778.eoe_sw.base 0 1410065407
+			replaces patchSG0005780.eoe_sw.base 0 1410065407
+			replaces patchSG0005784.eoe_sw.base 0 1410065407
+			replaces patchSG0005786.eoe_sw.base 0 1410065407
+			replaces patchSG0005788.eoe_sw.base 0 1410065407
+			replaces patchSG0005791.eoe_sw.base 0 1410065407
+			replaces patchSG0005796.eoe_sw.base 0 1410065407
+			replaces patchSG0005797.eoe_sw.base 0 1410065407
+			replaces patchSG0005799.eoe_sw.base 0 1410065407
+			replaces patchSG0005802.eoe_sw.base 0 1410065407
+			replaces patchSG0005804.eoe_sw.base 0 1410065407
+			replaces patchSG0005805.eoe_sw.base 0 1410065407
+			replaces patchSG0005808.eoe_sw.base 0 1410065407
+			replaces patchSG0005811.eoe_sw.base 0 1410065407
+			replaces patchSG0005812.eoe_sw.base 0 1410065407
+			replaces patchSG0005813.eoe_sw.base 0 1410065407
+			replaces patchSG0005821.eoe_sw.base 0 1410065407
+			replaces patchSG0005822.eoe_sw.base 0 1410065407
+			replaces patchSG0005830.eoe_sw.base 0 1410065407
+			replaces patchSG0005831.eoe_sw.base 0 1410065407
+			replaces patchSG0005832.eoe_sw.base 0 1410065407
+			replaces patchSG0005833.eoe_sw.base 0 1410065407
+			replaces patchSG0005838.eoe_sw.base 0 1410065407
+			replaces patchSG0005841.eoe_sw.base 0 1410065407
+			replaces patchSG0005846.eoe_sw.base 0 1410065407
+			replaces patchSG0005851.eoe_sw.base 0 1410065407
+			replaces patchSG0005852.eoe_sw.base 0 1410065407
+			replaces patchSG0005858.eoe_sw.base 0 1410065407
+			replaces patchSG0005863.eoe_sw.base 0 1410065407
+			replaces patchSG0005864.eoe_sw.base 0 1410065407
+			replaces patchSG0005866.eoe_sw.base 0 1410065407
+			replaces patchSG0005867.eoe_sw.base 0 1410065407
+			replaces patchSG0005869.eoe_sw.base 0 1410065407
+			replaces patchSG0005872.eoe_sw.base 0 1410065407
+			replaces patchSG0005874.eoe_sw.base 0 1410065407
+			replaces patchSG0005877.eoe_sw.base 0 1410065407
+			replaces patchSG0005878.eoe_sw.base 0 1410065407
+			replaces patchSG0005879.eoe_sw.base 0 1410065407
+			replaces patchSG0005880.eoe_sw.base 0 1410065407
+			replaces patchSG0005881.eoe_sw.base 0 1410065407
+			replaces patchSG0005882.eoe_sw.base 0 1410065407
+			replaces patchSG0005883.eoe_sw.base 0 1410065407
+			replaces patchSG0005886.eoe_sw.base 0 1410065407
+			replaces patchSG0005887.eoe_sw.base 0 1410065407
+			replaces patchSG0005888.eoe_sw.base 0 1410065407
+			replaces patchSG0005890.eoe_sw.base 0 1410065407
+			replaces patchSG0005892.eoe_sw.base 0 1410065407
+			replaces patchSG0005893.eoe_sw.base 0 1410065407
+			replaces patchSG0005894.eoe_sw.base 0 1410065407
+			replaces patchSG0005896.eoe_sw.base 0 1410065407
+			replaces patchSG0005901.eoe_sw.base 0 1410065407
+			replaces patchSG0005903.eoe_sw.base 0 1410065407
+			replaces patchSG0005904.eoe_sw.base 0 1410065407
+			replaces patchSG0005906.eoe_sw.base 0 1410065407
+			replaces patchSG0005907.eoe_sw.base 0 1410065407
+			replaces patchSG0005908.eoe_sw.base 0 1410065407
+			replaces patchSG0005910.eoe_sw.base 0 1410065407
+			replaces tooltalk_dev.books.ToolTalk_PG 0 1289624219
+			replaces tooltalk_dev.man.links 0 1289624219
+			replaces tooltalk_dev.man.manpages 0 1289624219
+			replaces tooltalk_dev.man.relnotes 0 1289624219
+			replaces tooltalk_dev.sw.dev 0 1289624219
+			replaces tooltalk_dev.sw.header_links 0 1289624219
+			replaces tooltalk_dev.sw.headers 0 1289624219
+			replaces tooltalk_dev.sw32.dev 0 1289624219
+			replaces tooltalk_dev.sw64.dev 0 1289624219
+			updates Register.sw.Register 0 1278830320
+			incompat 4Dwm.man.relnotes 0 1289606720
+			incompat 4Dwm.sw.4Dwm 0 1289606720
+			incompat FDDIXPress.man.FDDIXPress 0 1289606720
+			incompat FDDIXPress.man.relnotes 0 1289606720
+			incompat FDDIXPress.sw.FDDIXPress 0 1289606720
+			incompat ViewKit_dev.books.ViewKit_PG 0 1289606720
+			incompat ViewKit_dev.man.pages 0 1289606720
+			incompat ViewKit_dev.man.relnotes 0 1289606720
+			incompat ViewKit_dev.sw.base 0 1289606720
+			incompat ViewKit_dev.sw.debug 0 1289606720
+			incompat ViewKit_dev.sw.demo 0 1289606720
+			incompat ViewKit_dev.sw.lib 0 1289606720
+			incompat ViewKit_dev.sw64.debug 0 1289606720
+			incompat ViewKit_dev.sw64.lib 0 1289606720
+			incompat ViewKit_eoe.man.relnotes 0 1289606720
+			incompat ViewKit_eoe.sw.base 0 1289606720
+			incompat ViewKit_eoe.sw64.base 0 1289606720
+			incompat Welcome.doc.Welcome 0 1289606319
+			incompat Welcome.doc.international 0 1289606319
+			incompat Welcome.sw.Welcome 0 1289606319
+			incompat atm.books.api 0 1276661820
+			incompat atm.books.config 0 1276661820
+			incompat atm.man.eoe 0 1276661820
+			incompat atm.man.relnotes 0 1276661820
+			incompat atm.sw.dev 0 1276661820
+			incompat atm.sw.eoe 0 1276661820
+			incompat atm.sw.ilmi 0 1276661820
+			incompat atm.sw.sigd 0 1276661820
+			incompat c++_eoe.man.relnotes 0 1279597009
+			incompat c++_eoe.sw.lib 0 1279597009
+			incompat c++_eoe.sw64.lib 0 1279597009
+			incompat compiler_eoe.man.dso 0 1279597009
+			incompat compiler_eoe.man.relnotes 0 1279597009
+			incompat compiler_eoe.man.unix 0 1279597009
+			incompat compiler_eoe.sw.cpp 0 1279597009
+			incompat compiler_eoe.sw.lboot 0 1279597009
+			incompat compiler_eoe.sw.lib 0 1279597009
+			incompat compiler_eoe.sw.unix 0 1279597009
+			incompat compiler_eoe.sw64.lib 0 1279597009
+			incompat compiler_eoe.sw64.unix 0 1279597009
+			incompat cxfs.sw.cxfs 0 1289624219
+			incompat dba.man.relnotes 0 1289606720
+			incompat dba.sw.dba 0 1289606720
+			incompat dba.sw.oracle 0 1289606720
+			incompat desktop_base.man.base 0 1289606720
+			incompat desktop_base.man.relnotes 0 1289606720
+			incompat desktop_base.sw.FileTypingRules 0 1289606720
+			incompat desktop_base.sw.dso 0 1289606720
+			incompat desktop_base.sw.dso6_2 0 1289606720
+			incompat desktop_base.sw.ftrdso6_2 0 1289606720
+			incompat desktop_base.sw.utilities 0 1289606720
+			incompat desktop_base.sw64.ftrdso6_2 0 1289606720
+			incompat desktop_eoe.books.ConfTestErrors 0 1289606720
+			incompat desktop_eoe.books.ConfTestHelp 0 1289606720
+			incompat desktop_eoe.books.Desktop_UG 0 1289606720
+			incompat desktop_eoe.books.ErrorMessageHelp 0 1289606720
+			incompat desktop_eoe.books.Hints_Shortcuts 0 1289606720
+			incompat desktop_eoe.books.PerSysAdmin 0 1289606720
+			incompat desktop_eoe.books.QuickAnswers_Help 0 1289606720
+			incompat desktop_eoe.books.WebJumperHelp 0 1289606720
+			incompat desktop_eoe.man.eoe 0 1289606720
+			incompat desktop_eoe.man.relnotes 0 1289606720
+			incompat desktop_eoe.sw.Confidence 0 1289606720
+			incompat desktop_eoe.sw.Desks 0 1289606720
+			incompat desktop_eoe.sw.control_panels 0 1289606720
+			incompat desktop_eoe.sw.envm 0 1289606720
+			incompat desktop_eoe.sw.share 0 1289606720
+			incompat desktop_eoe.sw.toolchest 0 1289606720
+			incompat desktop_tools.man.relnotes 0 1289606720
+			incompat desktop_tools.sw.tools 0 1289606720
+			incompat dev.books.CrayMsg_PG 0 1289606720
+			incompat dev.books.IIDsktp_IG 0 1289606720
+			incompat dev.books.IRIX_NetPG 0 1289606720
+			incompat dev.books.MMC_PG 0 1289606720
+			incompat dev.books.T_IRIX_Prog 0 1289606720
+			incompat dev.books.UI_Glines 0 1289606720
+			incompat dev.man.irix_lib 0 1289606720
+			incompat dev.man.relnotes 0 1289606720
+			incompat dev.sw.abi 0 1289606720
+			incompat dev.sw.lib 0 1289606720
+			incompat dev.sw.make 0 1289606720
+			incompat dev.sw64.lib 0 1289606720
+			incompat divo.books.DIVO_OG 0 1289606720
+			incompat divo.books.DigMedCnex 0 1289606720
+			incompat divo.man.pages 0 1289606720
+			incompat divo.man.relnotes 0 1289606720
+			incompat divo.sw.demos 0 1289606720
+			incompat divo.sw.diags 0 1289606720
+			incompat divo.sw.eoe 0 1289606720
+			incompat divo.sw.gifts 0 1289606720
+			incompat dmedia_dev.books.DMExamples 0 1289606720
+			incompat dmedia_dev.books.DMediaDev_PG 0 1289606720
+			incompat dmedia_dev.man.pages 0 1289606720
+			incompat dmedia_dev.man.relnotes 0 1289606720
+			incompat dmedia_dev.src.examples 0 1289606720
+			incompat dmedia_dev.sw.base 0 1289606720
+			incompat dmedia_dev.sw.debug 0 1289606720
+			incompat dmedia_dev.sw64.base 0 1289606720
+			incompat dmedia_eoe.books.FXbuilder_Help 0 1289606720
+			incompat dmedia_eoe.books.MediaTls_UG 0 1289606720
+			incompat dmedia_eoe.books.SynthEditor_UG 0 1289606720
+			incompat dmedia_eoe.man.pages 0 1289606720
+			incompat dmedia_eoe.man.relnotes 0 1289606720
+			incompat dmedia_eoe.sw.audio 0 1289606720
+			incompat dmedia_eoe.sw.base 0 1289606720
+			incompat dmedia_eoe.sw.lib 0 1289606720
+			incompat dmedia_eoe.sw.plugins 0 1289606720
+			incompat dmedia_eoe.sw.synth 0 1289606720
+			incompat dmedia_eoe.sw.tools 0 1289606720
+			incompat dmedia_eoe.sw64.lib 0 1289606720
+			incompat dvdr.books.DevDriver_PG 0 1289606720
+			incompat dvdr.man.driver 0 1289606720
+			incompat dwb.sw.dwb 0 1276293020
+			incompat dwb.sw.share 0 1276293020
+			incompat eoe.books.grio2 0 1289606720
+			incompat eoe.books.help 0 1289606720
+			incompat eoe.books.sgi_admin 0 1289606720
+			incompat eoe.books.xvm 0 1289606720
+			incompat eoe.man.base 0 1289606720
+			incompat eoe.man.gifts_perl 0 1289606720
+			incompat eoe.man.gltools 0 1289606720
+			incompat eoe.man.imagetools 0 1289606720
+			incompat eoe.man.ipv6 0 1289606720
+			incompat eoe.man.ipv6_rn 0 1289606720
+			incompat eoe.man.oampkg 0 1289606720
+			incompat eoe.man.pam 0 1289606720
+			incompat eoe.man.pam_rn 0 1289606720
+			incompat eoe.man.relnotes 0 1289606720
+			incompat eoe.man.xvm 0 1289606720
+			incompat eoe.src.gnutools 0 1289606720
+			incompat eoe.src.pam 0 1289606720
+			incompat eoe.src.sendmail 0 1289606720
+			incompat eoe.sw.acct 0 1289606720
+			incompat eoe.sw.acl 0 1289606720
+			incompat eoe.sw.audit 0 1289606720
+			incompat eoe.sw.cdrom 0 1289606720
+			incompat eoe.sw.cpr 0 1289606720
+			incompat eoe.sw.csaacct 0 1289606720
+			incompat eoe.sw.dlpi 0 1289606720
+			incompat eoe.sw.dmi 0 1289606720
+			incompat eoe.sw.efs 0 1289606720
+			incompat eoe.sw.gfx 0 1289606720
+			incompat eoe.sw.gifts_perl 0 1289606720
+			incompat eoe.sw.gifts_perl_lib 0 1289606720
+			incompat eoe.sw.gltools 0 1289606720
+			incompat eoe.sw.grio2 0 1289606720
+			incompat eoe.sw.imagetools 0 1289606720
+			incompat eoe.sw.ipgate 0 1289606720
+			incompat eoe.sw.ipv6 0 1289606720
+			incompat eoe.sw.jlimits 0 1289606720
+			incompat eoe.sw.kdebug 0 1289606720
+			incompat eoe.sw.miser 0 1289606720
+			incompat eoe.sw.named 0 1289606720
+			incompat eoe.sw.netman 0 1289606720
+			incompat eoe.sw.oampkg 0 1289606720
+			incompat eoe.sw.optinput 0 1289606720
+			incompat eoe.sw.pam 0 1289606720
+			incompat eoe.sw.pam_dev 0 1289606720
+			incompat eoe.sw.partition 0 1289606720
+			incompat eoe.sw.perf 0 1289606720
+			incompat eoe.sw.ppp 0 1289606720
+			incompat eoe.sw.quotas 0 1289606720
+			incompat eoe.sw.rcs 0 1289606720
+			incompat eoe.sw.rfindd 0 1289606720
+			incompat eoe.sw.rm_media 0 1289606720
+			incompat eoe.sw.sccs 0 1289606720
+			incompat eoe.sw.slip 0 1289606720
+			incompat eoe.sw.spell 0 1289606720
+			incompat eoe.sw.stp 0 1289606720
+			incompat eoe.sw.svr4net 0 1289606720
+			incompat eoe.sw.termbase 0 1289606720
+			incompat eoe.sw.udf 0 1289606720
+			incompat eoe.sw.unc 0 1289606720
+			incompat eoe.sw.usrshare 0 1289606720
+			incompat eoe.sw.uucp 0 1289606720
+			incompat eoe.sw.xfsrt 0 1289606720
+			incompat eoe.sw.xlv 0 1289606720
+			incompat eoe.sw.xlvplex 0 1289606720
+			incompat eoe.sw.xvm 0 1289606720
+			incompat eoe.sw64.gfx 0 1289606720
+			incompat eoe.sw64.lib 0 1289606720
+			incompat eoe.sw64.pam 0 1289606720
+			incompat evo.books.OctPersVid_PG 0 1289606720
+			incompat evo.man.relnotes 0 1289606720
+			incompat evo.sw.demos 0 1289606720
+			incompat evo.sw.eoe 0 1289606720
+			incompat ftn_eoe.man.relnotes 0 1279597009
+			incompat ftn_eoe.sw.lib 0 1279597009
+			incompat ftn_eoe.sw.libblas 0 1279597009
+			incompat ftn_eoe.sw.libeag 0 1279597009
+			incompat ftn_eoe.sw64.lib 0 1279597009
+			incompat ftn_eoe.sw64.libblas 0 1279597009
+			incompat ftn_eoe.sw64.libeag 0 1279597009
+			incompat gl_dev.books.OpenGL_PG 0 1289606720
+			incompat gl_dev.books.OpenGL_Porting 0 1289606720
+			incompat gl_dev.books.OpenGL_RM 0 1289606720
+			incompat gl_dev.books.OpenGLonSGI 0 1289606720
+			incompat gl_dev.man.fortran 0 1289606720
+			incompat gl_dev.man.gldev 0 1289606720
+			incompat gl_dev.man.ogldebug 0 1289606720
+			incompat gl_dev.man.relnotes 0 1289606720
+			incompat gl_dev.man.widget 0 1289606720
+			incompat gl_dev.sw.fortran 0 1289606720
+			incompat gl_dev.sw.gldebug 0 1289606720
+			incompat gl_dev.sw.gldev 0 1289606720
+			incompat gl_dev.sw.ogldebug 0 1289606720
+			incompat gl_dev.sw.samples 0 1289606720
+			incompat gl_dev.sw.widget 0 1289606720
+			incompat gl_dev.sw64.fortran 0 1289606720
+			incompat gl_dev.sw64.ogldebug 0 1289606720
+			incompat gl_dev.sw64.widget 0 1289606720
+			incompat ifl_dev.man.c++ 0 1319606720
+			incompat ifl_dev.man.relnotes 0 1319606720
+			incompat ifl_dev.sw.c++ 0 1319606720
+			incompat ifl_dev.sw.debug 0 1319606720
+			incompat ifl_dev.sw.gifts 0 1319606720
+			incompat ifl_dev.sw64.debug 0 1319606720
+			incompat ifl_eoe.man.relnotes 0 1319606720
+			incompat ifl_eoe.sw.c++ 0 1319606720
+			incompat ifl_eoe.sw64.c++ 0 1319606720
+			incompat il_dev.books.ProgGuide 0 1319606720
+			incompat il_dev.man.c++ 0 1319606720
+			incompat il_dev.man.relnotes 0 1319606720
+			incompat il_dev.sw.c++ 0 1319606720
+			incompat il_dev.sw.debug 0 1319606720
+			incompat il_dev.sw.monitor 0 1319606720
+			incompat il_dev.sw.vk 0 1319606720
+			incompat il_dev.sw64.debug 0 1319606720
+			incompat il_dev.sw64.monitor 0 1319606720
+			incompat il_eoe.man.relnotes 0 1319606720
+			incompat il_eoe.sw.c++ 0 1319606720
+			incompat il_eoe.sw.il2_5 0 1319606720
+			incompat il_eoe.sw.il3_0 0 1319606720
+			incompat il_eoe.sw.vk 0 1319606720
+			incompat il_eoe.sw64.c++ 0 1319606720
+			incompat il_eoe.sw64.vk 0 1319606720
+			incompat impactcomp.books.Ind2IMCpres_PG 0 1289606720
+			incompat impactcomp.books.OctaneCpres_PG 0 1289606720
+			incompat impactcomp.man.relnotes 0 1289606720
+			incompat impactcomp.sw.eoe 0 1289606720
+			incompat impactdm.man.relnotes 0 1289606720
+			incompat impactdm.sw.eoe 0 1289606720
+			incompat impactvideo.books.OctDigVid_PG 0 1289606720
+			incompat impactvideo.man.relnotes 0 1289606720
+			incompat impactvideo.sw.demos 0 1289606720
+			incompat impactvideo.sw.eoe 0 1289606720
+			incompat impr_base.books.Impr_UG 0 1289606720
+			incompat impr_base.man.impr 0 1289606720
+			incompat impr_base.man.relnotes 0 1289606720
+			incompat impr_base.sw.impr 0 1289606720
+			incompat impr_dev.books.Impr_PG 0 1289606720
+			incompat impr_dev.man.impr 0 1289606720
+			incompat impr_dev.sw.impr 0 1289606720
+			incompat impr_dev.sw32.impr 0 1289606720
+			incompat impr_dev.sw32.motif21 0 1289606720
+			incompat impr_dev.sw64.impr 0 1289606720
+			incompat impr_dev.sw64.motif21 0 1289606720
+			incompat impr_print.sw.colorps 0 1289606720
+			incompat impr_print.sw.laserjetPS 0 1289606720
+			incompat impr_print.sw.laserwriter 0 1289606720
+			incompat impr_print.sw.ppd_unsupported 0 1289606720
+			incompat impr_scan.sw.hp 0 1289606720
+			incompat impr_scan.sw.ricoh 0 1289606720
+			incompat impr_scan.sw.sharpscsi 0 1289606720
+			incompat insight_dev.books.IPTemplate 0 1275093220
+			incompat insight_dev.books.InProPub_UG 0 1275093220
+			incompat insight_dev.man.relnotes 0 1275093220
+			incompat insight_dev.sw.rules 0 1275093220
+			incompat insight_dev.sw.samples 0 1275093220
+			incompat insight_dev.sw.tools 0 1275093220
+			incompat insight_dev.sw.xhelp 0 1275093220
+			incompat inst_dev.books.Swpkg_UG 0 1289606720
+			incompat inst_dev.man.manpages 0 1289606720
+			incompat inst_dev.man.relnotes 0 1289606720
+			incompat inst_dev.sw.base 0 1289606720
+			incompat ip32prom.sw.prom 0 1289606720
+			incompat irix_dev.gifts.prio 0 1289606720
+			incompat irix_dev.gifts.scsi 0 1289606720
+			incompat irix_dev.man.relnotes 0 1289606720
+			incompat irix_dev.sw.headers 0 1289606720
+			incompat isdn_eoe.man.relnotes 0 1289606720
+			incompat isdn_eoe.sw.isdn 0 1289606720
+			incompat javascript.sw.eoe 0 1289624219
+			incompat javascript.sw32.eoe 0 1289624219
+			incompat license_dev.books.FLEXlm_PG 0 1289606720
+			incompat license_dev.demo.flexlm 0 1289606720
+			incompat license_dev.hdr.flexlm 0 1289606720
+			incompat license_dev.lib.flexlm 0 1289606720
+			incompat license_dev.lib32.flexlm 0 1289606720
+			incompat license_dev.lib64.flexlm 0 1289606720
+			incompat license_dev.man.lib 0 1289606720
+			incompat license_dev.man.relnotes 0 1289606720
+			incompat media_warehouse.man.relnotes 0 1289606720
+			incompat media_warehouse.sw.viewers 0 1289606720
+			incompat media_warehouse.sw.viewers_audio 0 1289606720
+			incompat media_warehouse.sw.viewers_html 0 1289606720
+			incompat media_warehouse.sw.viewers_image 0 1289606720
+			incompat media_warehouse.sw.viewers_inventor 0 1289606720
+			incompat media_warehouse.sw.viewers_movie 0 1289606720
+			incompat motif_dev.man.dev 0 1279606720
+			incompat motif_dev.man.devmansrc 0 1279606720
+			incompat motif_dev.man.relnotes 0 1279606720
+			incompat motif_dev.sw.Mrm-debug 0 1279606720
+			incompat motif_dev.sw.Uil-debug 0 1279606720
+			incompat motif_dev.sw.Uil-static 0 1279606720
+			incompat motif_dev.sw.Xm-debug 0 1279606720
+			incompat motif_dev.sw.Xm-static 0 1279606720
+			incompat motif_dev.sw.dev 0 1279606720
+			incompat motif_dev.sw64.Mrm-debug 0 1279606720
+			incompat motif_dev.sw64.Mrm-static 0 1279606720
+			incompat motif_dev.sw64.Uil-debug 0 1279606720
+			incompat motif_dev.sw64.Uil-static 0 1279606720
+			incompat motif_dev.sw64.Xm-debug 0 1279606720
+			incompat motif_dev.sw64.Xm-static 0 1279606720
+			incompat motif_eoe.man.eoe 0 1289606720
+			incompat motif_eoe.man.relnotes 0 1289606720
+			incompat motif_eoe.sw.eoe 0 1289606720
+			incompat motif_eoe.sw.mwm 0 1289606720
+			incompat motif_eoe.sw.mwm21 0 1289606720
+			incompat motif_eoe.sw.uil 0 1289606720
+			incompat motif_eoe.sw64.eoe 0 1289606720
+			incompat motif_eoe.sw64.uil 0 1289606720
+			incompat nfs.books.NIS_AG 0 1289606720
+			incompat nfs.books.ONC3NFS_AG 0 1289606720
+			incompat nfs.man.nfs 0 1289606720
+			incompat nfs.man.relnotes 0 1289606720
+			incompat nfs.sw.acl_nfs 0 1289606720
+			incompat nfs.sw.autofs 0 1289606720
+			incompat nfs.sw.cachefs 0 1289606720
+			incompat nfs.sw.dskless_client 0 1289606720
+			incompat nfs.sw.dskless_server 0 1289606720
+			incompat nfs.sw.nfs 0 1289606720
+			incompat nfs.sw.nis 0 1289606720
+			incompat nfs.sw.rpcsec 0 1289606720
+			incompat patchSG0003310.eoe_sw.base 0 1410065407
+			incompat patchSG0003354.eoe_sw.base 0 1410065407
+			incompat patchSG0003606.eoe_sw.base 0 1410065407
+			incompat patchSG0003816.eoe_sw.base 0 1410065407
+			incompat patchSG0003836.eoe_sw.base 0 1410065407
+			incompat patchSG0003919.eoe_sw.base 0 1410065407
+			incompat patchSG0004243.eoe_sw.base 0 1410065407
+			incompat patchSG0004285.eoe_sw.base 0 1410065407
+			incompat patchSG0004377.eoe_sw.base 0 1410065407
+			incompat patchSG0004582.eoe_sw.base 0 1410065407
+			incompat patchSG0004943.eoe_sw.base 0 1410065407
+			incompat patchSG0004946.eoe_sw.base 0 1410065407
+			incompat patchSG0004947.eoe_sw.base 0 1410065407
+			incompat patchSG0005161.eoe_sw.base 0 1410065407
+			incompat patchSG0005205.eoe_sw.base 0 1410065407
+			incompat patchSG0005273.eoe_sw.base 0 1410065407
+			incompat patchSG0005274.eoe_sw.base 0 1410065407
+			incompat patchSG0005399.eoe_sw.base 0 1410065407
+			incompat patchSG0005432.eoe_sw.base 0 1410065407
+			incompat patchSG0005587.eoe_sw.base 0 1410065407
+			incompat pcp_eoe.books.OViewHelp 0 1289606720
+			incompat pcp_eoe.books.PmRunHelp 0 1289606720
+			incompat pcp_eoe.books.PmTimeHelp 0 1289606720
+			incompat pcp_eoe.books.PmViewHelp 0 1289606720
+			incompat pcp_eoe.man.pages 0 1289606720
+			incompat pcp_eoe.man.relnotes 0 1289606720
+			incompat pcp_eoe.sw.eoe 0 1289606720
+			incompat pcp_eoe.sw.monitor 0 1289606720
+			incompat pcp_eoe.sw64.eoe 0 1289606720
+			incompat print.man.bsdlpr 0 1289606720
+			incompat print.man.desktop 0 1289606720
+			incompat print.man.relnotes 0 1289606720
+			incompat print.man.spooler 0 1289606720
+			incompat print.sw.bsdlpr 0 1289606720
+			incompat print.sw.desktop 0 1289606720
+			incompat print.sw.spooler 0 1289606720
+			incompat react.sw.frs 0 1274627333
+			incompat roboinst.man.man 0 1289606720
+			incompat roboinst.man.relnotes 0 1289606720
+			incompat roboinst.sw.client 0 1289606720
+			incompat roboinst.sw.examples 0 1289606720
+			incompat roboinst.sw.server 0 1289606720
+			incompat sysadmdesktop.man.base 0 1289606720
+			incompat sysadmdesktop.man.relnotes 0 1289606720
+			incompat sysadmdesktop.sw.base 0 1289606720
+			incompat sysadmdesktop.sw.sysadm 0 1289606720
+			incompat sysmon.books.ErrorHelp 0 1289606720
+			incompat sysmon.man.relnotes 0 1289606720
+			incompat sysmon.sw.notifier 0 1289606720
+			incompat sysmon.sw.viewer 0 1289606720
+			incompat tooltalk_eoe.books.ToolTalk_AG 0 1289606720
+			incompat tooltalk_eoe.man.links 0 1289606720
+			incompat tooltalk_eoe.man.manpages 0 1289606720
+			incompat tooltalk_eoe.man.relnotes 0 1289606720
+			incompat tooltalk_eoe.sw.links 0 1289606720
+			incompat tooltalk_eoe.sw.runtime 0 1289606720
+			incompat tooltalk_eoe.sw32.runtime 0 1289606720
+			incompat tooltalk_eoe.sw64.runtime 0 1289606720
+			incompat vfc.books.VFC_PG 0 1289606720
+			incompat vfc.sw.base 0 1289606720
+			incompat websupport_eoe.man.relnotes 0 1289606720
+			incompat websupport_eoe.sw.lib 0 1289606720
+			incompat websupport_eoe.sw32.lib 0 1289606720
+			incompat websupport_eoe.sw64.lib 0 1289606720
+			incompat webviewer.books.WebCP_Help 0 1289606720
+			incompat webviewer.man.relnotes 0 1289606720
+			incompat webviewer.sw.browser 0 1289606720
+			incompat webviewer.sw.eoe 0 1289606720
+			incompat webviewer.sw.eoe_v1 0 1289606720
+			incompat webviewer.sw.eoe_v2 0 1289606720
+			incompat webviewer_dev.man.relnotes 0 1289606720
+			incompat webviewer_dev.sw.debug 0 1289606720
+			incompat x_dev.man.mandev 0 1289606720
+			incompat x_dev.man.pex 0 1289606720
+			incompat x_dev.man.relnotes 0 1289606720
+			incompat x_dev.src.examples 0 1289606720
+			incompat x_dev.sw.binaries 0 1289606720
+			incompat x_dev.sw.dev 0 1289606720
+			incompat x_dev.sw.pex 0 1289606720
+			incompat x_dev.sw64.dev 0 1289606720
+			incompat x_eoe.man.Server 0 1289606720
+			incompat x_eoe.man.Xapps 0 1289606720
+			incompat x_eoe.man.Xgifts 0 1289606720
+			incompat x_eoe.man.eoe 0 1289606720
+			incompat x_eoe.man.plugin 0 1289606720
+			incompat x_eoe.man.relnotes 0 1289606720
+			incompat x_eoe.man.xfwp 0 1289606720
+			incompat x_eoe.src.rx_examples 0 1289606720
+			incompat x_eoe.sw.Artifex_fonts 0 1289606720
+			incompat x_eoe.sw.Server 0 1289606720
+			incompat x_eoe.sw.Xapps 0 1289606720
+			incompat x_eoe.sw.Xfonts 0 1289606720
+			incompat x_eoe.sw.Xgifts 0 1289606720
+			incompat x_eoe.sw.Xoptfonts 0 1289606720
+			incompat x_eoe.sw.Xopttype1 0 1289606720
+			incompat x_eoe.sw.Xunicodefonts 0 1289606720
+			incompat x_eoe.sw.eoe 0 1289606720
+			incompat x_eoe.sw.pex 0 1289606720
+			incompat x_eoe.sw.plugin 0 1289606720
+			incompat x_eoe.sw.xfwp 0 1289606720
+			incompat x_eoe.sw64.eoe 0 1289606720
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys cdrom	 # (eoe.sw.cdrom)
+			id "CD-ROM Filesystem and CD audio Support"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.cdrom)"
+			replaces maint*.eoe_sw.cdrom 0 1289624219
+			replaces eoe.sw.cdrom 0 1289624219
+			replaces patchSG0003950.eoe_sw.cdrom 0 1410065407
+			replaces patchSG0004219.eoe_sw.cdrom 0 1410065407
+			replaces patchSG0004223.eoe_sw.cdrom 0 1410065407
+			replaces patchSG0004301.eoe_sw.cdrom 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys cpr	 # (eoe.sw.cpr)
+			id "SGI Checkpoint-Restart Software"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (irix_eoe.sw.cpr)"
+			replaces maint*.eoe_sw.cpr 0 1289624219
+			replaces eoe.sw.cpr 0 1289624219
+			replaces patchSG0003829.eoe_sw.cpr 0 1410065407
+			replaces patchSG0004083.eoe_sw.cpr 0 1410065407
+			replaces patchSG0004116.eoe_sw.cpr 0 1410065407
+			replaces patchSG0004274.eoe_sw.cpr 0 1410065407
+			replaces patchSG0004370.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005264.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005265.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005266.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005267.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005268.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005269.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005385.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005512.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005606.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005607.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005608.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005609.eoe_sw.cpr 0 1410065407
+			replaces patchSG0005610.eoe_sw.cpr 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys csaacct	 # (eoe.sw.csaacct)
+			id "CSA, Comprehensive System Accounting"
+			miniroot
+			exp "!noship && (eoe_eoe.sw.csaacct)"
+			replaces patch*.eoe_sw.csaacct 0 1289624219
+			replaces maint*.eoe_sw.csaacct 0 1289624219
+			replaces eoe.sw.csaacct 0 1289624219
+			prereq (
+				eoe.sw.acct 1289624220 1289624220
+				eoe.sw.jlimits 1289624220 1289624220
+			)
+		endsubsys
+
+		subsys dlpi	 # (eoe.sw.dlpi)
+			id "Data Link Provider Interface"
+			default
+			overlays 1274627340 1274627340
+			exp irix_eoe.sw.dlpi
+			replaces maint*.eoe_sw.dlpi 0 1289624219
+			replaces eoe.sw.dlpi 0 1289624219
+			replaces patchSG0003956.eoe_sw.dlpi 0 1410065407
+			replaces patchSG0003957.eoe_sw.dlpi 0 1410065407
+			replaces patchSG0003998.eoe_sw.dlpi 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys dmi	 # (eoe.sw.dmi)
+			id "Hierarchical Storage Management Support"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (irix_eoe.sw.dmi || eoe_eoe.sw.dmi)"
+			replaces maint*.eoe_sw.dmi 0 1289624219
+			replaces eoe.sw.dmi 0 1289624219
+			replaces patchSG0003930.eoe_sw.dmi 0 1410065407
+			replaces patchSG0003956.eoe_sw.dmi 0 1410065407
+			replaces patchSG0003957.eoe_sw.dmi 0 1410065407
+			replaces patchSG0003967.eoe_sw.dmi 0 1410065407
+			replaces patchSG0003998.eoe_sw.dmi 0 1410065407
+			replaces patchSG0004019.eoe_sw.dmi 0 1410065407
+			replaces patchSG0004026.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005111.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005433.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005552.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005632.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005636.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005637.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005703.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005799.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005812.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005893.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005894.eoe_sw.dmi 0 1410065407
+			replaces patchSG0005908.eoe_sw.dmi 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys efs	 # (eoe.sw.efs)
+			id "EFS Filesystem"
+			default required miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.efs || irix_eoe.sw.efs)"
+			replaces maint*.eoe_sw.efs 0 1289624219
+			replaces eoe.sw.efs 0 1289624219
+			replaces patchSG0003956.eoe_sw.efs 0 1410065407
+			replaces patchSG0003957.eoe_sw.efs 0 1410065407
+			replaces patchSG0003998.eoe_sw.efs 0 1410065407
+			replaces patchSG0004771.eoe_sw.efs 0 1410065407
+			replaces patchSG0004772.eoe_sw.efs 0 1410065407
+			replaces patchSG0004819.eoe_sw.efs 0 1410065407
+			replaces patchSG0004820.eoe_sw.efs 0 1410065407
+			replaces patchSG0004887.eoe_sw.efs 0 1410065407
+			replaces patchSG0004888.eoe_sw.efs 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys gfx	 # (eoe.sw.gfx)
+			id "Graphics Execution Environment"
+			required (GFXBOARD!=SERVER) required (GFXBOARD!=SERVER) required (GFXBOARD!=SERVER) default miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (gfx_eoe.sw.dso || 			gfx_eoe.sw.mast || gfx_eoe.sw.eoe || gfx_eoe.sw.ide || 			gfx_eoe.sw32.dso)"
+			replaces maint*.eoe_sw.gfx 0 1289624219
+			replaces eoe.sw.gfx 0 1289624219
+			replaces patchSG0003396.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003446.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003590.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003591.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003698.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003774.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003775.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003788.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003927.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003928.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003952.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003953.eoe_sw.gfx 0 1410065407
+			replaces patchSG0003990.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004010.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004011.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004016.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004017.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004018.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004030.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004089.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004090.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004103.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004104.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004106.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004129.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004130.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004135.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004143.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004191.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004198.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004199.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004203.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004216.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004267.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004298.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004323.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004343.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004384.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004388.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004396.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004404.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004421.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004422.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004450.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004454.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004476.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004487.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004497.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004515.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004523.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004524.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004542.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004546.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004567.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004578.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004609.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004624.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004629.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004668.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004674.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004707.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004716.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004723.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004731.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004753.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004778.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004804.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004825.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004851.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004897.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004899.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004901.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004939.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004997.eoe_sw.gfx 0 1410065407
+			replaces patchSG0004998.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005094.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005096.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005145.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005158.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005162.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005208.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005255.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005256.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005257.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005336.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005339.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005360.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005370.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005403.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005448.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005464.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005475.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005490.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005506.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005585.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005594.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005599.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005633.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005651.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005701.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005709.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005750.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005800.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005801.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005809.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005810.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005851.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005859.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005871.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005891.eoe_sw.gfx 0 1410065407
+			replaces patchSG0005895.eoe_sw.gfx 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys gifts_perl	 # (eoe.sw.gifts_perl)
+			id "Perl Software"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && eoe_eoe.sw.perl"
+			replaces maint*.eoe_sw.gifts_perl 0 1289624219
+			replaces eoe.sw.gifts_perl 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys gifts_perl_lib	 # (eoe.sw.gifts_perl_lib)
+			id "Perl Libraries"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && eoe_eoe.sw.perl_lib"
+			replaces maint*.eoe_sw.gifts_perl_lib 0 1289624219
+			replaces eoe.sw.gifts_perl_lib 0 1289624219
+			replaces patchSG0005424.eoe_sw.gifts_perl_lib 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys gltools	 # (eoe.sw.gltools)
+			id "Graphics Library Tools"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (gfx_eoe.sw.gltools)"
+			replaces maint*.eoe_sw.gltools 0 1289624219
+			replaces eoe.sw.gltools 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys grio2	 # (eoe.sw.grio2)
+			id "Guaranteed Rate I/O (version 2)"
+			miniroot
+			exp "!noship && irix_eoe.sw.grio2"
+			replaces patch*.eoe_sw.grio2 0 1289624219
+			replaces maint*.eoe_sw.grio2 0 1289624219
+			replaces eoe.sw.grio2 0 1289624219
+			prereq (
+				eoe.sw.xvm 1289624220 1289624220
+			)
+		endsubsys
+
+		subsys imagetools	 # (eoe.sw.imagetools)
+			id "Graphics Library Image Tools"
+			overlays 1274627340 1274627340
+			exp "!noship && (gfx_eoe.sw.imgtools)"
+			replaces maint*.eoe_sw.imagetools 0 1289624219
+			replaces eoe.sw.imagetools 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys ipgate	 # (eoe.sw.ipgate)
+			id "IP Network Gateway Support"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (mroute || eoe_eoe.sw.ipgateway || 				irix_eoe.sw.ipgateway || netman.sw.ipgateway)"
+			replaces maint*.eoe_sw.ipgate 0 1289624219
+			replaces eoe.sw.ipgate 0 1289624219
+			replaces patchSG0003956.eoe_sw.ipgate 0 1410065407
+			replaces patchSG0003957.eoe_sw.ipgate 0 1410065407
+			replaces patchSG0003998.eoe_sw.ipgate 0 1410065407
+			replaces patchSG0004002.eoe_sw.ipgate 0 1410065407
+			replaces patchSG0004081.eoe_sw.ipgate 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys ipv6	 # (eoe.sw.ipv6)
+			id "IP Version 6 Networking"
+			miniroot
+			exp "!noship && (eoe_eoe.sw.ipv6 || irix_eoe.sw.ipv6)"
+			replaces patch*.eoe_sw.ipv6 0 1289624219
+			replaces maint*.eoe_sw.ipv6 0 1289624219
+			replaces eoe.sw.ipv6 0 1289624219
+		endsubsys
+
+		subsys jlimits	 # (eoe.sw.jlimits)
+			id "JLIMITS, Job Limits"
+			miniroot
+			exp "!noship && (eoe_eoe.sw.jlimits || irix_eoe.sw.jlimits)"
+			replaces patch*.eoe_sw.jlimits 0 1289624219
+			replaces maint*.eoe_sw.jlimits 0 1289624219
+			replaces eoe.sw.jlimits 0 1289624219
+		endsubsys
+
+		subsys kdebug	 # (eoe.sw.kdebug)
+			id "Kernel Debugger modules"
+			overlays 1274627340 1274627340
+			exp "!noship && (irix_eoe.sw.kdebug || stand_root.sw.kdebug)"
+			replaces maint*.eoe_sw.kdebug 0 1289624219
+			replaces eoe.sw.kdebug 0 1289624219
+			replaces patchSG0003098.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003167.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003342.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003412.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003558.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003675.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003753.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003801.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003810.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003813.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003884.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003956.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003957.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003978.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0003998.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004002.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004026.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004082.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004111.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004223.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004248.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004249.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004250.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004263.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004265.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004266.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004292.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004293.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004294.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004295.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004301.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004302.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004313.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004314.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004315.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004316.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004337.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004358.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004375.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004376.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004395.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004405.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004414.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004415.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004417.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004419.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004420.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004438.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004445.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004446.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004467.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004471.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004472.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004528.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004529.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004562.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004565.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004573.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004591.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004592.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004673.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004678.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004682.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004691.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004702.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004703.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004722.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004781.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004920.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004930.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004934.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004994.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0004995.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005020.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005058.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005064.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005114.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005153.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005165.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005167.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005214.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005215.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005270.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005297.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005298.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005315.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005327.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005378.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005415.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005416.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005437.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005439.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005440.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005446.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005449.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005451.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005452.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005454.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005461.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005466.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005469.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005510.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005520.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005554.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005588.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005589.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005614.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005714.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005721.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005726.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005738.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005772.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005773.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005802.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005804.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005805.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005822.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005886.eoe_sw.kdebug 0 1410065407
+			replaces patchSG0005906.eoe_sw.kdebug 0 1410065407
+			incompat patchSG0003836.eoe_sw.kdebug 0 1410065407
+			incompat patchSG0004377.eoe_sw.kdebug 0 1410065407
+			incompat patchSG0004946.eoe_sw.kdebug 0 1410065407
+			incompat patchSG0004947.eoe_sw.kdebug 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys miser	 # (eoe.sw.miser)
+			id "Miser: Resource management system"
+			default (MODE=64bit && CPUBOARD!=IP26 && CPUBOARD!=IP27) default (MODE=64bit && CPUBOARD!=IP26 && CPUBOARD!=IP27) default (MODE=64bit && CPUBOARD!=IP26 && CPUBOARD!=IP27)
+			overlays 1274627340 1274627340
+			exp eoe_eoe.sw.miser
+			replaces maint*.eoe_sw.miser 0 1289624219
+			replaces eoe.sw.miser 0 1289624219
+			replaces patchSG0003826.eoe_sw.miser 0 1410065407
+			replaces patchSG0003859.eoe_sw.miser 0 1410065407
+			replaces patchSG0003870.eoe_sw.miser 0 1410065407
+			replaces patchSG0003896.eoe_sw.miser 0 1410065407
+			replaces patchSG0003949.eoe_sw.miser 0 1410065407
+			replaces patchSG0003989.eoe_sw.miser 0 1410065407
+			replaces patchSG0004026.eoe_sw.miser 0 1410065407
+			replaces patchSG0004225.eoe_sw.miser 0 1410065407
+			replaces patchSG0005281.eoe_sw.miser 0 1410065407
+			replaces patchSG0005283.eoe_sw.miser 0 1410065407
+			replaces patchSG0005356.eoe_sw.miser 0 1410065407
+			replaces patchSG0005383.eoe_sw.miser 0 1410065407
+			replaces patchSG0005460.eoe_sw.miser 0 1410065407
+			replaces patchSG0005471.eoe_sw.miser 0 1410065407
+			replaces patchSG0005481.eoe_sw.miser 0 1410065407
+			replaces patchSG0005543.eoe_sw.miser 0 1410065407
+			replaces patchSG0005559.eoe_sw.miser 0 1410065407
+			replaces patchSG0005597.eoe_sw.miser 0 1410065407
+			replaces patchSG0005622.eoe_sw.miser 0 1410065407
+			replaces patchSG0005649.eoe_sw.miser 0 1410065407
+			replaces patchSG0005666.eoe_sw.miser 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys named	 # (eoe.sw.named)
+			id "Berkeley Internet Name Domain Server"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.named)"
+			replaces maint*.eoe_sw.named 0 1289624219
+			replaces eoe.sw.named 0 1289624219
+			replaces patchSG0004193.eoe_sw.named 0 1410065407
+			replaces patchSG0004725.eoe_sw.named 0 1410065407
+			replaces patchSG0004881.eoe_sw.named 0 1410065407
+			incompat patchSG0004943.eoe_sw.named 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys netman	 # (eoe.sw.netman)
+			id "Network Management SNMP Support"
+			overlays 1274627340 1274627340
+			exp "!noship && (netman.sw.snmp||irix_eoe.sw.netman)"
+			replaces maint*.eoe_sw.netman 0 1289624219
+			replaces eoe.sw.netman 0 1289624219
+			replaces patchSG0004574.eoe_sw.netman 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys oampkg	 # (eoe.sw.oampkg)
+			id "SVR4 Packaging Utility"
+			overlays 1274627340 1274627340
+			exp "!noship && (build_eoe.sw.oampkg)"
+			replaces maint*.eoe_sw.oampkg 0 1289624219
+			replaces eoe.sw.oampkg 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys optinput	 # (eoe.sw.optinput)
+			id "Optional Input Devices"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (desktop_opt.sw.Confidence || gfx_eoe.sw.optinput)"
+			replaces maint*.eoe_sw.optinput 0 1289624219
+			replaces eoe.sw.optinput 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys pam	 # (eoe.sw.pam)
+			id "Irix PAM Support"
+			exp "!noship && (eoe_eoe.sw.pam)"
+			replaces patch*.eoe_sw.pam 0 1289624219
+			replaces maint*.eoe_sw.pam 0 1289624219
+			replaces eoe.sw.pam 0 1289624219
+		endsubsys
+
+		subsys pam_dev	 # (eoe.sw.pam_dev)
+			id "Irix PAM Development Hdrs/Libs"
+			exp "!noship && (eoe_eoe.sw.pam_dev)"
+			replaces patch*.eoe_sw.pam_dev 0 1289624219
+			replaces maint*.eoe_sw.pam_dev 0 1289624219
+			replaces eoe.sw.pam_dev 0 1289624219
+			prereq (
+				eoe.sw.pam 0 maxint
+			)
+		endsubsys
+
+		subsys partition	 # (eoe.sw.partition)
+			id "System Partitioning Support"
+			miniroot
+			exp "!noship && (irix_eoe.sw.partition)"
+			replaces patch*.eoe_sw.partition 0 1289624219
+			replaces maint*.eoe_sw.partition 0 1289624219
+			replaces eoe.sw.partition 0 1289624219
+		endsubsys
+
+		subsys perf	 # (eoe.sw.perf)
+			id "Performance Measurement Utilities"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.perf)"
+			replaces maint*.eoe_sw.perf 0 1289624219
+			replaces eoe.sw.perf 0 1289624219
+			replaces patchSG0004292.eoe_sw.perf 0 1410065407
+			replaces patchSG0004529.eoe_sw.perf 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys ppp	 # (eoe.sw.ppp)
+			id "Point-to-Point Protocol Software"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.ppp || irix_eoe.sw.ppp)"
+			replaces maint*.eoe_sw.ppp 0 1289624219
+			replaces eoe.sw.ppp 0 1289624219
+			replaces patchSG0003956.eoe_sw.ppp 0 1410065407
+			replaces patchSG0003957.eoe_sw.ppp 0 1410065407
+			replaces patchSG0003998.eoe_sw.ppp 0 1410065407
+			replaces patchSG0005084.eoe_sw.ppp 0 1410065407
+			replaces patchSG0005201.eoe_sw.ppp 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys quotas	 # (eoe.sw.quotas)
+			id "BSD Disk Quotas"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (irix_eoe.sw.quotas||eoe_eoe.sw.quotas)"
+			replaces maint*.eoe_sw.quotas 0 1289624219
+			replaces eoe.sw.quotas 0 1289624219
+			replaces patchSG0003956.eoe_sw.quotas 0 1410065407
+			replaces patchSG0003957.eoe_sw.quotas 0 1410065407
+			replaces patchSG0003998.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004229.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004230.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004253.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004254.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004278.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004408.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004480.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004521.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004729.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004878.eoe_sw.quotas 0 1410065407
+			replaces patchSG0004937.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005006.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005007.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005008.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005009.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005010.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005011.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005038.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005059.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005060.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005111.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005178.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005179.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005180.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005181.eoe_sw.quotas 0 1410065407
+			replaces patchSG0005335.eoe_sw.quotas 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys rcs	 # (eoe.sw.rcs)
+			id "Revision Control System Utilities"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.rcs)"
+			replaces maint*.eoe_sw.rcs 0 1289624219
+			replaces eoe.sw.rcs 0 1289624219
+			replaces patchSG0004452.eoe_sw.rcs 0 1410065407
+			replaces patchSG0004539.eoe_sw.rcs 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys rfindd	 # (eoe.sw.rfindd)
+			id "rfind Server Utilities"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.rfind)"
+			replaces maint*.eoe_sw.rfindd 0 1289624219
+			replaces eoe.sw.rfindd 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys rm_media	 # (eoe.sw.rm_media)
+			id "Removable Media Software"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && (irix_eoe.sw.rm_media || eoe_eoe.sw.rm_media)"
+			replaces maint*.eoe_sw.rm_media 0 1289624219
+			replaces eoe.sw.rm_media 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys sccs	 # (eoe.sw.sccs)
+			id "Source Code Control System Utilities"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.sccs)"
+			replaces maint*.eoe_sw.sccs 0 1289624219
+			replaces eoe.sw.sccs 0 1289624219
+			replaces patchSG0003739.eoe_sw.sccs 0 1410065407
+			replaces patchSG0003761.eoe_sw.sccs 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys slip	 # (eoe.sw.slip)
+			id "SLIP Software"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.slip || irix_eoe.sw.slip)"
+			replaces maint*.eoe_sw.slip 0 1289624219
+			replaces eoe.sw.slip 0 1289624219
+			replaces patchSG0003956.eoe_sw.slip 0 1410065407
+			replaces patchSG0003957.eoe_sw.slip 0 1410065407
+			replaces patchSG0003998.eoe_sw.slip 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys spell	 # (eoe.sw.spell)
+			id "Spell Utilities"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.spell)"
+			replaces maint*.eoe_sw.spell 0 1289624219
+			replaces eoe.sw.spell 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys stp	 # (eoe.sw.stp)
+			id "Scheduled Transfer Protocol"
+			exp "!noship && (irix_eoe.sw.stp)"
+			replaces patch*.eoe_sw.stp 0 1289624219
+			replaces maint*.eoe_sw.stp 0 1289624219
+			replaces eoe.sw.stp 0 1289624219
+		endsubsys
+
+		subsys svr4net	 # (eoe.sw.svr4net)
+			id "System V Release 4 Networking"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.svr4net || irix_eoe.sw.svr4net)"
+			replaces maint*.eoe_sw.svr4net 0 1289624219
+			replaces eoe.sw.svr4net 0 1289624219
+			replaces patchSG0003786.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0003956.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0003957.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0003998.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004771.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004772.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004819.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004820.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004838.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004839.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004840.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004841.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004842.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004843.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004845.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004846.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004887.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0004888.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005233.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005302.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005415.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005416.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005437.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005440.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005446.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005451.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005452.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005454.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005461.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005466.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005469.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005510.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005517.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005614.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005641.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005644.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005726.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005727.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005728.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005729.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005737.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005738.eoe_sw.svr4net 0 1410065407
+			replaces patchSG0005797.eoe_sw.svr4net 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys termbase	 # (eoe.sw.termbase)
+			id "Base (required) Terminal Information Files"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && eoe_eoe.sw.termbase"
+			replaces maint*.eoe_sw.termbase 0 1289624219
+			replaces eoe.sw.termbase 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys udf	 # (eoe.sw.udf)
+			id "UDF Filesystem Support"
+			default
+			exp "!noship && (irix_eoe.sw.udf)"
+			replaces patch*.eoe_sw.udf 0 1289624219
+			replaces maint*.eoe_sw.udf 0 1289624219
+			replaces eoe.sw.udf 0 1289624219
+		endsubsys
+
+		subsys unc	 # (eoe.sw.unc)
+			id "UniCenter Interface Software"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && irix_eoe.sw.unc"
+			replaces maint*.eoe_sw.unc 0 1289624219
+			replaces eoe.sw.unc 0 1289624219
+			replaces patchSG0003956.eoe_sw.unc 0 1410065407
+			replaces patchSG0003957.eoe_sw.unc 0 1410065407
+			replaces patchSG0003998.eoe_sw.unc 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys usrshare	 # (eoe.sw.usrshare)
+			id "Miscellaneous shared text/help/data files"
+			default
+			overlays 1274627340 1274627340
+			exp "!noship && eoe_eoe.sw.usrshare"
+			replaces maint*.eoe_sw.usrshare 0 1289624219
+			replaces eoe.sw.usrshare 0 1289624219
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys uucp	 # (eoe.sw.uucp)
+			id "UUCP Utilities"
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.uucp)"
+			replaces maint*.eoe_sw.uucp 0 1289624219
+			replaces eoe.sw.uucp 0 1289624219
+			replaces patchSG0004771.eoe_sw.uucp 0 1410065407
+			replaces patchSG0004772.eoe_sw.uucp 0 1410065407
+			replaces patchSG0004819.eoe_sw.uucp 0 1410065407
+			replaces patchSG0004820.eoe_sw.uucp 0 1410065407
+			replaces patchSG0004887.eoe_sw.uucp 0 1410065407
+			replaces patchSG0004888.eoe_sw.uucp 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys xfsrt	 # (eoe.sw.xfsrt)
+			id "XFS Realtime & Guaranteed-Rate Support"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.xfsrt || irix_eoe.sw.xfsrt)"
+			replaces maint*.eoe_sw.xfsrt 0 1289624219
+			replaces eoe.sw.xfsrt 0 1289624219
+			replaces patchSG0003956.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0003957.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0003998.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0004140.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0005111.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0005335.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0005793.eoe_sw.xfsrt 0 1410065407
+			replaces patchSG0005794.eoe_sw.xfsrt 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys xlv	 # (eoe.sw.xlv)
+			id "XLV Volume Manager"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_eoe.sw.xlv || irix_eoe.sw.xlv)"
+			replaces maint*.eoe_sw.xlv 0 1289624219
+			replaces eoe.sw.xlv 0 1289624219
+			replaces patchSG0003098.eoe_sw.xlv 0 1410065407
+			replaces patchSG0003167.eoe_sw.xlv 0 1410065407
+			replaces patchSG0003956.eoe_sw.xlv 0 1410065407
+			replaces patchSG0003957.eoe_sw.xlv 0 1410065407
+			replaces patchSG0003998.eoe_sw.xlv 0 1410065407
+			replaces patchSG0004000.eoe_sw.xlv 0 1410065407
+			replaces patchSG0004079.eoe_sw.xlv 0 1410065407
+			replaces patchSG0004085.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005003.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005005.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005036.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005082.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005146.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005155.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005204.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005239.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005286.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005353.eoe_sw.xlv 0 1410065407
+			replaces patchSG0005441.eoe_sw.xlv 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys xlvplex	 # (eoe.sw.xlvplex)
+			id "XLV Volume Manager Plex Support"
+			miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (irix_eoe.sw.xlvplex)"
+			replaces maint*.eoe_sw.xlvplex 0 1289624219
+			replaces eoe.sw.xlvplex 0 1289624219
+			replaces patchSG0003098.eoe_sw.xlvplex 0 1410065407
+			replaces patchSG0003167.eoe_sw.xlvplex 0 1410065407
+			replaces patchSG0003956.eoe_sw.xlvplex 0 1410065407
+			replaces patchSG0003957.eoe_sw.xlvplex 0 1410065407
+			replaces patchSG0003998.eoe_sw.xlvplex 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys xvm	 # (eoe.sw.xvm)
+			id "XVM, Volume Manager"
+			exp "!noship && (eoe_eoe.sw.xvm || irix_eoe.sw.xvm)"
+			replaces patch*.eoe_sw.xvm 0 1289624219
+			replaces maint*.eoe_sw.xvm 0 1289624219
+			replaces eoe.sw.xvm 0 1289624219
+		endsubsys
+	endimage
+
+	image sw64	 # (eoe.sw64)
+		id "EOE 64bit Libraries"
+		version 1289624220 order 10
+		# format 2
+
+		subsys gfx	 # (eoe.sw64.gfx)
+			id "Graphics 64bit Execution Environment"
+			default (MODE=64bit) default (MODE=64bit) default (MODE=64bit)
+			overlays 1274627340 1274627340
+			exp "!noship && (gfx_eoe.sw64.dso)"
+			replaces maint*.eoe_sw64.gfx 0 1289624219
+			replaces eoe.sw64.gfx 0 1289624219
+			replaces patchSG0003396.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003446.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003698.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003774.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003775.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003788.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003927.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0003928.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004010.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004011.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004016.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004030.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004089.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004090.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004103.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004104.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004129.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004130.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004191.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004198.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004203.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004216.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004267.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004298.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004323.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004384.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004396.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004421.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004422.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004454.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004476.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004497.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004515.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004524.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004542.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004567.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004578.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004609.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004624.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004629.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004668.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004674.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004707.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004716.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004731.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004753.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004778.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004804.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004825.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004897.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004899.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004901.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004939.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004997.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0004998.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005096.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005145.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005162.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005208.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005255.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005256.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005257.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005336.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005370.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005403.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005448.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005490.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005506.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005633.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005651.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005709.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005750.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005810.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005851.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005859.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005871.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005891.eoe_sw64.gfx 0 1410065407
+			replaces patchSG0005895.eoe_sw64.gfx 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys lib	 # (eoe.sw64.lib)
+			id "IRIX 64bit Libraries"
+			required (MODE=64bit) default (MODE=64bit) default (MODE=64bit) default (MODE=64bit) miniroot
+			overlays 1274627340 1274627340
+			exp "!noship && (eoe_root.sw64.dso || irix_root.sw64.dso)"
+			replaces maint*.eoe_sw64.lib 0 1289624219
+			replaces eoe.sw64.lib 0 1289624219
+			replaces patchSG0003126.eoe_sw64.lib 0 1410065407
+			replaces patchSG0003465.eoe_sw64.lib 0 1410065407
+			replaces patchSG0003730.eoe_sw64.lib 0 1410065407
+			replaces patchSG0003796.eoe_sw64.lib 0 1410065407
+			replaces patchSG0003829.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004049.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004066.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004067.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004068.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004069.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004083.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004088.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004099.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004102.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004107.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004116.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004151.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004152.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004202.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004236.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004274.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004303.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004305.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004337.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004370.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004395.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004414.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004442.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004500.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004501.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004502.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004503.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004504.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004505.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004506.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004507.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004508.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004509.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004538.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004591.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004592.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004673.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004702.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004703.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004722.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004739.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004740.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004741.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004742.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004743.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004744.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004745.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004746.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004747.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004748.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004761.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004762.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004802.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004830.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004838.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004839.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004840.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004841.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004842.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004843.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004844.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004845.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004846.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004847.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004889.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004890.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004891.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004892.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004893.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004894.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004895.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004896.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004934.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004986.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004987.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004988.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004989.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004990.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004991.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004992.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004993.eoe_sw64.lib 0 1410065407
+			replaces patchSG0004996.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005014.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005015.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005020.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005106.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005107.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005115.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005119.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005120.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005123.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005124.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005125.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005126.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005127.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005128.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005129.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005130.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005131.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005132.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005133.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005156.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005189.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005190.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005191.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005192.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005193.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005194.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005195.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005196.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005264.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005265.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005266.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005267.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005268.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005269.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005275.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005276.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005316.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005385.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005388.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005428.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005482.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005483.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005500.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005512.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005514.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005524.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005606.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005607.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005608.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005609.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005610.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005725.eoe_sw64.lib 0 1410065407
+			replaces patchSG0005838.eoe_sw64.lib 0 1410065407
+			prereq (
+				eoe.sw.base 1289624220 1289624299
+			)
+		endsubsys
+
+		subsys pam	 # (eoe.sw64.pam)
+			id "Irix PAM 64bit Support"
+			exp "!noship && (eoe_eoe.sw64.pam)"
+			replaces patch*.eoe_sw64.pam 0 1289624219
+			replaces maint*.eoe_sw64.pam 0 1289624219
+			replaces eoe.sw64.pam 0 1289624219
+		endsubsys
+	endimage
+endproduct

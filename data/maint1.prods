@@ -1,0 +1,396 @@
+Distribution: .
+product maint1
+	id "Maint1 Product 4D1-3.3.1"
+	# product format 5, created Mon Nov  5 23:56:55 2001
+
+	image 4DDN_sw	 # (maint1.4DDN_sw)
+		id "4DDN SW, C4-4DDN-1.1"
+		version 1005001015 order 60
+		# format 2
+
+		subsys 4DDN	 # (maint1.4DDN_sw.4DDN)
+			id "4DDN Software"
+			exp "!noship && decnet.sw.decnet && srcpath !~ '*.G0/*'"
+			replaces 4DDN.sw.4DDN -1 1005001015
+		endsubsys
+	endimage
+
+	image Xdev_sw	 # (maint1.Xdev_sw)
+		id "X.11 Windows Development System software"
+		version 1005001015 order 400
+		# format 2
+
+		subsys Xdev	 # (maint1.Xdev_sw.Xdev)
+			id "X11 Development Environment"
+			exp "!noship && x.sw.dev"
+			replaces Xdev.sw.Xdev -1 1005001015
+		endsubsys
+	endimage
+
+	image dev_man	 # (maint1.dev_man)
+		id "Dev Sys Man 3, S5-DV01-3.3.1"
+		version 1005001015 order 45
+		# format 2
+
+		subsys cc	 # (maint1.dev_man.cc)
+			id "C Compiler and Support"
+			exp "!noship && std.man.cc"
+			replaces dev.man.cc -1 1005001015
+		endsubsys
+	endimage
+
+	image dev_sw	 # (maint1.dev_sw)
+		id "Dev Sys SW 3, S5-DV01-3.3.1"
+		version 1005001015 order 40
+		# format 2
+
+		subsys G0libraries	 # (maint1.dev_sw.G0libraries)
+			id "Libraries Compiled -G 0"
+			exp "!noship && (std.sw.cc || dev.sw.crypt) && dstpath =~ '*_G0.[oa]' && srcpath != 'cmd/gpib.G0/libgpib_G0.a'"
+			replaces dev.sw.G0libraries -1 1005001015
+		endsubsys
+
+		subsys NeWSimg	 # (maint1.dev_sw.NeWSimg)
+			id "4Sight Images"
+			exp "!noship && dstpath =~ 'usr/NeWS/smi*'"
+			replaces dev.sw.NeWSimg -1 1005001015
+		endsubsys
+
+		subsys cc	 # (maint1.dev_sw.cc)
+			id "C Compiler and Support"
+			exp "!noship && std.sw.cc && !std.sw.lboot && srcpath !~ '*.G0/*'"
+			replaces dev.sw.cc -1 1005001015
+		endsubsys
+
+		subsys crypt	 # (maint1.dev_sw.crypt)
+			id "Security Administration Library"
+			exp "!noship && dev.sw.crypt && srcpath !~ '*.G0/*'"
+			replaces dev.sw.crypt -1 1005001015
+		endsubsys
+
+		subsys debug	 # (maint1.dev_sw.debug)
+			id "Debugging Kernels"
+			exp "!noship && std.sw.debug && srcpath !~ '*.G0/*'"
+			replaces dev.sw.debug -1 1005001015
+		endsubsys
+
+		subsys giftssrc	 # (maint1.dev_sw.giftssrc)
+			id "Gifts Source"
+			exp "!noship && std.sw.giftssrc"
+			replaces dev.sw.giftssrc -1 1005001015
+		endsubsys
+
+		subsys moredemos	 # (maint1.dev_sw.moredemos)
+			id "More Graphics Demonstration Programs"
+			exp "!noship && std.sw.moredemos"
+			replaces dev.sw.moredemos -1 1005001015
+		endsubsys
+
+		subsys rcs	 # (maint1.dev_sw.rcs)
+			id "Revision Control System Utilities"
+			exp "!noship && std.sw.rcs"
+			replaces dev.sw.rcs -1 1005001015
+		endsubsys
+
+		subsys sccs	 # (maint1.dev_sw.sccs)
+			id "Source Code Control System Utilities"
+			exp "!noship && std.sw.sccs"
+			replaces dev.sw.sccs -1 1005001015
+		endsubsys
+	endimage
+
+	image eoe1_man	 # (maint1.eoe1_man)
+		id "EOE Man 1, S4-EOE1-3.3.1"
+		version 1005001015 order 15
+		# format 2
+
+		subsys relnotes	 # (maint1.eoe1_man.relnotes)
+			id "Workstation Release Notes"
+			exp "!noship && std.man.relnotes"
+			replaces eoe1.man.relnotes -1 1005001015
+		endsubsys
+
+		subsys unix	 # (maint1.eoe1_man.unix)
+			id "Basic UNIX"
+			exp "!noship && std.man.unix"
+			replaces eoe1.man.unix -1 1005001015
+		endsubsys
+	endimage
+
+	image eoe1_sw	 # (maint1.eoe1_sw)
+		id "EOE SW 1, S4-EOE1-3.3.1"
+		version 1005001015 order 10
+		# format 2
+
+		subsys unix	 # (maint1.eoe1_sw.unix)
+			id "Basic UNIX"
+			miniroot
+			exp "!noship&&(std.sw.unix||std.sw.lboot||std.sw.scsi)  && srcpath !~ '*.G0/*'"
+			replaces eoe1.sw.unix -1 1005001015
+		endsubsys
+	endimage
+
+	image eoe2_sw	 # (maint1.eoe2_sw)
+		id "EOE SW 2, S4-EOE2-3.3.1"
+		version 1005001015 order 20
+		# format 2
+
+		subsys NeWS	 # (maint1.eoe2_sw.NeWS)
+			id "4Sight Windowing System"
+			exp "!noship && std.sw.NeWS && dstpath!~'usr/NeWS/smi*'"
+			replaces eoe2.sw.NeWS -1 1005001015
+		endsubsys
+
+		subsys X11	 # (maint1.eoe2_sw.X11)
+			id "X11 Execution Environment"
+			exp "!noship && x.sw.eoe"
+			replaces eoe2.sw.X11 -1 1005001015
+		endsubsys
+
+		subsys Xapps	 # (maint1.eoe2_sw.Xapps)
+			id "X11 Applications"
+			exp "!noship && x.sw.apps"
+			replaces eoe2.sw.Xapps -1 1005001015
+		endsubsys
+
+		subsys acct	 # (maint1.eoe2_sw.acct)
+			id "System Accounting"
+			exp "!noship && std.sw.acct"
+			replaces eoe2.sw.acct -1 1005001015
+		endsubsys
+
+		subsys crypt	 # (maint1.eoe2_sw.crypt)
+			id "Security Administration Utilities"
+			exp "!noship && std.sw.crypt"
+			replaces eoe2.sw.crypt -1 1005001015
+		endsubsys
+
+		subsys demos	 # (maint1.eoe2_sw.demos)
+			id "Graphics Demonstration Programs"
+			exp "!noship && std.sw.demos"
+			replaces eoe2.sw.demos -1 1005001015
+		endsubsys
+
+		subsys dfm	 # (maint1.eoe2_sw.dfm)
+			id "Directory and File Management Utilities"
+			exp "!noship && std.sw.dfm"
+			replaces eoe2.sw.dfm -1 1005001015
+		endsubsys
+
+		subsys editors	 # (maint1.eoe2_sw.editors)
+			id "Editing Utilities"
+			exp "!noship && std.sw.editors"
+			replaces eoe2.sw.editors -1 1005001015
+		endsubsys
+
+		subsys envm	 # (maint1.eoe2_sw.envm)
+			id "Visual File System Interface"
+			exp "!noship && envm.sw.envm"
+			replaces eoe2.sw.envm -1 1005001015
+		endsubsys
+
+		subsys ipgate	 # (maint1.eoe2_sw.ipgate)
+			id "IP Network Gateway Support"
+			exp "!noship && (mroute || std.sw.ipgateway)"
+			replaces eoe2.sw.ipgate -1 1005001015
+		endsubsys
+
+		subsys lp	 # (maint1.eoe2_sw.lp)
+			id "Line Printer Spooling Utilities"
+			exp "!noship && std.sw.lp"
+			replaces eoe2.sw.lp -1 1005001015
+		endsubsys
+
+		subsys mast	 # (maint1.eoe2_sw.mast)
+			id "Graphics Master"
+			exp "!noship && std.sw.mast"
+			replaces eoe2.sw.mast -1 1005001015
+		endsubsys
+
+		subsys moregltools	 # (maint1.eoe2_sw.moregltools)
+			id "More Graphics Library Tools"
+			exp "!noship && std.sw.moregltools && srcpath !~ '*.G0/*'"
+			replaces eoe2.sw.moregltools -1 1005001015
+		endsubsys
+
+		subsys perf	 # (maint1.eoe2_sw.perf)
+			id "Performance Measurement Utilities"
+			exp "!noship && std.sw.perf"
+			replaces eoe2.sw.perf -1 1005001015
+		endsubsys
+
+		subsys spaceball	 # (maint1.eoe2_sw.spaceball)
+			id "Spaceball Software"
+			exp "!noship && (std.sw.spaceball || demo.sw.spaceball || dstpath == \"usr/include/gl/device.h\" || dstpath == \"usr/include/gl/fdevice.h\" || dstpath == \"usr/include/gl/spaceball.h\" || dstpath == \"usr/include/gl/fspaceb all.h\")"
+			replaces eoe2.sw.spaceball -1 1005001015
+		endsubsys
+
+		subsys spell	 # (maint1.eoe2_sw.spell)
+			id "Spell Utilities"
+			exp "!noship && std.sw.spell"
+			replaces eoe2.sw.spell -1 1005001015
+		endsubsys
+
+		subsys sysadm	 # (maint1.eoe2_sw.sysadm)
+			id "System Administration Utilities"
+			exp "!noship && std.sw.sysadm"
+			replaces eoe2.sw.sysadm -1 1005001015
+		endsubsys
+
+		subsys tcp	 # (maint1.eoe2_sw.tcp)
+			id "TCP/IP Networking Support"
+			exp "!noship && ( std.sw.tcp || std.sw.dgl )"
+			replaces eoe2.sw.tcp -1 1005001015
+		endsubsys
+
+		subsys terminf	 # (maint1.eoe2_sw.terminf)
+			id "Terminal Information Utilities"
+			exp "!noship && std.sw.terminf && srcpath !~ '*.G0/*'"
+			replaces eoe2.sw.terminf -1 1005001015
+		endsubsys
+
+		subsys uds	 # (maint1.eoe2_sw.uds)
+			id "UNIX Domain Socket Support"
+			exp "!noship && std.sw.uds"
+			replaces eoe2.sw.uds -1 1005001015
+		endsubsys
+
+		subsys usrenv	 # (maint1.eoe2_sw.usrenv)
+			id "User Environment Utilities"
+			exp "!noship && std.sw.usrenv"
+			replaces eoe2.sw.usrenv -1 1005001015
+		endsubsys
+
+		subsys vadmin	 # (maint1.eoe2_sw.vadmin)
+			id "Visual System Administration Interface"
+			exp "!noship && envm.sw.vadmin"
+			replaces eoe2.sw.vadmin -1 1005001015
+		endsubsys
+	endimage
+
+	image ftn_man	 # (maint1.ftn_man)
+		id "FORTRAN Opt Man, S4-FTN-3.3.1"
+		version 1005001015 order 105
+		# format 2
+
+		subsys ftn	 # (maint1.ftn_man.ftn)
+			id "FORTRAN"
+			exp "!noship && ftn.man.ftn"
+			replaces ftn.man.ftn -1 1005001015
+		endsubsys
+	endimage
+
+	image ftn_sw	 # (maint1.ftn_sw)
+		id "FORTRAN Opt SW, S4-FTN-3.3.1"
+		version 1005001015 order 100
+		# format 2
+
+		subsys G0libraries	 # (maint1.ftn_sw.G0libraries)
+			id "Libraries Compiled -G 0"
+			exp "!noship && ftn.sw.ftn && dstpath =~ '*_G0.[oa]'"
+			replaces ftn.sw.G0libraries -1 1005001015
+		endsubsys
+
+		subsys ftn	 # (maint1.ftn_sw.ftn)
+			id "FORTRAN"
+			exp "!noship && ftn.sw.ftn && srcpath !~ '*.G0/*'"
+			replaces ftn.sw.ftn -1 1005001015
+		endsubsys
+	endimage
+
+	image gpib_sw	 # (maint1.gpib_sw)
+		id "GPIB Option software"
+		version 1005001015 order 70
+		# format 2
+
+		subsys library	 # (maint1.gpib_sw.library)
+			id "GPIB Interface Libraries"
+			exp "!noship && gpib.sw.lib && srcpath !~ '*.G0/*'"
+			replaces gpib.sw.library -1 1005001015
+		endsubsys
+	endimage
+
+	image nfs_man	 # (maint1.nfs_man)
+		id "NFS Opt Man, S4-NFS-3.3.1"
+		version 1005001015 order 55
+		# format 2
+
+		subsys nfs	 # (maint1.nfs_man.nfs)
+			id "NFS Support"
+			exp "!noship && nfs.man.nfs"
+			replaces nfs.man.nfs -1 1005001015
+		endsubsys
+
+		subsys relnotes	 # (maint1.nfs_man.relnotes)
+			id "NFS Release Notes"
+			exp "!noship && nfs.man.relnotes"
+			replaces nfs.man.relnotes -1 1005001015
+		endsubsys
+	endimage
+
+	image nfs_sw	 # (maint1.nfs_sw)
+		id "NFS Opt SW, S4-NFS-3.3.1"
+		version 1005001015 order 50
+		# format 2
+
+		subsys dskless	 # (maint1.nfs_sw.dskless)
+			id "Diskless Support"
+			exp "!noship && nfs.sw.dskless"
+			replaces nfs.sw.dskless -1 1005001015
+		endsubsys
+
+		subsys nfs	 # (maint1.nfs_sw.nfs)
+			id "NFS Support"
+			exp "!noship && nfs.sw.nfs"
+			replaces nfs.sw.nfs -1 1005001015
+		endsubsys
+
+		subsys yp	 # (maint1.nfs_sw.yp)
+			id "Yellow Pages"
+			exp "!noship && nfs.sw.yp"
+			replaces nfs.sw.yp -1 1005001015
+		endsubsys
+	endimage
+
+	image pfa_man	 # (maint1.pfa_man)
+		id "Power Fortran Accelerator documentation"
+		version 1005001015 order 305
+		# format 2
+
+		subsys pfa	 # (maint1.pfa_man.pfa)
+			id "Power Fortran Man Pages"
+			exp pfa.man.pfa
+			replaces pfa.man.pfa -1 1005001015
+		endsubsys
+
+		subsys relnotes	 # (maint1.pfa_man.relnotes)
+			id "Power Fortran Release Notes"
+			exp "!noship && pfa.man.relnotes"
+			replaces pfa.man.relnotes -1 1005001015
+		endsubsys
+	endimage
+
+	image pfa_sw	 # (maint1.pfa_sw)
+		id "Power Fortran Accelerator software"
+		version 1005001015 order 300
+		# format 2
+
+		subsys pfa	 # (maint1.pfa_sw.pfa)
+			id "Power Fortran Software"
+			exp pfa.sw.pfa
+			replaces pfa.sw.pfa -1 1005001015
+		endsubsys
+	endimage
+
+	image slip_sw	 # (maint1.slip_sw)
+		id "SLIP Software"
+		version 1005001015 order 610
+		# format 2
+
+		subsys slip	 # (maint1.slip_sw.slip)
+			id "SLIP Software"
+			exp "!noship && slip.sw.slip"
+			replaces slip.sw.slip -1 1005001015
+		endsubsys
+	endimage
+endproduct

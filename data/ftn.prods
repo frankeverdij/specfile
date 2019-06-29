@@ -1,0 +1,38 @@
+Distribution: .
+product ftn
+	id "Fortran 77, 3.4.1"
+	# product format 5, created Mon Nov 18 20:58:29 1991
+
+	image man	 # (ftn.man)
+		id "Fortran 77 Manual Pages"
+		version 1006000405 order 156
+		# format 2
+
+		subsys fopt	 # (ftn.man.fopt)
+			id "Fortran 77 Fopt Man Page"
+			default
+			exp "!noship && ftn.man.fopt"
+			replaces maint*.ftn_man.fopt 0 1006000404
+			replaces ftn.man.fopt 0 1006000404
+			replaces *.ftn_man.fopt 0 1006000404
+			replaces ftn.man.fopt 0 1006000404
+		endsubsys
+	endimage
+
+	image sw	 # (ftn.sw)
+		id "Fortran 77 Software"
+		version 1006000405 order 150
+		# format 2
+
+		subsys fopt	 # (ftn.sw.fopt)
+			id "Fortran 77 Fopt Scalar Optimizer"
+			default
+			exp "!noship && ftn.sw.fopt"
+			replaces maint*.ftn_sw.fopt 0 1006000404
+			replaces ftn.sw.fopt 0 1006000404
+			replaces *.ftn_sw.fopt 0 1006000404
+			replaces ftn.sw.fopt 0 1005999999
+			replaces ftn.sw.fopt 0 1006000404
+		endsubsys
+	endimage
+endproduct

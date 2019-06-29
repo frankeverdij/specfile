@@ -1,0 +1,105 @@
+Distribution: .
+product 4D35
+	id "4D1-3.3M 4D/35 Support"
+	# product format 5, created Fri Mar 15 04:23:00 1991
+
+	image man	 # (4D35.man)
+		id "4D/35 Support Manual Update"
+		version 1005002015 order 15
+		# format 2
+
+		subsys relnotes	 # (4D35.man.relnotes)
+			id "4D35 Release Notes"
+			exp "!noship && m4D35.man.relnotes"
+			replaces 4D35.man.relnotes 0 1005002014
+			replaces 4D35.man.relnotes 0 1005002014
+		endsubsys
+
+		subsys unix	 # (4D35.man.unix)
+			id "Basic UNIX"
+			exp "!noship && std.man.unix"
+			replaces 4D35.man.unix 0 1005002014
+			replaces 4D35.man.unix 0 1005002014
+		endsubsys
+	endimage
+
+	image sw	 # (4D35.sw)
+		id "4D/35 Support software"
+		version 1005002015 order 10
+		# format 2
+
+		subsys cdsio	 # (4D35.sw.cdsio)
+			id "Multiport Serial VME Board Support"
+			default
+			exp "!noship && std.sw.cdsio"
+			replaces std3.sw.cdsio 0 1005002014
+			replaces maint2.eoe1_sw.cdsio 0 1005002014
+			replaces maint1.eoe1_sw.cdsio 0 1005002014
+			replaces maint.eoe1_sw.cdsio 0 1005002014
+			replaces eoe1.sw.cdsio 0 1005002014
+			replaces 4D35.sw.cdsio 0 1005002014
+			replaces 4D35.sw.cdsio 0 1005002014
+		endsubsys
+
+		subsys debug	 # (4D35.sw.debug)
+			id "Kernel Debugger"
+			exp "!noship && std.sw.debug && srcpath !~ '*.G0/*'"
+			replaces maint2.dev_sw.debug 0 1005002014
+			replaces maint1.dev_sw.debug 0 1005002014
+			replaces maint.dev_sw.debug 0 1005002014
+			replaces 4D35.sw.debug 0 1005002014
+			replaces 4D35.sw.debug 0 1005002014
+		endsubsys
+
+		subsys dev	 # (4D35.sw.dev)
+			id "Graphics Software Development Libraries"
+			default
+			exp "!noship && dev.sw.4D35"
+			replaces 4D35.sw.dev 0 1005002014
+			replaces 4D35.sw.dev 0 1005002014
+		endsubsys
+
+		subsys dskless	 # (4D35.sw.dskless)
+			id "Diskless Support"
+			exp "!noship && nfs.sw.dskless"
+			replaces 4D35.sw.dskless 0 1005002014
+			replaces 4D35.sw.dskless 0 1005002014
+		endsubsys
+
+		subsys ikc	 # (4D35.sw.ikc)
+			id "Ikon VME Printer Interface"
+			default
+			exp "!noship && std.sw.ikc"
+			replaces std3.sw.ikc 0 1005002014
+			replaces maint2.eoe1_sw.ikc 0 1005002014
+			replaces maint1.eoe1_sw.ikc 0 1005002014
+			replaces maint.eoe1_sw.ikc 0 1005002014
+			replaces eoe1.sw.ikc 0 1005002014
+			replaces 4D35.sw.ikc 0 1005002014
+			replaces 4D35.sw.ikc 0 1005002014
+		endsubsys
+
+		subsys moregltools	 # (4D35.sw.moregltools)
+			id "Scanner Tool"
+			exp "!noship && std.sw.moregltools"
+			replaces 4D35.sw.moregltools 0 1005002014
+			replaces 4D35.sw.moregltools 0 1005002014
+		endsubsys
+
+		subsys unix	 # (4D35.sw.unix)
+			id "Basic UNIX"
+			default required
+			exp "!noship&&(std.sw.4D35||std.sw.lboot||std.sw.scsi||fddi.sw.fddi||slip.sw.slip)  && srcpath !~ '*.G0/*'"
+			replaces 4D35.sw.unix 0 1005002014
+			replaces 4D35.sw.unix 0 1005002014
+		endsubsys
+
+		subsys vadmin	 # (4D35.sw.vadmin)
+			id "Visual System Administration Interface"
+			default
+			exp "!noship && envm.sw.vadmin"
+			replaces 4D35.sw.vadmin 0 1005002014
+			replaces 4D35.sw.vadmin 0 1005002014
+		endsubsys
+	endimage
+endproduct

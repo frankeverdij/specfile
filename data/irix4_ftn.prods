@@ -1,0 +1,89 @@
+Distribution: .
+product irix4_ftn
+	id "Fortran 77, 3.5.1"
+	# product format 5, created Thu May 13 06:53:15 1993
+
+	image hdr	 # (irix4_ftn.hdr)
+		id "Fortran 77 Headers"
+		version 1006660000 order 152
+		# format 2
+
+		subsys libgl	 # (irix4_ftn.hdr.libgl)
+			id "Fortran 77 Graphic Library Headers"
+			exp irix4_ftn.hdr.libgl
+			replaces maint*.irix4_ftn_hdr.libgl 0 1006659999
+			replaces irix4_ftn.hdr.libgl 0 1006659999
+			replaces irix4_ftn.hdr.libgl 0 1006659999
+			replaces maint*.irix4_ftn_hdr.libgl 0 1006659999
+		endsubsys
+	endimage
+
+	image sw	 # (irix4_ftn.sw)
+		id "Fortran 77 Software"
+		version 1006660000 order 150
+		# format 2
+
+		subsys fopt	 # (irix4_ftn.sw.fopt)
+			id "Fortran 77 Fopt Scalar Optimizer"
+			exp irix4_ftn.sw.fopt
+			replaces maint*.irix4_ftn_sw.fopt 0 1006659999
+			replaces irix4_ftn.sw.fopt 0 1006659999
+			replaces irix4_ftn.sw.fopt 0 1006659999
+			replaces maint*.irix4_ftn_sw.fopt 0 1006659999
+		endsubsys
+
+		subsys ftn	 # (irix4_ftn.sw.ftn)
+			id "Fortran 77 Compiler"
+			exp irix4_ftn.sw.ftn
+			replaces maint*.irix4_ftn_sw.ftn 0 1006659999
+			replaces irix4_ftn.sw.ftn 0 1006659999
+			replaces irix4_ftn.sw.ftn 0 1006659999
+			replaces maint*.irix4_ftn_sw.ftn 0 1006659999
+		endsubsys
+
+		subsys lib	 # (irix4_ftn.sw.lib)
+			id "Fortran 77 Libraries"
+			exp irix4_ftn.sw.lib
+			replaces maint*.irix4_ftn_sw.lib 0 1006659999
+			replaces irix4_ftn.sw.lib 0 1006659999
+			replaces irix4_ftn.sw.lib 0 1006659999
+			replaces maint*.irix4_ftn_sw.lib 0 1006659999
+		endsubsys
+
+		subsys libG0	 # (irix4_ftn.sw.libG0)
+			id "Fortran 77 Libraries (-G0)"
+			exp irix4_ftn.sw.libG0
+			replaces maint*.irix4_ftn_sw.libG0 0 1006659999
+			replaces irix4_ftn.sw.libG0 0 1006659999
+			replaces irix4_ftn.sw.libG0 0 1006659999
+			replaces maint*.irix4_ftn_sw.libG0 0 1006659999
+		endsubsys
+
+		subsys libgl	 # (irix4_ftn.sw.libgl)
+			id "Fortran 77 Graphic Library"
+			exp irix4_ftn.sw.libgl
+			replaces maint*.irix4_ftn_sw.libgl 0 1006659999
+			replaces irix4_ftn.sw.libgl 0 1006659999
+			replaces irix4_ftn.sw.libgl 0 1006659999
+			replaces maint*.irix4_ftn_sw.libgl 0 1006659999
+		endsubsys
+
+		subsys libglG0	 # (irix4_ftn.sw.libglG0)
+			id "Fortran 77 Graphic Library (-G0)"
+			exp irix4_ftn.sw.libglG0
+			replaces maint*.irix4_ftn_sw.libglG0 0 1006659999
+			replaces irix4_ftn.sw.libglG0 0 1006659999
+			replaces irix4_ftn.sw.libglG0 0 1006659999
+			replaces maint*.irix4_ftn_sw.libglG0 0 1006659999
+		endsubsys
+
+		subsys util	 # (irix4_ftn.sw.util)
+			id "Fortran 77 Utilities"
+			exp irix4_ftn.sw.util
+			replaces maint*.irix4_ftn_sw.util 0 1006659999
+			replaces irix4_ftn.sw.util 0 1006659999
+			replaces irix4_ftn.sw.util 0 1006659999
+			replaces maint*.irix4_ftn_sw.util 0 1006659999
+		endsubsys
+	endimage
+endproduct

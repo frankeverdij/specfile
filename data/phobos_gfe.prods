@@ -1,0 +1,165 @@
+Distribution: .
+product phobos_gfe
+	id "Phobos Super Fast Ethernet Software Package"
+	# product format 5, created Wed Jan 21 18:43:51 1998
+
+	image man	 # (phobos_gfe.man)
+		id "Documentation"
+		version 10 order 9999
+		# format 2
+
+		subsys manpages	 # (phobos_gfe.man.manpages)
+			id "Man Pages"
+			default
+			exp phobos_gfe.man.manpages
+			replaces patch*.phobos_gfe_man.manpages 0 9
+			replaces maint*.phobos_gfe_man.manpages 0 9
+			replaces phobos_gfe.man.manpages 0 9
+			replaces phobos_gfe.man.manpages 0 9
+		endsubsys
+
+		subsys relnotes	 # (phobos_gfe.man.relnotes)
+			id "Release Notes"
+			default
+			exp phobos_gfe.man.relnotes
+			replaces patch*.phobos_gfe_man.relnotes 0 9
+			replaces maint*.phobos_gfe_man.relnotes 0 9
+			replaces phobos_gfe.man.relnotes 0 9
+			replaces phobos_gfe.man.relnotes 0 9
+		endsubsys
+	endimage
+
+	image sw	 # (phobos_gfe.sw)
+		id "Software"
+		version 10 order 9999
+		# format 2
+
+		subsys driver	 # (phobos_gfe.sw.driver)
+			id "Phobos Super Fast Ethernet Driver 1.0"
+			default
+			exp phobos_gfe.sw.driver
+			replaces patch*.phobos_gfe_sw.driver 0 9
+			replaces maint*.phobos_gfe_sw.driver 0 9
+			replaces phobos_gfe.sw.driver 0 9
+			replaces phobos_gfe.sw.driver 0 9
+		endsubsys
+
+		subsys utilities	 # (phobos_gfe.sw.utilities)
+			id "Configuration Utilities"
+			default
+			exp phobos_gfe.sw.utilities
+			replaces patch*.phobos_gfe_sw.utilities 0 9
+			replaces maint*.phobos_gfe_sw.utilities 0 9
+			replaces phobos_gfe.sw.utilities 0 9
+			replaces phobos_gfe.sw.utilities 0 9
+		endsubsys
+	endimage
+endproduct
+product phobos_gfe
+	id "Phobos Super Fast Ethernet Software Package"
+	# product format 5, created Wed Jan 21 18:43:26 1998
+
+	image man	 # (phobos_gfe.man)
+		id "Documentation"
+		version 112 order 9999
+		# format 2
+
+		subsys manpages	 # (phobos_gfe.man.manpages)
+			id "Man Pages"
+			default
+			exp phobos_gfe.man.manpages
+			replaces patch*.phobos_gfe_man.manpages 0 111
+			replaces maint*.phobos_gfe_man.manpages 0 111
+			replaces phobos_gfe.man.manpages 0 111
+			replaces phobos_gfe.man.manpages 0 111
+		endsubsys
+
+		subsys relnotes	 # (phobos_gfe.man.relnotes)
+			id "Release Notes"
+			default
+			exp phobos_gfe.man.relnotes
+			replaces patch*.phobos_gfe_man.relnotes 0 111
+			replaces maint*.phobos_gfe_man.relnotes 0 111
+			replaces phobos_gfe.man.relnotes 0 111
+			replaces phobos_gfe.man.relnotes 0 111
+		endsubsys
+	endimage
+
+	image sw	 # (phobos_gfe.sw)
+		id "Software"
+		version 10 order 9999
+		# format 2
+
+		subsys driver	 # (phobos_gfe.sw.driver)
+			id "Phobos Super Fast Ethernet Driver 1.0"
+			default
+			exp phobos_gfe.sw.driver
+			replaces patch*.phobos_gfe_sw.driver 0 9
+			replaces maint*.phobos_gfe_sw.driver 0 9
+			replaces phobos_gfe.sw.driver 0 9
+			replaces phobos_gfe.sw.driver 0 9
+		endsubsys
+
+		subsys utilities	 # (phobos_gfe.sw.utilities)
+			id "Configuration Utilities"
+			default
+			exp phobos_gfe.sw.utilities
+			replaces patch*.phobos_gfe_sw.utilities 0 9
+			replaces maint*.phobos_gfe_sw.utilities 0 9
+			replaces phobos_gfe.sw.utilities 0 9
+			replaces phobos_gfe.sw.utilities 0 9
+		endsubsys
+	endimage
+endproduct
+product phobos_gfe
+	id "Phobos Super Fast Ethernet Software Package"
+	# product format 8, created Fri Aug 28 04:43:49 1998
+
+	image man	 # (phobos_gfe.man)
+		id "Documentation"
+		version 10 order 9999
+		# format 2
+
+		subsys manpages	 # (phobos_gfe.man.manpages)
+			id "Man Pages"
+			default
+			exp phobos_gfe.man.manpages
+			replaces patch*.phobos_gfe_man.manpages 0 9
+			replaces maint*.phobos_gfe_man.manpages 0 9
+			replaces phobos_gfe.man.manpages 0 9
+		endsubsys
+
+		subsys relnotes	 # (phobos_gfe.man.relnotes)
+			id "Release Notes"
+			default
+			exp phobos_gfe.man.relnotes
+			replaces patch*.phobos_gfe_man.relnotes 0 9
+			replaces maint*.phobos_gfe_man.relnotes 0 9
+			replaces phobos_gfe.man.relnotes 0 9
+		endsubsys
+	endimage
+
+	image sw	 # (phobos_gfe.sw)
+		id "Software"
+		version 10 order 9999
+		# format 2
+
+		subsys driver	 # (phobos_gfe.sw.driver)
+			id "Phobos Fast Ethernet Driver 1.1"
+			default
+			exp phobos_gfe.sw.driver
+			replaces patch*.phobos_gfe_sw.driver 0 9
+			replaces maint*.phobos_gfe_sw.driver 0 9
+			replaces phobos_gfe.sw.driver 0 9
+		endsubsys
+
+		subsys utilities	 # (phobos_gfe.sw.utilities)
+			id "Configuration Utilities"
+			default
+			exp phobos_gfe.sw.utilities
+			replaces patch*.phobos_gfe_sw.utilities 0 9
+			replaces maint*.phobos_gfe_sw.utilities 0 9
+			replaces phobos_gfe.sw.utilities 0 9
+		endsubsys
+	endimage
+endproduct

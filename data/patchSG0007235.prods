@@ -1,0 +1,71 @@
+Distribution: .
+product patchSG0007235
+	id "Patch SG0007235: IRIX ntp 4.1.1 patch"
+	# product format 8, created Tue Mar  9 01:11:00 2010
+
+	image ntp_man	 # (patchSG0007235.ntp_man)
+		id "NTP Online Documentation, 4.1.1-sgi-rev-2"
+		version 1289999912 order 9999
+		# format 2
+
+		subsys manpages	 # (patchSG0007235.ntp_man.manpages)
+			id "NTP man pages, 4.1.1-sgi-rev-2"
+			patch
+			exp ntp.man.manpages
+			follows ntp.man.manpages 1289607920 1289607920
+			replaces patch*.patchSG0007235_ntp_man.manpages 0 1289999911
+			replaces maint*.patchSG0007235_ntp_man.manpages 0 1289999911
+			replaces patchSG0007235.ntp_man.manpages 0 1289999911
+			incompat ntp.man.manpages 1289607921 1409999999
+			incompat ntp.man.manpages 0 1289607919
+		endsubsys
+
+		subsys relnotes	 # (patchSG0007235.ntp_man.relnotes)
+			id "NTP Release Notes, 4.1.1-sgi-rev-2"
+			patch
+			exp "ntp.man.relnotes || RELNOTES"
+			follows ntp.man.relnotes 1289607920 1289607920
+			replaces patch*.patchSG0007235_ntp_man.relnotes 0 1289999911
+			replaces maint*.patchSG0007235_ntp_man.relnotes 0 1289999911
+			replaces patchSG0007235.ntp_man.relnotes 0 1289999911
+			incompat ntp.man.relnotes 1289607921 1409999999
+			incompat ntp.man.relnotes 0 1289607919
+		endsubsys
+	endimage
+
+	image ntp_src	 # (patchSG0007235.ntp_src)
+		id "NTP Source, 4.1.1-sgi-rev-2"
+		version 1289999912 order 9999
+		# format 2
+
+		subsys ntp	 # (patchSG0007235.ntp_src.ntp)
+			id "NTP tar.gz source, 4.1.1-sgi-rev-2"
+			patch
+			exp ntp.src.ntp
+			follows ntp.src.ntp 1289607920 1289607920
+			replaces patch*.patchSG0007235_ntp_src.ntp 0 1289999911
+			replaces maint*.patchSG0007235_ntp_src.ntp 0 1289999911
+			replaces patchSG0007235.ntp_src.ntp 0 1289999911
+			incompat ntp.src.ntp 1289607921 1409999999
+			incompat ntp.src.ntp 0 1289607919
+		endsubsys
+	endimage
+
+	image ntp_sw	 # (patchSG0007235.ntp_sw)
+		id "NTP execution only env, 4.1.1-sgi-rev-2"
+		version 1289999912 order 9999
+		# format 2
+
+		subsys ntp	 # (patchSG0007235.ntp_sw.ntp)
+			id "NTP Software, 4.1.1-sgi-rev-2"
+			patch
+			exp ntp.sw.ntp
+			follows ntp.sw.ntp 1289607920 1289607920
+			replaces patch*.patchSG0007235_ntp_sw.ntp 0 1289999911
+			replaces maint*.patchSG0007235_ntp_sw.ntp 0 1289999911
+			replaces patchSG0007235.ntp_sw.ntp 0 1289999911
+			incompat ntp.sw.ntp 1289607921 1409999999
+			incompat ntp.sw.ntp 0 1289607919
+		endsubsys
+	endimage
+endproduct

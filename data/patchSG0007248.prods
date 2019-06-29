@@ -1,0 +1,123 @@
+Distribution: .
+product patchSG0007248
+	id "Patch SG0007248: Kerberos 1.9.4 upgrade"
+	# product format 8, created Thu Sep 20 18:14:16 2012
+
+	image kerberos_man	 # (patchSG0007248.kerberos_man)
+		id "MIT Kerberos Online Documentation, 1.9.4"
+		version 1289999913 order 9999
+		# format 2
+
+		subsys manpages	 # (patchSG0007248.kerberos_man.manpages)
+			id "MIT Kerberos man pages, 1.9.4"
+			patch
+			exp kerberos.man.manpages
+			follows kerberos.man.manpages 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_man.manpages 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_man.manpages 0 1289999912
+			replaces patchSG0007248.kerberos_man.manpages 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat eoe.sw.base 0 1289624219
+			incompat kerberos.man.manpages 1289615421 1409999999
+			incompat kerberos.man.manpages 0 1289615419
+		endsubsys
+
+		subsys pam	 # (patchSG0007248.kerberos_man.pam)
+			id "Kerberos 5 PAM module man pages"
+			patch
+			exp kerberos.man.pam
+			follows kerberos.man.pam 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_man.pam 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_man.pam 0 1289999912
+			replaces patchSG0007248.kerberos_man.pam 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat kerberos.man.pam 1289615421 1409999999
+			incompat kerberos.man.pam 0 1289615419
+		endsubsys
+
+		subsys relnotes	 # (patchSG0007248.kerberos_man.relnotes)
+			id "MIT Kerberos Release Notes, 1.9.4"
+			patch
+			exp kerberos.man.relnotes
+			follows kerberos.man.relnotes 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_man.relnotes 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_man.relnotes 0 1289999912
+			replaces patchSG0007248.kerberos_man.relnotes 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat kerberos.man.relnotes 1289615421 1409999999
+			incompat kerberos.man.relnotes 0 1289615419
+		endsubsys
+	endimage
+
+	image kerberos_sw	 # (patchSG0007248.kerberos_sw)
+		id "MIT Kerberos Software, 1.9.4"
+		version 1289999913 order 9999
+		# format 2
+
+		subsys client	 # (patchSG0007248.kerberos_sw.client)
+			id "MIT Kerberos client commands and config files, 1.9.4"
+			patch
+			exp "kerberos.sw.client || relnotes"
+			follows kerberos.sw.client 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_sw.client 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_sw.client 0 1289999912
+			replaces patchSG0007248.kerberos_sw.client 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat kerberos.sw.client 1289615421 1409999999
+			incompat kerberos.sw.client 0 1289615419
+		endsubsys
+
+		subsys lib32	 # (patchSG0007248.kerberos_sw.lib32)
+			id "MIT Kerberos n32 shared libraries, 1.9.4"
+			patch
+			exp kerberos.sw.lib32
+			follows kerberos.sw.lib32 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_sw.lib32 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_sw.lib32 0 1289999912
+			replaces patchSG0007248.kerberos_sw.lib32 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat kerberos.sw.lib32 1289615421 1409999999
+			incompat kerberos.sw.lib32 0 1289615419
+		endsubsys
+
+		subsys lib64	 # (patchSG0007248.kerberos_sw.lib64)
+			id "MIT Kerberos 64bit shared libraries, 1.9.4"
+			patch
+			exp kerberos.sw.lib64
+			follows kerberos.sw.lib64 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_sw.lib64 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_sw.lib64 0 1289999912
+			replaces patchSG0007248.kerberos_sw.lib64 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat kerberos.sw.lib64 1289615421 1409999999
+			incompat kerberos.sw.lib64 0 1289615419
+		endsubsys
+
+		subsys pam	 # (patchSG0007248.kerberos_sw.pam)
+			id "Kerberos 5 PAM module"
+			patch
+			exp kerberos.sw.pam
+			follows kerberos.sw.pam 1289615420 1289615420
+			replaces patch*.patchSG0007248_kerberos_sw.pam 0 1289999912
+			replaces maint*.patchSG0007248_kerberos_sw.pam 0 1289999912
+			replaces patchSG0007248.kerberos_sw.pam 0 1289999912
+			incompat eoe.sw.base 1289662621 1409999999
+			incompat eoe.sw.base 1289643421 1289662619
+			incompat eoe.sw.base 1289624221 1289643419
+			incompat kerberos.sw.pam 1289615421 1409999999
+			incompat kerberos.sw.pam 0 1289615419
+		endsubsys
+	endimage
+endproduct

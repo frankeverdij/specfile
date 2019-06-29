@@ -1,0 +1,49 @@
+Distribution: .
+product texinfo
+	id "GNU documentation system, Version 4.0"
+	# product format 6, created Fri Oct  8 17:01:29 1999
+
+	image man	 # (texinfo.man)
+		id "Man Pages"
+		version 1 order 9999
+		# format 2
+
+		subsys info	 # (texinfo.man.info)
+			id "Info Documentation"
+			default
+			exp texinfo.man.info
+			replaces patch*.texinfo_man.info 0 0
+			replaces maint*.texinfo_man.info 0 0
+			replaces texinfo.man.info 0 0
+			replaces texinfo.man.info 0 0
+		endsubsys
+
+		subsys manpages	 # (texinfo.man.manpages)
+			id "Man Pages"
+			default
+			exp texinfo.man.manpages
+			replaces patch*.texinfo_man.manpages 0 0
+			replaces maint*.texinfo_man.manpages 0 0
+			replaces texinfo.man.manpages 0 0
+			replaces texinfo.man.manpages 0 0
+		endsubsys
+	endimage
+
+	image sw	 # (texinfo.sw)
+		id "Software"
+		version 1 order 1
+		# format 2
+
+		subsys base	 # (texinfo.sw.base)
+			id "Base Software"
+			default
+			exp texinfo.sw.base
+			replaces patch*.texinfo_sw.base 0 0
+			replaces maint*.texinfo_sw.base 0 0
+			replaces texinfo.sw.base 0 0
+			replaces texinfo.sw.base 0 0
+			incompat eoe.sw.base 1230000000 maxint
+			incompat eoe.sw.unix 1230000000 maxint
+		endsubsys
+	endimage
+endproduct

@@ -1,0 +1,55 @@
+Distribution: .
+product impr_server
+	id "Impressario 1.2 Print Server"
+	# product format 5, created Sat Mar 12 19:31:33 1994
+
+	image man	 # (impr_server.man)
+		id "Impressario 1.2 Print Server Documentation"
+		version 1011041020 order 3001
+		# format 2
+
+		subsys impr	 # (impr_server.man.impr)
+			id "Server Manual Pages"
+			default
+			exp "!noship && SERVER_MAN"
+			replaces maint*.impr_server_man.impr 0 1011041019
+			replaces impr_server.man.impr 0 1011041019
+			replaces impr_client.man.impr 0 1011041019
+			replaces impr_client.man.support 0 1011041019
+			replaces impr_server.man.impr 0 1011041019
+		endsubsys
+	endimage
+
+	image sw	 # (impr_server.sw)
+		id "Impressario 1.2 Print Server Software"
+		version 1011041020 order 3000
+		# format 2
+
+		subsys impr	 # (impr_server.sw.impr)
+			id "Print Server Software"
+			default
+			exp "!noship && SERVER_SW"
+			replaces maint*.impr_server_sw.impr 0 1011041019
+			replaces impr_server.sw.impr 0 1011041019
+			replaces impr_client.sw.impr 0 1011041019
+			replaces impr_client.sw.support 0 1011041019
+			replaces impr_server.sw.impr 0 1011041019
+			replaces srs_print.sw.support 0 1011041019
+			prereq (
+				impr_base.sw.impr 1011041020 maxint
+			)
+		endsubsys
+
+		subsys laserwriter	 # (impr_server.sw.laserwriter)
+			id "Apple LaserWriter Plus thru IIg"
+			default
+			exp "!noship && SERVER_LW"
+			replaces maint*.impr_server_sw.laserwriter 0 1011041019
+			replaces impr_server.sw.laserwriter 0 1011041019
+			replaces impr_server.sw.laserwriter 0 1011041019
+			prereq (
+				impr_server.sw.impr 1011041020 maxint
+			)
+		endsubsys
+	endimage
+endproduct

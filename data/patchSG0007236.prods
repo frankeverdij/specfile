@@ -1,0 +1,196 @@
+Distribution: .
+product patchSG0007236
+	id "Patch SG0007236: VST 2.2.1 Rollup #4"
+	# product format 9, created Mon Feb 15 21:13:06 2010
+	mach "(CPUBOARD=IP35)"
+
+	image vst_eoe_man	 # (patchSG0007236.vst_eoe_man)
+		id "VST 2.2.1 Man pages"
+		version 1289999903 order 9999
+		# format 2
+
+		subsys base	 # (patchSG0007236.vst_eoe_man.base)
+			id "VST 2.2.1 Base man pages"
+			patch
+			exp vst_eoe.man.base
+			follows vst_eoe.man.base 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_man.base 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_man.base 0 1289999902
+			replaces patchSG0007236.vst_eoe_man.base 0 1289999902
+			replaces patchSG0005816.vst_eoe_man.base 0 1289999999
+			replaces patchSG0005862.vst_eoe_man.base 0 1289999999
+			replaces patchSG0005911.vst_eoe_man.base 0 1289999999
+			replaces patchSG0007031.vst_eoe_man.base 0 1289999999
+			updates patchSG0005816.vst_eoe_man.base 0 1289999999
+			updates patchSG0005862.vst_eoe_man.base 0 1289999999
+			updates patchSG0005911.vst_eoe_man.base 0 1289999999
+			updates patchSG0007031.vst_eoe_man.base 0 1289999999
+			incompat vst_eoe.man.base 1289605221 1289999999
+			incompat vst_eoe.man.base 0 1289605219
+		endsubsys
+	endimage
+
+	image vst_eoe_sw	 # (patchSG0007236.vst_eoe_sw)
+		id "Video Server Technology 2.2.1 software"
+		version 1289999903 order 9999
+		# format 2
+
+		subsys base	 # (patchSG0007236.vst_eoe_sw.base)
+			id "VST 2.2.1 Base software"
+			miniroot patch
+			exp "vst_eoe.sw.base || RELNOTES"
+			follows vst_eoe.sw.base 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.base 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.base 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.base 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.base 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.base 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.base 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.base 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.base 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.base 0 1289999999
+			incompat vst_eoe.sw.base 1289605221 1289999999
+			incompat vst_eoe.sw.base 0 1289605219
+		endsubsys
+
+		subsys ftpd	 # (patchSG0007236.vst_eoe_sw.ftpd)
+			id "VST 2.2.1 Enhanced FTP daemon"
+			miniroot patch
+			exp vst_eoe.sw.ftpd
+			follows vst_eoe.sw.ftpd 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.ftpd 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.ftpd 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.ftpd 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.ftpd 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.ftpd 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.ftpd 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.ftpd 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.ftpd 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.ftpd 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.ftpd 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.ftpd 0 1289999999
+			incompat vst_eoe.sw.ftpd 1289605221 1289999999
+			incompat vst_eoe.sw.ftpd 0 1289605219
+		endsubsys
+
+		subsys little-red	 # (patchSG0007236.vst_eoe_sw.little-red)
+			id "VST 2.2.1 Miranda Little Red TC input module"
+			patch
+			exp vst_eoe.sw.littlered
+			follows vst_eoe.sw.little-red 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.little-red 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.little-red 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.little-red 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.little-red 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.little-red 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.little-red 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.little-red 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.little-red 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.little-red 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.little-red 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.little-red 0 1289999999
+			incompat vst_eoe.sw.little-red 1289605221 1289999999
+			incompat vst_eoe.sw.little-red 0 1289605219
+		endsubsys
+
+		subsys louth	 # (patchSG0007236.vst_eoe_sw.louth)
+			id "VST 2.2.1 Louth VDCP protocol module"
+			patch
+			exp vst_eoe.sw.louth
+			follows vst_eoe.sw.louth 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.louth 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.louth 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.louth 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.louth 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.louth 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.louth 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.louth 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.louth 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.louth 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.louth 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.louth 0 1289999999
+			incompat vst_eoe.sw.louth 1289605221 1289999999
+			incompat vst_eoe.sw.louth 0 1289605219
+		endsubsys
+
+		subsys merlin	 # (patchSG0007236.vst_eoe_sw.merlin)
+			id "VST 2.2.1 MERLIN driver"
+			patch
+			exp vst_eoe.sw.merlin
+			follows vst_eoe.sw.merlin 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.merlin 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.merlin 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.merlin 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.merlin 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.merlin 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.merlin 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.merlin 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.merlin 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.merlin 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.merlin 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.merlin 0 1289999999
+			incompat vst_eoe.sw.merlin 1289605221 1289999999
+			incompat vst_eoe.sw.merlin 0 1289605219
+		endsubsys
+
+		subsys mfcodec	 # (patchSG0007236.vst_eoe_sw.mfcodec)
+			id "VST 2.2.1 MFCODEC module"
+			patch
+			exp vst_eoe.sw.mfcodec
+			follows vst_eoe.sw.mfcodec 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.mfcodec 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.mfcodec 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.mfcodec 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.mfcodec 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.mfcodec 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.mfcodec 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.mfcodec 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.mfcodec 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.mfcodec 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.mfcodec 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.mfcodec 0 1289999999
+			incompat vst_eoe.sw.mfcodec 1289605221 1289999999
+			incompat vst_eoe.sw.mfcodec 0 1289605219
+		endsubsys
+
+		subsys mpeg	 # (patchSG0007236.vst_eoe_sw.mpeg)
+			id "VST 2.2.1 MPEG2 tools"
+			miniroot patch
+			exp vst_eoe.sw.mpeg
+			follows vst_eoe.sw.mpeg 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.mpeg 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.mpeg 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.mpeg 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.mpeg 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.mpeg 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.mpeg 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.mpeg 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.mpeg 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.mpeg 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.mpeg 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.mpeg 0 1289999999
+			incompat vst_eoe.sw.mpeg 1289605221 1289999999
+			incompat vst_eoe.sw.mpeg 0 1289605219
+		endsubsys
+
+		subsys tools	 # (patchSG0007236.vst_eoe_sw.tools)
+			id "VST 2.2.1 Base applications"
+			patch
+			exp vst_eoe.sw.tools
+			follows vst_eoe.sw.tools 1289605220 1289605220
+			replaces patch*.patchSG0007236_vst_eoe_sw.tools 0 1289999902
+			replaces maint*.patchSG0007236_vst_eoe_sw.tools 0 1289999902
+			replaces patchSG0007236.vst_eoe_sw.tools 0 1289999902
+			replaces patchSG0005816.vst_eoe_sw.tools 0 1289999999
+			replaces patchSG0005862.vst_eoe_sw.tools 0 1289999999
+			replaces patchSG0005911.vst_eoe_sw.tools 0 1289999999
+			replaces patchSG0007031.vst_eoe_sw.tools 0 1289999999
+			updates patchSG0005816.vst_eoe_sw.tools 0 1289999999
+			updates patchSG0005862.vst_eoe_sw.tools 0 1289999999
+			updates patchSG0005911.vst_eoe_sw.tools 0 1289999999
+			updates patchSG0007031.vst_eoe_sw.tools 0 1289999999
+			incompat vst_eoe.sw.tools 1289605221 1289999999
+			incompat vst_eoe.sw.tools 0 1289605219
+		endsubsys
+	endimage
+endproduct

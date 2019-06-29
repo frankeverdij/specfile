@@ -4,8 +4,10 @@
 #pragma once
 
 typedef enum {
-    SUBSYS_DEFAULT =   0x2,
-    SUBSYS_PATCH   = 0x400
+    SUBSYS_REQUIRED    = 0x1,
+    SUBSYS_DEFAULT     = 0x2,
+    SUBSYS_PATCH       = 0x400,
+    SUBSYS_NO_MINIROOT = 0x800
 } subsys_t;
 
 class subref

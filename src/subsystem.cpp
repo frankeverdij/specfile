@@ -30,12 +30,20 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
 
     expanded_name_ = buf.getString(&off_end_);
 
+    if (bits_ & SUBSYS_REQUIRED) {
+        pAttr = xmlDoc.NewElement("required");
+        pElem_->InsertEndChild(pAttr);
+    }
     if (bits_ & SUBSYS_DEFAULT) {
         pAttr = xmlDoc.NewElement("default");
         pElem_->InsertEndChild(pAttr);
     }
     if (bits_ & SUBSYS_PATCH) {
         pAttr = xmlDoc.NewElement("patch");
+        pElem_->InsertEndChild(pAttr);
+    }
+    if (!(bits_ & SUBSYS_NO_MINIROOT)) {
+        pAttr = xmlDoc.NewElement("miniroot");
         pElem_->InsertEndChild(pAttr);
     }
 

@@ -1,7 +1,9 @@
 *.o
 *.xxd
 *.xml
+*.swp
 *~
+ii_files/
 file.spec
 specfile
 readspec

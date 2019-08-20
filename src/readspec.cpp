@@ -21,11 +21,12 @@ void parsespec(std::string filename)
 
 int main (int argc, char * argv[])
 {
-    std::string filename(argv[1]);
+    std::string filename;
 
     switch(argc)
     {
         case 2 :
+            filename=argv[1];
             parsespec(filename);
             break;
         default :

@@ -10,16 +10,28 @@ typedef enum {
     SUBSYS_NO_MINIROOT = 0x800
 } subsys_t;
 
+typedef enum {
+    SUBREFCAT_FOLLOWS = 0,
+    SUBREFCAT_REPLACES,
+    SUBREFCAT_PREREQ,
+    SUBREFCAT_INCOMPAT,
+    SUBREFCAT_UPDATES,
+    SUBREFCAT_ALL
+} subrefcat_t;
+
+static const std::string subrefcatstr[SUBREFCAT_ALL]= {"follows", "replaces", "prereq", "imcompat", "updates"};
+
 class subref
 {
     private:
         std::string name_sub_[3];
         std::string name_;
+        subrefcat_t category_;
         unsigned int v_[2];
         tinyxml2::XMLElement *pElem_;
 
     public:
-        subref(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset);
+        subref(subrefcat_t category, buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, size_t * offset);
         void printTree();
 };
 
@@ -28,15 +40,11 @@ class subsystem : public item
     private:
         std::string expanded_name_;
         unsigned short bits_;
-        std::vector<subref> follows_;
-        std::vector<subref> replaces_;
-        std::vector<subref> prereq_;
-        std::vector<subref> incompat_;
-        std::vector<subref> updates_;
+        std::vector<subref> subrefcat_;
 
     public:
         subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XMLElement * pRoot, unsigned short n, size_t * offset);
-        size_t makeSubRefEntry(std::vector<subref> & vec, std::string category, buffer & buf, tinyxml2::XMLDocument & xmlDoc, size_t * offset);
+        size_t makeSubRefEntry(subrefcat_t category, buffer & buf, tinyxml2::XMLDocument & xmlDoc, size_t * offset);
         void printTree();
         
 };

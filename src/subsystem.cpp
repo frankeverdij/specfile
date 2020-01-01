@@ -66,6 +66,8 @@ subsystem::subsystem(buffer & buf, tinyxml2::XMLDocument & xmlDoc, tinyxml2::XML
     if (buf.getInstType() > 7) {
         makeSubRefEntry(SUBREFCAT_INCOMPAT, buf, xmlDoc, &off_end_);
         n = buf.getNum<unsigned int>(&off_end_);
+        if (n == 0)
+            n = buf.getNum<unsigned short>(&off_end_);
         for (size_t i = 0; i < n; i++) {
             std::string s = buf.getString(&off_end_);
         }

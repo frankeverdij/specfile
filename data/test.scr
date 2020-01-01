@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat collection.txt | while read line; do a=( $line ); ../readspec ${a[3]}; done

@@ -25,3 +25,4 @@
 08 # 630 ./patchSG0007248
 08 # 630 ./neko_openssh
 09 # 650 ./eoe_6528m
+08 # 630 ./neko_python
